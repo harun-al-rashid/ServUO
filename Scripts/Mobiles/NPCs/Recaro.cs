@@ -23,12 +23,12 @@ namespace Server.Engines.Quests
             }
         }
 		
-        /* Head East out of town and go to Old Haven. Battle monster there until you have raised your Fecning skill to 50.
+        /* Head NW out of town and find the old cemetary. Battle monster there until you have raised your Fecning skill to 50.
         Well hello there, lad. Fighting with elegance and percision is far more enriching than slugging an enemy with a 
         club or butchering an enemy with a sword. Learn the art of Fencing if you want to master combat and look good 
         doing it! The key to being a successful fencer is to be the complement and not the opposition to your opponent's 
         strength. Watch for your opponent to become off balance. Then finish him off with finesses and flair. There are 
-        some undead that need cleansing out in Old Haven towards the East. Head over there and slay them, but remember, 
+        some undead that need cleansing out in the Old Britanian cemetary towards the North West. Head over there and slay them, but remember, 
         do it with style! Come back to me once you have achived the rank of Apprentice Fencer, and i will reward you 
         with a prize. */ 
         public override object Description

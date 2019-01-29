@@ -13,8 +13,8 @@ namespace Server
 {
     public class SkillGate : Item
     {
-        public const int NumberOfChoices = 7;
-        public const double AmountToRaiseTo = 100.0;
+        public const int NumberOfChoices = 4;
+        public const double AmountToRaiseTo = 85.0;
 
         [Constructable]
         public SkillGate() : base(0xf6c)

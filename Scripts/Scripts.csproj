@@ -680,6 +680,7 @@
     <Compile Include="Items\Functional\JewelryBox\JewelryBox.cs" />
     <Compile Include="Items\Functional\JewelryBox\JewelryBoxGump.cs" />
     <Compile Include="Items\Functional\JewelryBox\JewelryBoxFilter.cs" />
+    <Compile Include="Items\Internal\SkillGate.cs" />
     <Compile Include="Items\Resource\Blackrock.cs" />
     <Compile Include="Items\Resource\PolishedMeteorite.cs" />
     <Compile Include="Items\StoreBought\MysticalPolymorphTotem.cs" />
