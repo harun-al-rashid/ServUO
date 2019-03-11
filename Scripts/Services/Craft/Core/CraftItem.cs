@@ -356,19 +356,20 @@ namespace Server.Engines.Craft
 			0x19AA, 0x19BB, // Veteran Reward Brazier
 			0x197A, 0x19A9, // Large Forge 
 			0x0FB1, 0x0FB1, // Small Forge
-			0x2DD8, 0x2DD8 // Elven Forge
-		};
+			0x2DD8, 0x2DD8, // Elven Forge
+            0xA2A4, 0xA2A5, 0xA2A8, 0xA2A9 // Wood Stove
+        };
 
 		private static readonly int[] m_Ovens = new[]
 		{
 			0x461, 0x46F, // Sandstone oven
 			0x92B, 0x93F, // Stone oven
-			0x2DDB, 0x2DDC //Elven stove
+			0x2DDB, 0x2DDC, //Elven stove
 		};
 
         private static readonly int[] m_Makers = new[]
         {
-            0x9A96, // steam powered beverage maker
+            0x9A96, 0x9A96 // steam powered beverage maker
         };
 
         private static readonly int[] m_Mills = new[]
@@ -1057,6 +1058,7 @@ namespace Server.Engines.Craft
 				m_ResHue = 0;
 				m_ResAmount = 0;
 				m_System = craftSystem;
+                m_CaddelliteCraft = true;
 
 				if (IsQuantityType(types))
 				{
@@ -1184,6 +1186,7 @@ namespace Server.Engines.Craft
         private int m_ClothHue;
 		private int m_ResAmount;
 		private CraftSystem m_System;
+        private bool m_CaddelliteCraft;
 
 		#region Plant Pigments
 		private PlantHue m_PlantHue = PlantHue.None;
@@ -1218,6 +1221,11 @@ namespace Server.Engines.Craft
 				m_ResHue = item.Hue;
 				m_ResAmount = amount;
 			}
+
+            if (m_CaddelliteCraft && (!item.HasSocket<Caddellite>() || !Server.Engines.Points.PointsSystem.Khaldun.InSeason))
+            {
+                m_CaddelliteCraft = false;
+            }
 		}
 
 		private int CheckHueGrouping(Item a, Item b)
@@ -1700,6 +1708,7 @@ namespace Server.Engines.Craft
 						}
 
 						CraftResource thisResource = CraftResources.GetFromType(resourceType);
+                        Item oldItem = item;
 
 						switch (thisResource)
 						{
@@ -1725,6 +1734,11 @@ namespace Server.Engines.Craft
 								item = new Board();
 								break;
 						}
+
+                        if (item != oldItem)
+                        {
+                            oldItem.Delete();
+                        }
 					}
 					#endregion
 
@@ -1799,6 +1813,11 @@ namespace Server.Engines.Craft
                     m_PlantHue = PlantHue.None;
                     m_PlantPigmentHue = PlantPigmentHue.None;
 					#endregion
+
+                    if (m_CaddelliteCraft)
+                    {
+                        Caddellite.TryInfuse(from, item, craftSystem);
+                    }
 
                     if (tool is Item && ((Item)tool).Parent is Container)
                     {

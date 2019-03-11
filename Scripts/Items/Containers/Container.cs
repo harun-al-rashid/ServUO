@@ -157,13 +157,15 @@ namespace Server.Items
 
             ItemFlags.SetTaken(dropped, true);
 
-            if (dropped.HonestyItem && dropped.HonestyPickup == DateTime.MinValue)
-            {
-                dropped.HonestyPickup = DateTime.UtcNow;
-                dropped.StartHonestyTimer();
+            var honestySocket = dropped.GetSocket<HonestyItemSocket>();
 
-                if (dropped.HonestyOwner == null)
-                    Server.Services.Virtues.HonestyVirtue.AssignOwner(dropped);
+            if (honestySocket != null && honestySocket.HonestyPickup == DateTime.MinValue)
+            {
+                honestySocket.HonestyPickup = DateTime.UtcNow;
+                honestySocket.StartHonestyTimer();
+
+                if (honestySocket.HonestyOwner == null)
+                    Server.Services.Virtues.HonestyVirtue.AssignOwner(honestySocket);
 
                 from.SendLocalizedMessage(1151536); // You have three hours to turn this item in for Honesty credit, otherwise it will cease to be a quest item.
             }
@@ -176,7 +178,7 @@ namespace Server.Items
                 from.SendLocalizedMessage(1075292, dropped.Name != null ? dropped.Name : "#" + dropped.LabelNumber.ToString()); // ~1_NAME~ has been unblessed.
             }
 
-            if (!EnchantedHotItem.CheckDrop(from, this, dropped))
+            if (!EnchantedHotItemSocket.CheckDrop(from, this, dropped))
                 return false;
 
             return true;
@@ -215,13 +217,15 @@ namespace Server.Items
 
             ItemFlags.SetTaken(item, true);
 
-            if (item.HonestyItem && item.HonestyPickup == DateTime.MinValue)
-            {
-                item.HonestyPickup = DateTime.UtcNow;
-                item.StartHonestyTimer();
+            var honestySocket = item.GetSocket<HonestyItemSocket>();
 
-                if (item.HonestyOwner == null)
-                    Server.Services.Virtues.HonestyVirtue.AssignOwner(item);
+            if (honestySocket != null && honestySocket.HonestyPickup == DateTime.MinValue)
+            {
+                honestySocket.HonestyPickup = DateTime.UtcNow;
+                honestySocket.StartHonestyTimer();
+
+                if (honestySocket.HonestyOwner == null)
+                    Server.Services.Virtues.HonestyVirtue.AssignOwner(honestySocket);
 
                 from.SendLocalizedMessage(1151536); // You have three hours to turn this item in for Honesty credit, otherwise it will cease to be a quest item.
             }
@@ -234,7 +238,7 @@ namespace Server.Items
                 from.SendLocalizedMessage(1075292, item.Name != null ? item.Name : "#" + item.LabelNumber.ToString()); // ~1_NAME~ has been unblessed.
             }
 
-            if (!EnchantedHotItem.CheckDrop(from, this, item))
+            if (!EnchantedHotItemSocket.CheckDrop(from, this, item))
                 return false;
 
             return true;
@@ -741,9 +745,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (Weight == 0.0)
-                Weight = 25.0;
         }
     }
 
@@ -893,9 +894,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (Weight == 4.0)
-                Weight = 2.0;
         }
     }
 
@@ -927,9 +925,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (Weight == 6.0)
-                Weight = 2.0;
         }
     }
 
@@ -961,9 +956,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (Weight == 8.0)
-                Weight = 1.0;
         }
     }
 
@@ -981,6 +973,9 @@ namespace Server.Items
             : base(serial)
         {
         }
+		
+		public override double DefaultWeight { get { return 5; } } 
+		public override int LabelNumber { get { return 1022472; } } // metal box
 
         public override void Serialize(GenericWriter writer)
         {
@@ -994,9 +989,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (version == 0 && Weight == 3)
-                Weight = -1;
         }
     }
 
@@ -1027,9 +1019,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (version == 0 && Weight == 25)
-                Weight = -1;
         }
     }
 
@@ -1060,9 +1049,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (version == 0 && Weight == 25)
-                Weight = -1;
         }
     }
 
@@ -1094,9 +1080,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (Weight == 15.0)
-                Weight = 2.0;
         }
     }
 
@@ -1127,9 +1110,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (version == 0 && Weight == 15)
-                Weight = -1;
         }
     }
 
@@ -1160,9 +1140,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (version == 0 && Weight == 15)
-                Weight = -1;
         }
     }
 
@@ -1193,9 +1170,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (version == 0 && Weight == 15)
-                Weight = -1;
         }
     }
 
@@ -1263,9 +1237,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (version == 0 && Weight == 15)
-                Weight = -1;
         }
     }
 

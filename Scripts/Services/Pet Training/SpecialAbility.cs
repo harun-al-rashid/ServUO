@@ -30,10 +30,10 @@ namespace Server.Mobiles
 		{
 		}
 
-        public static bool CheckCombatTrigger(Mobile attacker, Mobile defender, ref int damage, DamageType type)
+        public static void CheckCombatTrigger(Mobile attacker, Mobile defender, ref int damage, DamageType type)
         {
             if(defender == null)
-                return false;
+                return;
             
             if (attacker is BaseCreature && !((BaseCreature)attacker).Summoned)
             {
@@ -55,18 +55,16 @@ namespace Server.Mobiles
 
                     if (ability != null)
                     {
-                       return ability.Trigger(bc, defender, ref damage);
+                       ability.Trigger(bc, defender, ref damage);
                     }
                 }
-
-                return false;
             }
 
             if (defender is BaseCreature && !((BaseCreature)defender).Summoned)
             {
                 var bc = defender as BaseCreature;
                 var profile = PetTrainingHelper.GetAbilityProfile(bc);
-                
+
                 if (profile != null)
                 {
                     SpecialAbility ability = null;
@@ -82,13 +80,10 @@ namespace Server.Mobiles
 
                     if (ability != null)
                     {
-                        int d = 0;
-                        return ability.Trigger(bc, attacker, ref d);
+                        ability.Trigger(bc, attacker, ref damage);
                     }
                 }
             }
-
-            return false;
         }
 		
 		public static bool CheckThinkTrigger(BaseCreature bc)
@@ -817,6 +812,7 @@ namespace Server.Mobiles
 	public class Inferno : SpecialAbility
 	{
         public override bool TriggerOnDoMeleeDamage { get { return true; } }
+        public override int ManaCost { get { return 30; } }
 
         public static Dictionary<Mobile, ExpireTimer> _Table;
 
@@ -848,8 +844,10 @@ namespace Server.Mobiles
             Effects.SendLocationParticles(defender, 0x3709, 10, 30, 5052);
             Effects.PlaySound(defender.Location, defender.Map, 0x208);
 
-            timer = new ExpireTimer(defender, mod, TimeSpan.FromSeconds(5.0));
+            timer = new ExpireTimer(defender, mod, TimeSpan.FromSeconds(6.0));
             timer.Start();
+
+            AOS.Damage(defender, creature, Utility.RandomMinMax(46, 79), 0, 100, 0, 0, 0);
 
             _Table[defender] = timer;
 		}
@@ -873,6 +871,8 @@ namespace Server.Mobiles
                 m_Mobile = m;
                 m_Mod = mod;
                 Priority = TimerPriority.TwoFiftyMS;
+
+                m.AddResistanceMod(mod);
             }
 
             public void DoExpire()
@@ -979,8 +979,20 @@ namespace Server.Mobiles
                 defender.SendLocalizedMessage(1070842); // The creature's breath is burning you!
             }
 
-            creature.PlaySound(0x227);
-            defender.FixedParticles(0x374A, 10, 15, 5013, 0x496, 0, EffectLayer.Waist);
+            int layer = 0;
+
+            if (defender is BaseCreature)
+            {
+                layer = 163;
+            }
+            else
+            {
+                layer = 45;
+            }
+            
+            Effects.SendPacket(defender.Location, defender.Map, new ParticleEffect(EffectType.FixedFrom, defender.Serial, Serial.Zero, 0x3709, defender.Location, defender.Location, 1, 15, false, false, 2735, 0, 4, 9502, 1, defender.Serial, layer, 0));
+            Effects.SendPacket(defender.Location, defender.Map, new ParticleEffect(EffectType.FixedFrom, defender.Serial, Serial.Zero, 0x3709, defender.Location, defender.Location, 10, 30, false, false, 0, 0, 0, 52, 1, defender.Serial, layer, 0));
+            defender.PlaySound(520);
 
             timer = new InternalTimer(creature, defender);
             timer.Start();
@@ -1016,15 +1028,25 @@ namespace Server.Mobiles
             {
                 _Tick++;
 
-                if (_Tick > 3)
+                if (_Tick > 10 || !Defender.Alive)
                 {
                     EndFire(Defender);
                 }
                 else
                 {
-                    // TODO: Effects?
-                    AOS.Damage(Defender, Attacker, Utility.RandomMinMax(20, 30), 0, 100, 0, 0, 0);
-                    Defender.PlaySound(0x1DD);
+                    int layer = 0;
+
+                    if (Defender is BaseCreature)
+                    {
+                        layer = 163;
+                    }
+                    else
+                    {
+                        layer = 45;
+                    }
+
+                    Effects.SendPacket(Defender.Location, Defender.Map, new ParticleEffect(EffectType.FixedFrom, Defender.Serial, Serial.Zero, 0x3709, Defender.Location, Defender.Location, 1, 15, false, false, 2735, 0, 4, 9502, 1, Defender.Serial, layer, 0));
+                    AOS.Damage(Defender, Attacker, 10, 0, 100, 0, 0, 0);
                 }
             }
         }
@@ -1034,6 +1056,7 @@ namespace Server.Mobiles
 	{
         public override bool TriggerOnGotMeleeDamage { get { return true; } }
         public override bool TriggerOnGotSpellDamage { get { return true; } }
+        public override int ManaCost { get { return 30; } }
 
 		public Repel()
 		{
@@ -1043,8 +1066,7 @@ namespace Server.Mobiles
 		{
             defender.SendLocalizedMessage(1070844); // The creature repels the attack back at you.
             defender.FixedEffect(0x37B9, 10, 5);
-
-            AOS.Damage(defender, creature, damage, 0, 0, 0, 0, 0, 0, 100);
+            AOS.Damage(defender, creature, damage / 2, 0, 0, 0, 0, 0, 0, 100);
 
             damage = 0;
 		}

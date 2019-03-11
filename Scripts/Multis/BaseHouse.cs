@@ -33,6 +33,14 @@ namespace Server.Multis
             }
         }// Is new player vendor system enabled?
 
+        public static double GlobalBonusStorageScalar
+        {
+            get
+            {
+                return (Core.ML ? Core.SA ? 1.4 : 1.2 : 1.0);
+            }
+        }
+
         public const int MaxCoOwners = 15;
         public static int MaxFriends
         {
@@ -392,7 +400,7 @@ namespace Server.Multis
         {
             get
             {
-                return (Core.ML ? Core.SA ? 1.4 : 1.2 : 1.0);
+                return GlobalBonusStorageScalar;
             }
         }
 
@@ -2090,7 +2098,7 @@ namespace Server.Multis
 
             if (locked)
             {
-                if (i is VendorRentalContract)
+                if (i is VendorRentalContract && i.RootParent == null)
                 {
                     if (!VendorRentalContracts.Contains(i))
                         VendorRentalContracts.Add(i);
@@ -5184,6 +5192,17 @@ namespace Server.Multis
 
         public override void OnClick()
         {
+            if (m_Item is AuctionSafe)
+            {
+                AuctionSafe safe = (AuctionSafe)m_Item;
+
+                if (safe.Auction != null && !safe.Auction.CanModify)
+                {
+                    Owner.From.SendLocalizedMessage(1156431); // You cannot modify this while an auction is in progress.
+                    return;
+                }
+            }
+
             ISecurable sec = GetSecurable(Owner.From, m_Item);
 
             if (sec != null)
