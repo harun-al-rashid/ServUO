@@ -21,35 +21,35 @@ namespace Server.Items
         {
             get
             {
-                return 3;
+                return 6;
             }
         }
         public override int BaseFireResistance
         {
             get
             {
-                return 3;
+                return 6;
             }
         }
         public override int BaseColdResistance
         {
             get
             {
-                return 4;
+                return 7;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 2;
+                return 5;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 4;
+                return 7;
             }
         }
         public override int InitMinHits

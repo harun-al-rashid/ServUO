@@ -34,7 +34,7 @@ namespace Server.Mobiles
         public static int BuyItemChange = Config.Get("Vendors.BuyItemChange", 1000);
         public static int SellItemChange = Config.Get("Vendors.SellItemChange", 1000);
         public static int EconomyStockAmount = Config.Get("Vendors.EconomyStockAmount", 500);
-        public static TimeSpan DelayRestock = TimeSpan.FromMinutes(Config.Get("Vendors.RestockDelay", 60));
+        public static TimeSpan DelayRestock = TimeSpan.FromMinutes(Config.Get("Vendors.RestockDelay", 1));
         public static int MaxSell = Config.Get("Vendors.MaxSell", 500);
 
 		public static List<BaseVendor> AllVendors { get; private set; }
@@ -882,7 +882,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		private static readonly TimeSpan InventoryDecayTime = TimeSpan.FromHours(1.0);
+		private static readonly TimeSpan InventoryDecayTime = TimeSpan.FromHours(48.0);
 
 		public virtual void VendorBuy(Mobile from)
 		{
@@ -2344,26 +2344,26 @@ namespace Server.Mobiles
 									{
 										GenericBuyInfo gbi = buyInfo[buyInfoIndex];
 
-										int amount = 20;
+										int amount = 100;
 
 										switch (doubled)
 										{
                                             case 0:
                                                 break;
 											case 1:
-												amount = 40;
+												amount = 200;
 												break;
 											case 2:
-												amount = 80;
+												amount = 400;
 												break;
 											case 3:
-												amount = 160;
+												amount = 800;
 												break;
 											case 4:
-												amount = 320;
+												amount = 999;
 												break;
 											case 5:
-												amount = 640;
+												amount = 999;
 												break;
 											case 6:
 												amount = 999;

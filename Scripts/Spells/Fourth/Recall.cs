@@ -123,7 +123,7 @@ namespace Server.Spells.Fourth
             else if (!SpellHelper.CheckTravel(Caster, map, loc, TravelCheckType.RecallTo))
             {
             }
-            else if (map == Map.Felucca && Caster is PlayerMobile && ((PlayerMobile)Caster).Young)
+            else if (map == Map.Trammel && Caster is PlayerMobile && ((PlayerMobile)Caster).Young)
             {
                 Caster.SendLocalizedMessage(1049543); // You decide against traveling to Felucca while you are still young.
             }

@@ -369,6 +369,125 @@ namespace Server.Items
         }
     }
 
+    public class PlatemailGlovesOfMining : BaseGlovesOfMining
+    {
+        [Constructable]
+        public PlatemailGlovesOfMining(int bonus)
+            : base(bonus, 0x13EB)
+        {
+            Weight = 1;
+        }
+
+        public PlatemailGlovesOfMining(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override int BasePhysicalResistance
+        {
+            get
+            {
+                return 5;
+            }
+        }
+        public override int BaseFireResistance
+        {
+            get
+            {
+                return 5;
+            }
+        }
+        public override int BaseColdResistance
+        {
+            get
+            {
+                return 3;
+            }
+        }
+        public override int BasePoisonResistance
+        {
+            get
+            {
+                return 5;
+            }
+        }
+        public override int BaseEnergyResistance
+        {
+            get
+            {
+                return 5;
+            }
+        }
+        public override int InitMinHits
+        {
+            get
+            {
+                return 60;
+            }
+        }
+        public override int InitMaxHits
+        {
+            get
+            {
+                return 80;
+            }
+        }
+        public override int AosStrReq
+        {
+            get
+            {
+                return 80;
+            }
+        }
+        public override int OldStrReq
+        {
+            get
+            {
+                return 60;
+            }
+        }
+        public override int OldDexBonus
+        {
+            get
+            {
+                return -3;
+            }
+        }
+        public override int ArmorBase
+        {
+            get
+            {
+                return 30;
+            }
+        }
+        public override ArmorMaterialType MaterialType
+        {
+            get
+            {
+                return ArmorMaterialType.Plate;
+            }
+        }
+        public override int LabelNumber
+        {
+            get
+            {
+                return 1045124;
+            }
+        }// ringmail blacksmith gloves of mining
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+    }
+
+
     [FlipableAttribute(0x13eb, 0x13f2)]
     public class GargishKiltOfMining : BaseGlovesOfMining
     {

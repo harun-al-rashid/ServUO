@@ -340,6 +340,7 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152677, CraftResources.GetHue(CraftResource.Valorite), 575, SmeltersTalisman, (int)CraftResource.Valorite));
                 RewardCollection.Add(new BODCollectionItem(0x14EC, 1152665, CraftResources.GetHue(CraftResource.Gold), 600, HarvestMap, (int)CraftResource.Gold));
                 RewardCollection.Add(new BODCollectionItem(0xFAF, 1157100, 0, 625, ColoredAnvil));
+                RewardCollection.Add(new BODCollectionItem(0x13EB, 1157088, 0, 625, MiningGloves, 5));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157105, 0x481, 625, PowerScroll, 5));
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157094, CraftResources.GetHue(CraftResource.Copper), 650, RunicHammer, 3));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157106, 0x481, 675, PowerScroll, 10));
@@ -429,6 +430,8 @@ namespace Server.Engines.BulkOrders
                 return new StuddedGlovesOfMining(3);
             else if (type == 5)
                 return new RingmailGlovesOfMining(5);
+            else if (type == 10)
+                return new PlatemailGlovesOfMining(10);
 
             throw new InvalidOperationException();
         }
@@ -1408,6 +1411,8 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2731, 450, NaturalDye, 6));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2735, 475, NaturalDye, 7));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157291, 0, 500, ImprovementTalisman, 10));
+            RewardCollection.Add(new BODCollectionItem(0x0FBF, 1157219, 0, 500, PenOfWisdom));
+
         }
 
         #region Constructors
@@ -1416,6 +1421,13 @@ namespace Server.Engines.BulkOrders
         {
             BaseTool tool = new ScribesPen();
             tool.UsesRemaining = 250;
+
+            return tool;
+        }
+
+        private static Item PenOfWisdom(int type)
+        {
+            Item tool = new PenOfWisdom();
 
             return tool;
         }

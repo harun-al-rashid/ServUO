@@ -122,7 +122,7 @@ namespace Server.Spells.Chivalry
             else if (!SpellHelper.CheckTravel(this.Caster, map, loc, TravelCheckType.RecallTo))
             {
             }
-            else if (map == Map.Felucca && this.Caster is PlayerMobile && ((PlayerMobile)this.Caster).Young)
+            else if (map == Map.Trammel && this.Caster is PlayerMobile && ((PlayerMobile)this.Caster).Young)
             {
                 this.Caster.SendLocalizedMessage(1049543); // You decide against traveling to Felucca while you are still young.
             }

@@ -37,16 +37,16 @@ namespace Server.Items
 
 			var count = 0;
 
-			if (!Siege.SiegeShard)
-			{
-				count += MoonGen(PMList.Trammel);
-			}
+			//if (!Siege.SiegeShard)
+			//{
+			//	count += MoonGen(PMList.Trammel);
+			//}
 
 			count += MoonGen(PMList.Felucca);
-			//count += MoonGen(PMList.Ilshenar);
-			//count += MoonGen(PMList.Malas);
-			//count += MoonGen(PMList.Tokuno);
-			//count += MoonGen(PMList.TerMur);
+			count += MoonGen(PMList.Ilshenar);
+			count += MoonGen(PMList.Malas);
+			count += MoonGen(PMList.Tokuno);
+			count += MoonGen(PMList.TerMur);
 
 			World.Broadcast(0x35, true, "{0} moongates generated.", count);
 		}
@@ -385,8 +385,8 @@ namespace Server.Items
 		public static readonly PMList[] AOSListsYoung = {Felucca, Trammel};
 		public static readonly PMList[] SELists = {Felucca, Trammel};
 		public static readonly PMList[] SEListsYoung = {Felucca, Trammel};
-		public static readonly PMList[] SALists = {Felucca, Trammel};
-        public static readonly PMList[] SAListsYoung = {Felucca, Trammel};//, Ilshenar, Malas, Tokuno, TerMur};
+		public static readonly PMList[] SALists = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
+        public static readonly PMList[] SAListsYoung = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
 		public static readonly PMList[] RedLists = {Felucca};
 		public static readonly PMList[] SigilLists = {Felucca};
 

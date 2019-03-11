@@ -21,7 +21,7 @@ namespace Server.Accounting
 	public class Account : IAccount, IComparable, IComparable<Account>
 	{
 		public static readonly TimeSpan YoungDuration = TimeSpan.FromHours(40.0);
-		public static readonly TimeSpan InactiveDuration = TimeSpan.FromDays(720.0);
+		public static readonly TimeSpan InactiveDuration = TimeSpan.FromDays(1000.0);
 		public static readonly TimeSpan EmptyInactiveDuration = TimeSpan.FromDays(30.0);
 
 		private static MD5CryptoServiceProvider m_MD5HashProvider;

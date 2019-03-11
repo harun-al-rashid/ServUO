@@ -295,7 +295,7 @@ namespace Server.Items
             agapite.RunicMaxAttributes = 4;
             if (Core.ML)
             {
-                agapite.RunicMinIntensity = 65;
+                agapite.RunicMinIntensity = 70;
                 agapite.RunicMaxIntensity = 100;
             }
             else
@@ -317,7 +317,7 @@ namespace Server.Items
             verite.RunicMaxAttributes = 5;
             if (Core.ML)
             {
-                verite.RunicMinIntensity = 70;
+                verite.RunicMinIntensity = 80;
                 verite.RunicMaxIntensity = 100;
             }
             else
@@ -341,7 +341,7 @@ namespace Server.Items
             valorite.RunicMaxAttributes = 5;
             if (Core.ML)
             {
-                valorite.RunicMinIntensity = 85;
+                valorite.RunicMinIntensity = 95;
                 valorite.RunicMaxIntensity = 100;
             }
             else
