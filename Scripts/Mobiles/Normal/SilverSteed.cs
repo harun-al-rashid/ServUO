@@ -13,16 +13,56 @@ namespace Server.Mobiles
 
         [Constructable]
         public SilverSteed(string name)
-            : base(name, 0x75, 0x3EA8, AIType.AI_Animal, FightMode.Aggressor, 10, 1, 0.2, 0.4)
+            : base(name, 0x75, 0x3EA8, AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            this.InitStats(Utility.Random(50, 30), Utility.Random(50, 30), 10);
-            this.Skills[SkillName.MagicResist].Base = 25.0 + (Utility.RandomDouble() * 5.0);
-            this.Skills[SkillName.Wrestling].Base = 35.0 + (Utility.RandomDouble() * 10.0);
-            this.Skills[SkillName.Tactics].Base = 30.0 + (Utility.RandomDouble() * 15.0);
+           
+            this.SetStr(496, 525);
+            this.SetDex(86, 105);
+            this.SetInt(195, 245);
 
-            this.ControlSlots = 1;
+            this.SetHits(298, 315);
+
+            this.SetDamage(16, 22);
+
+            this.SetDamageType(ResistanceType.Physical, 40);
+            this.SetDamageType(ResistanceType.Fire, 40);
+            this.SetDamageType(ResistanceType.Energy, 20);
+
+            this.SetResistance(ResistanceType.Physical, 45, 65);
+            this.SetResistance(ResistanceType.Fire, 30, 40);
+            this.SetResistance(ResistanceType.Cold, 30, 40);
+            this.SetResistance(ResistanceType.Poison, 40, 50);
+            this.SetResistance(ResistanceType.Energy, 30, 60);
+
+            this.SetSkill(SkillName.EvalInt, 10.4, 50.0);
+            this.SetSkill(SkillName.Magery, 10.4, 50.0);
+            this.SetSkill(SkillName.MagicResist, 85.3, 100.0);
+            this.SetSkill(SkillName.Tactics, 97.6, 100.0);
+            this.SetSkill(SkillName.Wrestling, 80.5, 92.5);
+
+            this.Fame = 14000;
+            this.Karma = 14000;
+
+            this.VirtualArmor = 60;
+
             this.Tamable = true;
+            this.ControlSlots = 2;
             this.MinTameSkill = 103.1;
+        }
+
+        public override FoodType FavoriteFood
+        {
+            get
+            {
+                return FoodType.FruitsAndVegies | FoodType.GrainsAndHay;
+            }
+        }
+
+        public override void GenerateLoot()
+        {
+            AddLoot(LootPack.Rich);
+            AddLoot(LootPack.MedScrolls);
+            AddLoot(LootPack.Potions);
         }
 
         public SilverSteed(Serial serial)

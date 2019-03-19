@@ -18,11 +18,11 @@ namespace Server.Mobiles
         {
             BaseSoundID = 0x4BC;
 
-            SetStr(296, 325);
+            SetStr(450, 575);
             SetDex(96, 115);
-            SetInt(186, 225);
+            SetInt(250, 275);
 
-            SetHits(191, 210);
+            SetHits(301, 335);
 
             SetDamage(16, 22);
 
@@ -32,8 +32,8 @@ namespace Server.Mobiles
             SetResistance(ResistanceType.Physical, 55, 65);
             SetResistance(ResistanceType.Fire, 25, 40);
             SetResistance(ResistanceType.Cold, 25, 40);
-            SetResistance(ResistanceType.Poison, 55, 65);
-            SetResistance(ResistanceType.Energy, 25, 40);
+            SetResistance(ResistanceType.Poison, 65, 75);
+            SetResistance(ResistanceType.Energy, 45, 65);
 
             SetSkill(SkillName.EvalInt, 80.1, 90.0);
             SetSkill(SkillName.Magery, 60.2, 80.0);
@@ -47,7 +47,7 @@ namespace Server.Mobiles
 
             Tamable = true;
             ControlSlots = 2;
-            MinTameSkill = 95.1;
+            MinTameSkill = 103.1;
 
             SetWeaponAbility(WeaponAbility.ArmorIgnore);
         }
@@ -140,7 +140,7 @@ namespace Server.Mobiles
             if (Rider == null || attacker == null)	//sanity
                 return false;
 
-            if (Rider.Poisoned && ((Rider.Hits - damage) < 40))
+            if (Rider.Poisoned && ((Rider.Hits - damage) < 80))
             {
                 Poison p = Rider.Poison;
 

@@ -2967,7 +2967,7 @@ namespace Server.Items
             int damageBonus = 0;
 
             int inscribeSkill = attacker.Skills[SkillName.Inscribe].Fixed;
-            int inscribeBonus = (inscribeSkill + (1000 * (inscribeSkill / 1000))) / 200;
+            int inscribeBonus = (inscribeSkill + (1000 * (inscribeSkill / 1000))) / 100;//last number used to be 200
 
             damageBonus += inscribeBonus;
             damageBonus += attacker.Int / 10;
@@ -6210,7 +6210,7 @@ namespace Server.Items
 
 				if (Core.ML && Quality == ItemQuality.Exceptional)
 				{
-                    double div = Siege.SiegeShard ? 12.5 : 20;
+                    double div = Siege.SiegeShard ? 12.5 : 10;//second number used to be 20...
 
 					Attributes.WeaponDamage += (int)(from.Skills.ArmsLore.Value / div);
 					from.CheckSkill(SkillName.ArmsLore, 0, 100);

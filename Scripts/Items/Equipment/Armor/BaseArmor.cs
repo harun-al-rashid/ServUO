@@ -3118,7 +3118,7 @@ namespace Server.Items
             // Arms Lore Bonus
             if (Core.ML && from != null)
             {
-                double div = Siege.SiegeShard ? 12.5 : 20;
+                double div = Siege.SiegeShard ? 12.5 : 10;//second number used to be 20
                 int bonus = (int)(from.Skills.ArmsLore.Value / div);
 
                 for (int i = 0; i < bonus; i++)

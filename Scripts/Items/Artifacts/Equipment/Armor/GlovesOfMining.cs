@@ -375,7 +375,7 @@ namespace Server.Items
         public PlatemailGlovesOfMining(int bonus)
             : base(bonus, 0x13EB)
         {
-            Weight = 1;
+            Weight = 3;
         }
 
         public PlatemailGlovesOfMining(Serial serial)
