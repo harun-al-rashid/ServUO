@@ -20,7 +20,7 @@ namespace Server.Mobiles
 
             SetStr(450, 575);
             SetDex(96, 115);
-            SetInt(250, 275);
+            SetInt(350, 375);
 
             SetHits(301, 335);
 
@@ -82,7 +82,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return TimeSpan.FromHours(1.0);
+                return TimeSpan.FromMinutes(1.0);
             }
         }
 

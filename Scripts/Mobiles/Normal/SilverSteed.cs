@@ -17,25 +17,25 @@ namespace Server.Mobiles
         {
            
             this.SetStr(496, 525);
-            this.SetDex(86, 105);
-            this.SetInt(195, 245);
+            this.SetDex(98, 105);
+            this.SetInt(235, 245);
 
             this.SetHits(298, 315);
 
             this.SetDamage(16, 22);
 
             this.SetDamageType(ResistanceType.Physical, 40);
-            this.SetDamageType(ResistanceType.Fire, 40);
-            this.SetDamageType(ResistanceType.Energy, 20);
+            this.SetDamageType(ResistanceType.Fire, 20);
+            this.SetDamageType(ResistanceType.Energy, 40);
 
-            this.SetResistance(ResistanceType.Physical, 45, 65);
-            this.SetResistance(ResistanceType.Fire, 30, 40);
-            this.SetResistance(ResistanceType.Cold, 30, 40);
-            this.SetResistance(ResistanceType.Poison, 40, 50);
-            this.SetResistance(ResistanceType.Energy, 30, 60);
+            this.SetResistance(ResistanceType.Physical, 60, 65);
+            this.SetResistance(ResistanceType.Fire, 35, 40);
+            this.SetResistance(ResistanceType.Cold, 35, 40);
+            this.SetResistance(ResistanceType.Poison, 45, 50);
+            this.SetResistance(ResistanceType.Energy, 55, 60);
 
-            this.SetSkill(SkillName.EvalInt, 10.4, 50.0);
-            this.SetSkill(SkillName.Magery, 10.4, 50.0);
+            this.SetSkill(SkillName.EvalInt, 95.0, 100.0);
+            this.SetSkill(SkillName.Magery, 95.0, 100.0);
             this.SetSkill(SkillName.MagicResist, 85.3, 100.0);
             this.SetSkill(SkillName.Tactics, 97.6, 100.0);
             this.SetSkill(SkillName.Wrestling, 80.5, 92.5);

@@ -136,7 +136,7 @@ namespace Server
 
 		public static readonly LootPackItem[] MedScrollItems = new[]
 		{
-			new LootPackItem(typeof(ArchCureScroll), 1)
+			new LootPackItem(typeof(ArchCureScroll), 3)
 		};
 
 		public static readonly LootPackItem[] HighScrollItems = new[]
