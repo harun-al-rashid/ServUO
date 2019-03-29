@@ -334,9 +334,9 @@ namespace Server.Items
             valorite.ArmorEnergyResist = 4;
             valorite.ArmorDurability = 50;
             valorite.WeaponFireDamage = 10;
-            valorite.WeaponColdDamage = 20;
+            valorite.WeaponColdDamage = 40;
             valorite.WeaponPoisonDamage = 10;
-            valorite.WeaponEnergyDamage = 20;
+            valorite.WeaponEnergyDamage = 40;
             valorite.RunicMinAttributes = 5;
             valorite.RunicMaxAttributes = 5;
             if (Core.ML)
