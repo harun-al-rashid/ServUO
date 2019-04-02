@@ -13,13 +13,13 @@ namespace Server
 {
     public class SkillGate : Item
     {
-        public const int NumberOfChoices = 4;
-        public const double AmountToRaiseTo = 85.0;
+        public const int NumberOfChoices = 1;
+        public const double AmountToRaiseTo = 100;
 
         [Constructable]
         public SkillGate() : base(0xf6c)
         {
-            Name = "Enter to boost your stats";
+            Name = "Enter to raise your Imbuing skill";
             Weight = 1.0;
             Hue = 1462;
             LootType = LootType.Blessed;
@@ -52,7 +52,7 @@ namespace Server
 
         public override void AddNameProperties(ObjectPropertyList list)
         {
-            list.Add("Sets All Skills to 0, Then Lets You Choose {0} Skills To Boost To {1}", NumberOfChoices, AmountToRaiseTo);
+            list.Add("Sets your Imbuing skill to 100");
         }
 
         public override void Serialize( GenericWriter writer ) 
@@ -74,6 +74,7 @@ namespace Server
 
         private static readonly List<SEntry> Skills = new List<SEntry>
         {
+            new SEntry(0, SkillName.Imbuing, "Imbuing")/*
             new SEntry(0, SkillName.Alchemy, "Alchemy"),
             new SEntry(1, SkillName.Anatomy, "Anatomy"),
             new SEntry(2, SkillName.AnimalLore, "Animal Lore"),
@@ -122,14 +123,14 @@ namespace Server
             new SEntry(45, SkillName.Mining, "Mining"),
             new SEntry(46, SkillName.Meditation, "Meditation"),
             new SEntry(47, SkillName.Stealth, "Stealth"),
-            new SEntry(48, SkillName.RemoveTrap, "Removing Traps")
+            new SEntry(48, SkillName.RemoveTrap, "Removing Traps")*/
         };
 
         public GateOfCharacterDevelopmentGump(SkillGate tome) : base(0, 0)
         {
             m_Tome = tome;
 
-            if (Core.AOS)
+            /*if (Core.AOS)
             {
                 Skills.Add(new SEntry(49, SkillName.Necromancy, "Necromancy"));
                 Skills.Add(new SEntry(50, SkillName.Focus, "Focus"));
@@ -152,7 +153,7 @@ namespace Server
                 Skills.Add(new SEntry(55, SkillName.Mysticism, "Mysticism"));
                 Skills.Add(new SEntry(56, SkillName.Imbuing, "Imbuing"));
                 Skills.Add(new SEntry(57, SkillName.Throwing, "Throwing"));
-            }
+            }*/
 
             this.Closable = true;
             this.Disposable = true;
@@ -216,7 +217,7 @@ namespace Server
             {
                 case 0:
                 {
-                    m.SendMessage("You decide not to use the Gate of Skils just yet.");
+                    m.SendMessage("You decide not to use the Gate of Skills just yet.");
                     m_Tome.Movable = true;
                     break;
                 }
@@ -229,8 +230,8 @@ namespace Server
                     }
         
                     Skills skills = m.Skills;
-                    for (int i = 0; i < skills.Length; ++i)
-                        skills[i].Base = 0;              
+                    //for (int i = 0; i < skills.Length; ++i)
+                    //    skills[i].Base = 0;              
 
                     foreach (SEntry entry in Skills.Where(entry => info.IsSwitched(entry.SkillID)))
                     {
