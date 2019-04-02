@@ -73,7 +73,7 @@ namespace Server.Items
         #region Runic Reforging
         public override void OnDoubleClick(Mobile from)
         {
-            bool hasSkill = from.Skills[SkillName.Blacksmith].Value >= 65;
+            bool hasSkill = from.Skills[SkillName.Imbuing].Value >= 65;
 
             IPooledEnumerable eable = from.Map.GetItemsInRange(from.Location, 2);
 
