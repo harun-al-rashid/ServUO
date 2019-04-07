@@ -202,15 +202,15 @@ namespace Server.Gumps
             {
                 default:
                 case ReforgingOption.None:
-                case ReforgingOption.Powerful: return skill >= 65.0;
+                case ReforgingOption.Powerful: return skill >= 55.0;
                 case ReforgingOption.Structural:
-                case ReforgingOption.Fortified: return skill >= 85.0;
+                case ReforgingOption.Fortified: return skill >= 75.0;
                 case ReforgingOption.Fundamental:
-                case ReforgingOption.Integral: return skill >= 97.0;
+                case ReforgingOption.Integral: return skill >= 85.0;
                 case ReforgingOption.GrandArtifice:
-                case ReforgingOption.InspiredArtifice: return skill >= 100.1;
+                case ReforgingOption.InspiredArtifice: return skill >= 95;
                 case ReforgingOption.ExaltedArtifice:
-                case ReforgingOption.SublimeArtifice: return skill >= 110.1;
+                case ReforgingOption.SublimeArtifice: return skill >= 100;
             }
         }
 
