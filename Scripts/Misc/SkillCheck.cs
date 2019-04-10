@@ -188,10 +188,10 @@ namespace Server.Misc
 			var gc = (double)(from.Skills.Cap - from.Skills.Total) / from.Skills.Cap;
 
 			gc += (skill.Cap - skill.Base) / skill.Cap;
-			gc /= 1.05;
+			gc /= 0.95;
 
 			gc += (1.0 - chance) * (success ? 0.5 : (Core.AOS ? 0.0 : 0.2));
-			gc /= 1.05;
+			gc /= 0.95;
 
 			gc *= skill.Info.GainFactor;
 

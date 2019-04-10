@@ -202,15 +202,15 @@ namespace Server.Gumps
             {
                 default:
                 case ReforgingOption.None:
-                case ReforgingOption.Powerful: return skill >= 55.0;
+                case ReforgingOption.Powerful: return skill >= 65.0;
                 case ReforgingOption.Structural:
-                case ReforgingOption.Fortified: return skill >= 75.0;
+                case ReforgingOption.Fortified: return skill >= 80.0;
                 case ReforgingOption.Fundamental:
-                case ReforgingOption.Integral: return skill >= 85.0;
+                case ReforgingOption.Integral: return skill >= 90.0;
                 case ReforgingOption.GrandArtifice:
-                case ReforgingOption.InspiredArtifice: return skill >= 95;
+                case ReforgingOption.InspiredArtifice: return skill >= 100;
                 case ReforgingOption.ExaltedArtifice:
-                case ReforgingOption.SublimeArtifice: return skill >= 100;
+                case ReforgingOption.SublimeArtifice: return skill >= 110;
             }
         }
 
@@ -242,7 +242,7 @@ namespace Server.Gumps
                     count++;
             }
 
-            return Math.Min(1, count);//here is where I play with how many charges reforging should use. Initially change from 10 to 1...
+            return Math.Min(5, count);//here is where I play with how many charges reforging should use. Initially change from 10 to 5...
         }
 
         public override void OnResponse(NetState state, RelayInfo info)
