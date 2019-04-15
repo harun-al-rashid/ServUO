@@ -152,15 +152,15 @@ namespace Server.Mobiles
 
 			if (sklsum >= 240.0)
 			{
-				max += 5;
+				max += 15;
 			}
 			else if (sklsum >= 200.0)
 			{
-				max += 4;
+				max += 10;
 			}
 			else if (sklsum >= 160.0)
 			{
-				max += 3;
+				max += 5;
 			}
 			else
 			{

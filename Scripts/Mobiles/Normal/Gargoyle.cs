@@ -80,6 +80,8 @@ namespace Server.Mobiles
         {
             this.AddLoot(LootPack.Average);
             this.AddLoot(LootPack.MedScrolls);
+            this.AddLoot(LootPack.MedScrolls);
+            this.AddLoot(LootPack.MedScrolls);
             this.AddLoot(LootPack.Gems, Utility.RandomMinMax(1, 4));
         }
 
