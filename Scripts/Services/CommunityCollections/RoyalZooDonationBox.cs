@@ -67,15 +67,15 @@ namespace Server.Items
             Donations.Add(new CollectionItem(typeof(PolarBear), 0x20E1, 1073120, 0x0, 450.0));
             Donations.Add(new CollectionItem(typeof(Unicorn), 0x25CE, 1074821, 0x0, 2500.0));
             Donations.Add(new CollectionItem(typeof(Kirin), 0x25A0, 1074821, 0x0, 2500.0));
-            Donations.Add(new CollectionItem(typeof(Nightmare), 0x259C, 1074821, 0x0, 2500.0));
-            Donations.Add(new CollectionItem(typeof(FireSteed), 0x21F1, 1074821, 0x0, 2500.0));
-            Donations.Add(new CollectionItem(typeof(SwampDragon), 0x2619, 1074821, 0x0, 2500.0));
-            Donations.Add(new CollectionItem(typeof(RuneBeetle), 0x276F, 1074820, 0x0, 3000.0));
-            Donations.Add(new CollectionItem(typeof(FireBeetle), 0x260F, 1074820, 0x489, 3000.0));
-            Donations.Add(new CollectionItem(typeof(Beetle), 0x260F, 1074820, 0x0, 3000.0));
-            Donations.Add(new CollectionItem(typeof(Drake), 0x20D6, 1073119, 0x0, 4000.0));
-            Donations.Add(new CollectionItem(typeof(Dragon), 0x20D6, 1073119, 0x0, 4000.0));
-            Donations.Add(new CollectionItem(typeof(Reptalon), 0x2D95, 1073121, 0x0, 5500.0));
+            Donations.Add(new CollectionItem(typeof(Nightmare), 0x259C, 1074821, 0x0, 5000.0));
+            Donations.Add(new CollectionItem(typeof(FireSteed), 0x21F1, 1074821, 0x0, 5000.0));
+            Donations.Add(new CollectionItem(typeof(SwampDragon), 0x2619, 1074821, 0x0, 5000.0));
+            Donations.Add(new CollectionItem(typeof(RuneBeetle), 0x276F, 1074820, 0x0, 6000.0));
+            Donations.Add(new CollectionItem(typeof(FireBeetle), 0x260F, 1074820, 0x489, 6000.0));
+            Donations.Add(new CollectionItem(typeof(Beetle), 0x260F, 1074820, 0x0, 6000.0));
+            Donations.Add(new CollectionItem(typeof(Drake), 0x20D6, 1073119, 0x0, 8000.0));
+            Donations.Add(new CollectionItem(typeof(Dragon), 0x20D6, 1073119, 0x0, 10000.0));
+            Donations.Add(new CollectionItem(typeof(Reptalon), 0x2D95, 1073121, 0x0, 15000.0));
 			
             int[] hues = new int[] 
             {
