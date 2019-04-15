@@ -21,7 +21,7 @@ namespace Server.Mobiles
             SetDex(72, 150);
             SetInt(505, 750);
 
-            SetHits(12000);
+            SetHits(120);//remove two zeros
             SetStam(102, 300);
             SetMana(505, 750);
 
@@ -216,7 +216,7 @@ namespace Server.Mobiles
             if (map == null)
                 return;
 
-            int rats = 0;
+            int rats = 16;//never spawn rats - my change
 
             IPooledEnumerable eable = GetMobilesInRange(10);
 
@@ -283,8 +283,8 @@ namespace Server.Mobiles
             if (target == null || target.Deleted) //sanity
                 return;
 
-            if (target.Player && 0.6 >= Utility.RandomDouble()) // 60% chance to polymorph attacker into a ratman
-                Polymorph(target);
+            //if (target.Player && 0.6 >= Utility.RandomDouble()) // 60% chance to polymorph attacker into a ratman
+              //  Polymorph(target);
 
             if (0.1 >= Utility.RandomDouble()) // 10% chance to more ratmen
                 SpawnRatmen(target);

@@ -108,10 +108,14 @@ namespace Server.Engines.CannedEvil
             }),
             new ChampionSpawnInfo("Vermin Horde", typeof(Barracoon), new string[] { "Adversary", "Subjugator", "Eradicator" }, new Type[][]	// Vermin Horde
             { // Vermin Horde
-                new Type[] { typeof(GiantRat), typeof(Slime) }, // Level 1
-                new Type[] { typeof(DireWolf), typeof(Ratman) }, // Level 2
-                new Type[] { typeof(HellHound), typeof(RatmanMage) }, // Level 3
-                new Type[] { typeof(RatmanArcher), typeof(SilverSerpent) }// Level 4
+                //new Type[] { typeof(GiantRat), typeof(Slime) }, // Level 1
+                //new Type[] { typeof(DireWolf), typeof(Ratman) }, // Level 2
+                //new Type[] { typeof(HellHound), typeof(RatmanMage) }, // Level 3
+                //new Type[] { typeof(RatmanArcher), typeof(SilverSerpent) }// Level 4
+                new Type[] { typeof(Rat), typeof(Slime) }, // Level 1
+                new Type[] { typeof(GreyWolf), typeof(GiantRat) }, // Level 2
+                new Type[] { typeof(DireWolf), typeof(Ratman) }, // Level 3
+                new Type[] { typeof(RatmanMage), typeof(HellHound) }// Level 4
             }),
             new ChampionSpawnInfo("Unholy Terror", typeof(Neira), new string[] { "Scourge", "Punisher", "Nemesis" }, new Type[][]	// Unholy Terror
             { // Unholy Terror
