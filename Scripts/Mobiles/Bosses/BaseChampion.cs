@@ -250,8 +250,8 @@ namespace Server.Mobiles
 
         public override void OnDeath(Container c)
         {
-            if (this.Map == Map.Felucca)
-            {
+            //if (this.Map == Map.Felucca ||)
+            //{
                 //TODO: Confirm SE change or AoS one too?
                 List<DamageStore> rights = GetLootingRights();
                 List<Mobile> toGive = new List<Mobile>();
@@ -274,7 +274,7 @@ namespace Server.Mobiles
 
                 if(Core.SA)
                     RefinementComponent.Roll(c, 3, 0.10);
-            }
+            //}
 
             base.OnDeath(c);
         }

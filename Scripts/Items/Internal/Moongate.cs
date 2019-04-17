@@ -108,17 +108,17 @@ namespace Server.Items
 			{
 				m.SendLocalizedMessage(1061632); // You can't do that while carrying the sigil.
 			}
-			else if (TargetMap == Map.Felucca && m is PlayerMobile && ((PlayerMobile)m).Young)
-			{
-				m.SendLocalizedMessage(1049543); // You decide against traveling to Felucca while you are still young.
-			}
-			else if ((m.Murderer && TargetMap != Map.Felucca && !Siege.SiegeShard) ||
-					 (TargetMap == Map.Tokuno && (flags & ClientFlags.Tokuno) == 0) ||
-					 (TargetMap == Map.Malas && (flags & ClientFlags.Malas) == 0) ||
-					 (TargetMap == Map.Ilshenar && (flags & ClientFlags.Ilshenar) == 0))
-			{
-				m.SendLocalizedMessage(1019004); // You are not allowed to travel there.
-			}
+			//else if (TargetMap == Map.Felucca && m is PlayerMobile && ((PlayerMobile)m).Young)
+			//{
+			//	m.SendLocalizedMessage(1049543); // You decide against traveling to Felucca while you are still young.
+			//}
+			//else if ((m.Murderer && TargetMap != Map.Felucca && !Siege.SiegeShard) ||
+			//		 (TargetMap == Map.Tokuno && (flags & ClientFlags.Tokuno) == 0) ||
+			//		 (TargetMap == Map.Malas && (flags & ClientFlags.Malas) == 0) ||
+			//		 (TargetMap == Map.Ilshenar && (flags & ClientFlags.Ilshenar) == 0))
+			//{
+			//	m.SendLocalizedMessage(1019004); // You are not allowed to travel there.
+			//}
 			else if (m.Spell != null || BaseBoat.IsDriving(m))
 			{
 				m.SendLocalizedMessage(1049616); // You are too busy to do that at the moment.
@@ -181,24 +181,24 @@ namespace Server.Items
 
 		public virtual void BeginConfirmation(Mobile from)
 		{
-			if (IsInTown(from.Location, from.Map) && !IsInTown(Target, TargetMap) ||
-				(from.Map != Map.Felucca && TargetMap == Map.Felucca && ShowFeluccaWarning))
-			{
-				if (from.IsPlayer() || !from.Hidden)
-					from.Send(new PlaySound(0x20E, from.Location));
-				from.CloseGump(typeof(MoongateConfirmGump));
-				from.SendGump(new MoongateConfirmGump(from, this));
-			}
-			else
-			{
+			//if //(IsInTown(from.Location, from.Map) && !IsInTown(Target, TargetMap) ||
+			//	(from.Map != Map.Felucca && TargetMap == Map.Felucca && ShowFeluccaWarning)//)
+			//{
+			//	if (from.IsPlayer() || !from.Hidden)
+			//		from.Send(new PlaySound(0x20E, from.Location));
+			//	from.CloseGump(typeof(MoongateConfirmGump));
+			//	from.SendGump(new MoongateConfirmGump(from, this));
+			//}
+			//else
+			//{
 				EndConfirmation(from);
-			}
+			//}
 		}
 
 		public virtual void EndConfirmation(Mobile from)
 		{
-			if (!ValidateUse(from, true))
-				return;
+			//if (!ValidateUse(from, true))
+			//	return;
 
 			UseGate(from);
 		}

@@ -640,8 +640,8 @@ namespace Server.Engines.CannedEvil
                             #region Scroll of Transcendence
                             if (Core.ML)
                             {
-                                if (Map == Map.Felucca)
-                                {
+                                //if (Map == Map.Felucca)
+                                //{
                                     if (Utility.RandomDouble() < ChampionSystem.ScrollChance)
                                     {
                                         PlayerMobile pm = (PlayerMobile)killer;
@@ -657,17 +657,17 @@ namespace Server.Engines.CannedEvil
                                             GiveScrollTo(pm, (SpecialScroll)PS);
                                         }
                                     }
-                                }
-
-                                if (Map == Map.Ilshenar || Map == Map.Tokuno || Map == Map.Malas)
-                                {
-                                    if (Utility.RandomDouble() < 0.0015)
-                                    {
-                                        killer.SendLocalizedMessage(1094936); // You have received a Scroll of Transcendence!
-                                        ScrollofTranscendence SoTT = CreateRandomSoT(false);
-                                        killer.AddToBackpack(SoTT);
-                                    }
-                                }
+                                //}
+//
+                                //if (Map == Map.Ilshenar || Map == Map.Tokuno || Map == Map.Malas)
+                                //{
+                                 //   if (Utility.RandomDouble() < 0.0015)
+                                  //  {
+                                //        killer.SendLocalizedMessage(1094936); // You have received a Scroll of Transcendence!
+                                  //      ScrollofTranscendence SoTT = CreateRandomSoT(false);
+                                  //      killer.AddToBackpack(SoTT);
+                                  //  }
+                                //}
                             }
 							#endregion
 
