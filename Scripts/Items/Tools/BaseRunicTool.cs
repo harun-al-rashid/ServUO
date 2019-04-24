@@ -575,7 +575,7 @@ namespace Server.Items
                         ApplyAttribute(primary, min, max, AosAttribute.LowerManaCost, 1, 8);
                         break;
                     case 16:
-                        ApplyAttribute(primary, min, max, AosAttribute.LowerRegCost, 1, 20);
+                        ApplyAttribute(secondary, min, max, AosArmorAttribute.SelfRepair, 1, 5);//was LowerRegCost, 1, 20
                         break;
                     case 17:
                         ApplyAttribute(primary, min, max, AosAttribute.Luck, 1, 100);
