@@ -84,7 +84,7 @@ namespace Server.Multis
 
         #endregion
 
-        public const bool DecayEnabled = true;
+        public const bool DecayEnabled = false;
 
         public static void Decay_OnTick()
         {
@@ -383,7 +383,7 @@ namespace Server.Multis
         {
             get
             {
-                return TimeSpan.FromHours(1.0);
+                return TimeSpan.FromMinutes(1.0);
             }
         }
 

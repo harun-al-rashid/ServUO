@@ -242,7 +242,7 @@ namespace Server.Gumps
                     count++;
             }
 
-            return Math.Min(5, count);//here is where I play with how many charges reforging should use. Initially change from 10 to 5...
+            return Math.Min(10, count);//here is where I play with how many charges reforging should use. Initially change from 10 to 5...
         }
 
         public override void OnResponse(NetState state, RelayInfo info)
