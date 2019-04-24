@@ -175,8 +175,8 @@ namespace Server.Spells.Seventh
             {
                 this.Map = map;
 
-                if (this.ShowFeluccaWarning && map == Map.Felucca)
-                    this.ItemID = 0xDDA;
+                //if (this.ShowFeluccaWarning && map == Map.Felucca)
+                 //   this.ItemID = 0xDDA;
 
                 this.Dispellable = true;
 
