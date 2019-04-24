@@ -59,23 +59,23 @@ namespace Server.Items
             if (!Core.TOL)
                 this.Donations.Add(new CollectionItem(typeof(BankCheck), 0x14F0, 1075013, 0x34, 0.06666));
 
-            Donations.Add(new CollectionItem(typeof(DireWolf), 0x25D0, 1073118, 0x0, 300.0));
-            Donations.Add(new CollectionItem(typeof(TimberWolf), 0x25D3, 1073118, 0x0, 300.0));
-            Donations.Add(new CollectionItem(typeof(GreyWolf), 0x25D1, 1073118, 0x0, 300.0));
-            Donations.Add(new CollectionItem(typeof(WhiteWolf), 0x25D2, 1073118, 0x0, 300.0));
-            Donations.Add(new CollectionItem(typeof(Slime), 0x20E8, 1073117, 0x0, 450.0));
-            Donations.Add(new CollectionItem(typeof(PolarBear), 0x20E1, 1073120, 0x0, 450.0));
-            Donations.Add(new CollectionItem(typeof(Unicorn), 0x25CE, 1074821, 0x0, 2500.0));
-            Donations.Add(new CollectionItem(typeof(Kirin), 0x25A0, 1074821, 0x0, 2500.0));
-            Donations.Add(new CollectionItem(typeof(Nightmare), 0x259C, 1074821, 0x0, 5000.0));
-            Donations.Add(new CollectionItem(typeof(FireSteed), 0x21F1, 1074821, 0x0, 5000.0));
-            Donations.Add(new CollectionItem(typeof(SwampDragon), 0x2619, 1074821, 0x0, 5000.0));
-            Donations.Add(new CollectionItem(typeof(RuneBeetle), 0x276F, 1074820, 0x0, 6000.0));
-            Donations.Add(new CollectionItem(typeof(FireBeetle), 0x260F, 1074820, 0x489, 6000.0));
-            Donations.Add(new CollectionItem(typeof(Beetle), 0x260F, 1074820, 0x0, 6000.0));
-            Donations.Add(new CollectionItem(typeof(Drake), 0x20D6, 1073119, 0x0, 8000.0));
-            Donations.Add(new CollectionItem(typeof(Dragon), 0x20D6, 1073119, 0x0, 10000.0));
-            Donations.Add(new CollectionItem(typeof(Reptalon), 0x2D95, 1073121, 0x0, 15000.0));
+            Donations.Add(new CollectionItem(typeof(DireWolf), 0x25D0, 1073118, 0x0, 600.0));
+            Donations.Add(new CollectionItem(typeof(TimberWolf), 0x25D3, 1073118, 0x0, 600.0));
+            Donations.Add(new CollectionItem(typeof(GreyWolf), 0x25D1, 1073118, 0x0, 600.0));
+            Donations.Add(new CollectionItem(typeof(WhiteWolf), 0x25D2, 1073118, 0x0, 600.0));
+            Donations.Add(new CollectionItem(typeof(Slime), 0x20E8, 1073117, 0x0, 900.0));
+            Donations.Add(new CollectionItem(typeof(PolarBear), 0x20E1, 1073120, 0x0, 900.0));
+            Donations.Add(new CollectionItem(typeof(Unicorn), 0x25CE, 1074821, 0x0, 5000.0));
+            Donations.Add(new CollectionItem(typeof(Kirin), 0x25A0, 1074821, 0x0, 5000.0));
+            Donations.Add(new CollectionItem(typeof(Nightmare), 0x259C, 1074821, 0x0, 10000.0));
+            Donations.Add(new CollectionItem(typeof(FireSteed), 0x21F1, 1074821, 0x0, 10000.0));
+            Donations.Add(new CollectionItem(typeof(SwampDragon), 0x2619, 1074821, 0x0, 10000.0));
+            Donations.Add(new CollectionItem(typeof(RuneBeetle), 0x276F, 1074820, 0x0, 12000.0));
+            Donations.Add(new CollectionItem(typeof(FireBeetle), 0x260F, 1074820, 0x489, 12000.0));
+            Donations.Add(new CollectionItem(typeof(Beetle), 0x260F, 1074820, 0x0, 12000.0));
+            Donations.Add(new CollectionItem(typeof(Drake), 0x20D6, 1073119, 0x0, 12000.0));
+            Donations.Add(new CollectionItem(typeof(Dragon), 0x20D6, 1073119, 0x0, 20000.0));
+            Donations.Add(new CollectionItem(typeof(Reptalon), 0x2D95, 1073121, 0x0, 30000.0));
 			
             int[] hues = new int[] 
             {
