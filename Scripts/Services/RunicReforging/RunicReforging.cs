@@ -112,8 +112,8 @@ namespace Server.Items
                 goodtogo = false;
             else if(m_AllowableTable.ContainsKey(item.GetType()) && m_AllowableTable[item.GetType()] != crsystem)
                 goodtogo = false;
-            else if (item is IResource && !CraftResources.IsStandard(((IResource)item).Resource))
-                goodtogo = false;
+            //else if (item is IResource && !CraftResources.IsStandard(((IResource)item).Resource))
+            //    goodtogo = false;
             else if (item.LootType == LootType.Blessed || item.LootType == LootType.Newbied)
                 goodtogo = false;
             else if (item is BaseWeapon && Server.Spells.Mysticism.EnchantSpell.IsUnderSpellEffects(from, (BaseWeapon)item))
