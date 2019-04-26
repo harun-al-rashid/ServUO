@@ -109,9 +109,9 @@ namespace Server.Items
 
             double random = Utility.RandomDouble();
 
-            if (0.2 >= random)
+            if (0.9 >= random)
                 volume = 3;
-            else if (0.5 >= random)
+            else if (0.95 >= random)
                 volume = 2;
 
             SkillMasteryPrimer primer = new SkillMasteryPrimer(skill, volume);

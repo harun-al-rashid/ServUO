@@ -147,8 +147,8 @@ namespace Server.Mobiles
 
         public virtual void GivePowerScrolls()
         {
-            if (this.Map != Map.Felucca)
-                return;
+            //if (this.Map != Map.Felucca)
+            //    return;
 
             List<Mobile> toGive = new List<Mobile>();
             List<DamageStore> rights = GetLootingRights();
@@ -284,9 +284,9 @@ namespace Server.Mobiles
             int level;
             double random = Utility.RandomDouble();
 
-            if (0.05 >= random)
+            if (0.9 >= random)
                 level = 20;
-            else if (0.4 >= random)
+            else if (0.95 >= random)
                 level = 15;
             else
                 level = 10;
