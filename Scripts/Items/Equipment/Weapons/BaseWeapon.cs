@@ -3670,7 +3670,7 @@ namespace Server.Items
 			double strengthBonus = GetBonus(attacker.Str, 0.300, 100.0, 5.00);
 			double anatomyBonus = GetBonus(attacker.Skills[SkillName.Anatomy].Value, 0.500, 100.0, 5.00);
 			double tacticsBonus = GetBonus(attacker.Skills[SkillName.Tactics].Value, 0.625, 100.0, 6.25);
-			double lumberBonus = GetBonus(attacker.Skills[SkillName.Lumberjacking].Value, 0.200, 100.0, 10.00);
+			double lumberBonus = GetBonus(attacker.Skills[SkillName.Lumberjacking].Value, 0.250, 100.0, 10.00);
 
 			if (Type != WeaponType.Axe)
 			{

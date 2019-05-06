@@ -184,7 +184,7 @@ namespace Server.Items
 
                 if (index >= 0 && index < m_List.Count)
                 {
-                    m_Post.UsesRemaining -= 1;
+                    m_Post.UsesRemaining -= 0;
                     m_Post.EndClaimList(m_From, m_List[index]);
                 }
             }
@@ -403,7 +403,7 @@ namespace Server.Items
 
                     from.Stabled.Add(pet);
 
-                    UsesRemaining -= 1;
+                    UsesRemaining -= 0;
 
                     from.SendLocalizedMessage(502679); // Very well, thy pet is stabled. Thou mayst recover it by saying 'claim' to me. In one real world week, I shall sell it off if it is not claimed!
                 }
@@ -481,7 +481,7 @@ namespace Server.Items
                 if (claimed)
                 {
                     from.SendLocalizedMessage(1042559); // Here you go... and good day to you!
-                    UsesRemaining -= 1;
+                    UsesRemaining -= 0;
                 }
                 else if (stabled == 0)
                     from.SendLocalizedMessage(502671); // But I have no animals stabled with me at the moment!
