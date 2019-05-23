@@ -86,6 +86,7 @@ namespace Server.Mobiles
             this.AddLoot(LootPack.FilthyRich, 2);
             this.AddLoot(LootPack.Rich);
             this.AddLoot(LootPack.MedScrolls, 2);
+            this.AddLoot(LootPack.HighScrolls, 2);
         }
 
         public override void Serialize(GenericWriter writer)
