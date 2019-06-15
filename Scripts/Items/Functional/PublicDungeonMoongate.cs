@@ -16,11 +16,11 @@ namespace Server.Items
 {
     public class PublicDungeonMoongate : Item
     {
-        public static List<PublicDungeonMoongate> Moongates { get; private set; }
+        public static List<PublicDungeonMoongate> DungeonMoongates { get; private set; }
 
         static PublicDungeonMoongate()
         {
-            Moongates = new List<PublicDungeonMoongate>();
+            DungeonMoongates = new List<PublicDungeonMoongate>();
         }
 
         public static void Initialize()
@@ -37,38 +37,40 @@ namespace Server.Items
 
             var count = 0;
 
-            if (!Siege.SiegeShard)
-            {
-                count += MoonGen(PMList.Trammel);
-            }
+            //if (!Siege.SiegeShard)
+            //{
+            //    count += MoonGen(PDMList.Trammel);
+            //}
 
-            count += MoonGen(PMList.Felucca);
-            count += MoonGen(PMList.Ilshenar);
-            count += MoonGen(PMList.Malas);
-            count += MoonGen(PMList.Tokuno);
-            count += MoonGen(PMList.TerMur);
-            count += MoonGen(PMList.Dungeons);
+            //count += MoonGen(PDMList.Felucca);
+            //count += MoonGen(PDMList.Ilshenar);
+            //count += MoonGen(PDMList.Malas);
+            //count += MoonGen(PDMList.Tokuno);
+            //count += MoonGen(PDMList.TerMur);
+            //count += MoonGen(PDMList.Dungeons);
+
+            count += MoonDunGen(PDMList.Dungeons);
 
             World.Broadcast(0x35, true, "{0} moongates generated.", count);
         }
 
-        private static int MoonDunGen(PMList list)
+        private static int MoonDunGen(PDMList list)
         {
             foreach (var entry in list.Entries)
             {
-                var o = new PublicMoongate();
+                var o = new PublicDungeonMoongate();
 
                 o.MoveToWorld(entry.Location, list.Map);
 
-                if (entry.Number == 1060642) // Umbra
-                {
-                    o.Hue = 0x497;
-                }
+                //if (entry.Number == 1060642) // Umbra
+                //{
+                //    o.Hue = 0x497;
+                //}
 
-                if (entry.Number == 1075706)
-                {
+                //if (entry.Number == 1075706)
+                //{
                     o.Hue = 0x4AA;
-                }
+                //}
 
 
             }
@@ -85,17 +87,17 @@ namespace Server.Items
 
         public static void DeleteAll()
         {
-            var count = Moongates.Count;
+            var count = DungeonMoongates.Count;
 
             var index = count;
 
             while (--index >= 0)
             {
-                if (index < Moongates.Count)
-                    Moongates[index].Delete();
+                if (index < DungeonMoongates.Count)
+                    DungeonMoongates[index].Delete();
             }
 
-            Moongates.Clear();
+            DungeonMoongates.Clear();
 
             if (count > 0)
             {
@@ -107,15 +109,15 @@ namespace Server.Items
         {
             PublicDungeonMoongate o;
 
-            var i = Moongates.Count;
+            var i = DungeonMoongates.Count;
 
             while (--i >= 0)
             {
-                o = Moongates[i];
+                o = DungeonMoongates[i];
 
                 if (o == null || o.Deleted)
                 {
-                    Moongates.RemoveAt(i);
+                    DungeonMoongates.RemoveAt(i);
                 }
                 else if (o.Map == map)
                 {
@@ -131,32 +133,32 @@ namespace Server.Items
 
         [Constructable]
         public PublicDungeonMoongate()
-            : base(0x4AA)//0xF6C
+            : base(0xF6C)//0xF6C
         {
             Movable = false;
             Light = LightType.Circle300;
 
-            Moongates.Add(this);
+            DungeonMoongates.Add(this);
         }
 
         public PublicDungeonMoongate(Serial serial)
             : base(serial)
         {
-            Moongates.Add(this);
+            DungeonMoongates.Add(this);
         }
 
         public override void OnDelete()
         {
             base.OnDelete();
 
-            Moongates.Remove(this);
+            DungeonMoongates.Remove(this);
         }
 
         public override void OnAfterDelete()
         {
             base.OnAfterDelete();
 
-            Moongates.Remove(this);
+            DungeonMoongates.Remove(this);
         }
 
         public override void OnDoubleClick(Mobile m)
@@ -248,16 +250,16 @@ namespace Server.Items
             }
         }
 
-        protected PMEntry FindEntry()
+        protected PDMEntry FindEntry()
         {
-            return FindEntry(PMList.GetList(Map));
+            return FindEntry(PDMList.GetList(Map));
         }
 
-        protected PMEntry FindEntry(PMList list)
+        protected PDMEntry FindEntry(PDMList list)
         {
             if (list != null)
             {
-                return PMList.FindEntry(list, Location);
+                return PDMList.FindEntry(list, Location);
             }
 
             return null;
@@ -278,17 +280,17 @@ namespace Server.Items
         }
     }
 
-    public class PMEntry
+    public class PDMEntry
     {
         public Point3D Location { get; private set; }
         public int Number { get; private set; }
         public TextDefinition Desc { get; private set; }
 
-        public PMEntry(Point3D loc, int number)
+        public PDMEntry(Point3D loc, int number)
             : this(loc, number, String.Empty)
         { }
 
-        public PMEntry(Point3D loc, int number, TextDefinition desc)
+        public PDMEntry(Point3D loc, int number, TextDefinition desc)
         {
             Location = loc;
             Number = number;
@@ -296,7 +298,7 @@ namespace Server.Items
         }
     }
 
-    public class PMList
+    public class PDMList
     {
         /*public static readonly PMList Trammel = new PMList(
             1012000,
@@ -335,13 +337,13 @@ namespace Server.Items
                 new PMEntry(new Point3D(2495, 948, 5), 1075706)
             });
     */
-        public static readonly PMList Dungeons = new PMList(
+        public static readonly PDMList Dungeons = new PDMList(
             1078373,
             1078373,
             Map.Felucca,
             new[]
             {
-                new PMEntry(new Point3D(2495, 948, 5), 1075706) //Covetous
+                new PDMEntry(new Point3D(2495, 948, 0), 1075706) //Covetous
             });
 /*
 
@@ -396,22 +398,22 @@ namespace Server.Items
 				// Holy City
 			});
 */
-        public static readonly PMList[] UORLists = { Felucca };
-        public static readonly PMList[] UORListsYoung = { Felucca };
-        public static readonly PMList[] LBRLists = { Felucca };
-        public static readonly PMList[] LBRListsYoung = { Felucca };
-        public static readonly PMList[] AOSLists = { Felucca, Trammel };
-        public static readonly PMList[] AOSListsYoung = { Felucca, Trammel };
-        public static readonly PMList[] SELists = { Felucca, Trammel };
-        public static readonly PMList[] SEListsYoung = { Felucca, Trammel };
-        public static readonly PMList[] SALists = { Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur };
-        public static readonly PMList[] SAListsYoung = { Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur };
-        public static readonly PMList[] RedLists = { Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur };
-        public static readonly PMList[] SigilLists = { Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur };
+        public static readonly PDMList[] UORLists = { Dungeons };
+        public static readonly PDMList[] UORListsYoung = { Dungeons };
+        public static readonly PDMList[] LBRLists = { Dungeons };
+        public static readonly PDMList[] LBRListsYoung = { Dungeons };
+        public static readonly PDMList[] AOSLists = { Dungeons };
+        public static readonly PDMList[] AOSListsYoung = { Dungeons };
+        public static readonly PDMList[] SELists = { Dungeons };
+        public static readonly PDMList[] SEListsYoung = { Dungeons };
+        public static readonly PDMList[] SALists = { Dungeons };
+        public static readonly PDMList[] SAListsYoung = { Dungeons };
+        public static readonly PDMList[] RedLists = { Dungeons };
+        public static readonly PDMList[] SigilLists = { Dungeons };
 
-        public static readonly PMList[] AllLists = { Felucca, Trammel };
+        public static readonly PDMList[] AllLists = { Dungeons };
 
-        public static PMList GetList(Map map)
+        public static PDMList GetList(Map map)
         {
             if (map == null || map == Map.Internal)
             {
@@ -420,45 +422,45 @@ namespace Server.Items
 
             if (map == Map.Trammel)
             {
-                return Trammel;
+                return Dungeons;
             }
 
             if (map == Map.Felucca)
             {
-                return Felucca;
+                return Dungeons;
             }
 
             if (map == Map.Ilshenar)
             {
-                return Ilshenar;
+                return Dungeons;
             }
 
             if (map == Map.Malas)
             {
-                return Malas;
+                return Dungeons;
             }
 
             if (map == Map.Tokuno)
             {
-                return Tokuno;
+                return Dungeons;
             }
 
             if (map == Map.TerMur)
             {
-                return TerMur;
+                return Dungeons;
             }
 
             return null;
         }
 
-        public static int IndexOfEntry(PMEntry entry)
+        public static int IndexOfEntry(PDMEntry entry)
         {
             var list = AllLists.FirstOrDefault(o => o.Entries.Contains(entry));
 
             return IndexOfEntry(list, entry);
         }
 
-        public static int IndexOfEntry(PMList list, PMEntry entry)
+        public static int IndexOfEntry(PDMList list, PDMEntry entry)
         {
             if (list != null && entry != null)
             {
@@ -468,7 +470,7 @@ namespace Server.Items
             return -1;
         }
 
-        public static PMEntry FindEntry(PMList list, Point3D loc)
+        public static PDMEntry FindEntry(PDMList list, Point3D loc)
         {
             if (list != null)
             {
@@ -478,7 +480,7 @@ namespace Server.Items
             return null;
         }
 
-        public static PMEntry FindEntry(Map map, Point3D loc)
+        public static PDMEntry FindEntry(Map map, Point3D loc)
         {
             var list = GetList(map);
 
@@ -493,9 +495,9 @@ namespace Server.Items
         private readonly int m_Number;
         private readonly int m_SelNumber;
         private readonly Map m_Map;
-        private readonly PMEntry[] m_Entries;
+        private readonly PDMEntry[] m_Entries;
 
-        public PMList(int number, int selNumber, Map map, PMEntry[] entries)
+        public PDMList(int number, int selNumber, Map map, PDMEntry[] entries)
         {
             m_Number = number;
             m_SelNumber = selNumber;
@@ -506,14 +508,14 @@ namespace Server.Items
         public int Number { get { return m_Number; } }
         public int SelNumber { get { return m_SelNumber; } }
         public Map Map { get { return m_Map; } }
-        public PMEntry[] Entries { get { return m_Entries; } }
+        public PDMEntry[] Entries { get { return m_Entries; } }
     }
 
     public class DungeonMoongateGump : Gump
     {
         private readonly Mobile m_Mobile;
         private readonly Item m_Moongate;
-        private readonly PMList[] m_Lists;
+        private readonly PDMList[] m_Lists;
 
         public DungeonMoongateGump(Mobile mobile, Item moongate)
             : base(100, 100)
@@ -521,7 +523,7 @@ namespace Server.Items
             m_Mobile = mobile;
             m_Moongate = moongate;
 
-            PMList[] checkLists;
+            PDMList[] checkLists;
 
             if (mobile.Player)
             {
@@ -531,32 +533,32 @@ namespace Server.Items
 
                     if (Core.SA && (flags & ClientFlags.TerMur) != 0)
                     {
-                        checkLists = PMList.SALists;
+                        checkLists = PDMList.SALists;
                     }
                     else if (Core.SE && (flags & ClientFlags.Tokuno) != 0)
                     {
-                        checkLists = PMList.SELists;
+                        checkLists = PDMList.SELists;
                     }
                     else if (Core.AOS && (flags & ClientFlags.Malas) != 0)
                     {
-                        checkLists = PMList.AOSLists;
+                        checkLists = PDMList.AOSLists;
                     }
                     else if ((flags & ClientFlags.Ilshenar) != 0)
                     {
-                        checkLists = PMList.LBRLists;
+                        checkLists = PDMList.LBRLists;
                     }
                     else
                     {
-                        checkLists = PMList.UORLists;
+                        checkLists = PDMList.UORLists;
                     }
                 }
                 else if (Sigil.ExistsOn(mobile))
                 {
-                    checkLists = PMList.SigilLists;
+                    checkLists = PDMList.SigilLists;
                 }
                 else if (mobile.Murderer && !Siege.SiegeShard)
                 {
-                    checkLists = PMList.RedLists;
+                    checkLists = PDMList.RedLists;
                 }
                 else
                 {
@@ -565,32 +567,32 @@ namespace Server.Items
 
                     if (Core.SA && (flags & ClientFlags.TerMur) != 0)
                     {
-                        checkLists = young ? PMList.SAListsYoung : PMList.SALists;
+                        checkLists = young ? PDMList.SAListsYoung : PDMList.SALists;
                     }
                     else if (Core.SE && (flags & ClientFlags.Tokuno) != 0)
                     {
-                        checkLists = young ? PMList.SEListsYoung : PMList.SELists;
+                        checkLists = young ? PDMList.SEListsYoung : PDMList.SELists;
                     }
                     else if (Core.AOS && (flags & ClientFlags.Malas) != 0)
                     {
-                        checkLists = young ? PMList.AOSListsYoung : PMList.AOSLists;
+                        checkLists = young ? PDMList.AOSListsYoung : PDMList.AOSLists;
                     }
                     else if ((flags & ClientFlags.Ilshenar) != 0)
                     {
-                        checkLists = young ? PMList.LBRListsYoung : PMList.LBRLists;
+                        checkLists = young ? PDMList.LBRListsYoung : PDMList.LBRLists;
                     }
                     else
                     {
-                        checkLists = young ? PMList.UORListsYoung : PMList.UORLists;
+                        checkLists = young ? PDMList.UORListsYoung : PDMList.UORLists;
                     }
                 }
             }
             else
             {
-                checkLists = PMList.SELists;
+                checkLists = PDMList.SELists;
             }
 
-            m_Lists = new PMList[checkLists.Length];
+            m_Lists = new PDMList[checkLists.Length];
 
             for (var i = 0; i < m_Lists.Length; ++i)
             {

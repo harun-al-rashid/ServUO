@@ -47,7 +47,7 @@ namespace Server.Items
 			count += MoonGen(PMList.Malas);
 			count += MoonGen(PMList.Tokuno);
 			count += MoonGen(PMList.TerMur);
-            count += MoonGen(PMList.Dungeons);
+            //count += MoonGen(PMList.Dungeons);
 
 			World.Broadcast(0x35, true, "{0} moongates generated.", count);
 		}
@@ -335,14 +335,14 @@ namespace Server.Items
                 new PMEntry(new Point3D(2495, 948, 5), 1075706)
             });
 
-        public static readonly PMList Dungeons = new PMList(
+        /*public static readonly PMList Dungeons = new PMList(
             1078373,
             1078373,
             Map.Felucca,
             new[]
             {
                 new PMEntry(new Point3D(2495, 948, 5), 1075706) //Covetous
-            });
+            });*/
 
 
         public static readonly PMList Ilshenar = new PMList(
