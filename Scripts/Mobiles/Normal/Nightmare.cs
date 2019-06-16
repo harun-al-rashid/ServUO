@@ -14,7 +14,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Nightmare(string name)
-            : base(name, 0x74, 0x3EA7, AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
+            : base(name, 0x74, 0x3EA7, AIType.AI_Mage, FightMode.Good, 10, 1, 0.2, 0.4)
         {
             this.BaseSoundID = Core.AOS ? 0xA8 : 0x16A;
 
@@ -138,6 +138,13 @@ namespace Server.Mobiles
             get
             {
                 return true;
+            }
+        }
+        public override bool AllowGoodTamer
+        {
+            get
+            {
+                return false;
             }
         }
         public override void GenerateLoot()

@@ -1029,6 +1029,11 @@ namespace Server.Mobiles
 
         public virtual bool AllowMaleTamer { get { return true; } }
         public virtual bool AllowFemaleTamer { get { return true; } }
+        
+        public virtual bool AllowGoodTamer { get { return true; } }
+
+        public virtual bool AllowEvilTamer { get { return true; } }
+
         public virtual bool SubdueBeforeTame { get { return false; } }
         public virtual bool StatLossAfterTame { get { return SubdueBeforeTame; } }
         public virtual bool ReduceSpeedWithDamage { get { return true; } }

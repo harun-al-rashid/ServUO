@@ -153,71 +153,79 @@ namespace Server.SkillHandlers
 					{
 						BaseCreature creature = (BaseCreature)targeted;
 
-						if (!creature.Tamable)
-						{
-							creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1049655, from.NetState);
-								// That creature cannot be tamed.
-						}
-						else if (creature.Controlled)
-						{
-							creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502804, from.NetState);
-								// That animal looks tame already.
-						}
-						else if (from.Female && !creature.AllowFemaleTamer)
-						{
-							creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1049653, from.NetState);
-								// That creature can only be tamed by males.
-						}
-						else if (!from.Female && !creature.AllowMaleTamer)
-						{
-							creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1049652, from.NetState);
-								// That creature can only be tamed by females.
-						}
-						else if (creature is CuSidhe && from.Race != Race.Elf)
-						{
-							creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502801, from.NetState); // You can't tame that!
-						}
-						else if (from.Followers + creature.ControlSlots > from.FollowersMax)
-						{
-							from.SendLocalizedMessage(1049611); // You have too many followers to tame that creature.
-						}
-						else if (creature.Owners.Count >= BaseCreature.MaxOwners && !creature.Owners.Contains(from))
-						{
-							creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1005615, from.NetState);
-								// This animal has had too many owners and is too upset for you to tame.
-						}
-						else if (MustBeSubdued(creature))
-						{
-							creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1054025, from.NetState);
-								// You must subdue this creature before you can tame it!
-						}
-						else if (CheckMastery(from, creature) || from.Skills[SkillName.AnimalTaming].Value >= creature.CurrentTameSkill)
-						{
-							FactionWarHorse warHorse = creature as FactionWarHorse;
+                        if (!creature.Tamable)
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1049655, from.NetState);
+                            // That creature cannot be tamed.
+                        }
+                        else if (creature.Controlled)
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502804, from.NetState);
+                            // That animal looks tame already.
+                        }
+                        else if (from.Female && !creature.AllowFemaleTamer)
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1049653, from.NetState);
+                            // That creature can only be tamed by males.
+                        }
+                        else if (!from.Female && !creature.AllowMaleTamer)
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1049652, from.NetState);
+                            // That creature can only be tamed by females.
+                        }
+                        else if (from.Karma < -500 && !creature.AllowEvilTamer)
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, true, "Your evil ways repel the creature", from.NetState);
+                        }
+                        else if (from.Karma > 500 && !creature.AllowGoodTamer)
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, true, "The creature despises your noble heart", from.NetState);
+                        }
+                        else if (creature is CuSidhe && from.Race != Race.Elf)
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502801, from.NetState); // You can't tame that!
+                        }
+                        else if (from.Followers + creature.ControlSlots > from.FollowersMax)
+                        {
+                            from.SendLocalizedMessage(1049611); // You have too many followers to tame that creature.
+                        }
+                        else if (creature.Owners.Count >= BaseCreature.MaxOwners && !creature.Owners.Contains(from))
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1005615, from.NetState);
+                            // This animal has had too many owners and is too upset for you to tame.
+                        }
+                        else if (MustBeSubdued(creature))
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1054025, from.NetState);
+                            // You must subdue this creature before you can tame it!
+                        }
+                        else if (CheckMastery(from, creature) || from.Skills[SkillName.AnimalTaming].Value >= creature.CurrentTameSkill)
+                        {
+                            FactionWarHorse warHorse = creature as FactionWarHorse;
 
-							if (warHorse != null)
-							{
-								Faction faction = Faction.Find(from);
+                            if (warHorse != null)
+                            {
+                                Faction faction = Faction.Find(from);
 
-								if (faction == null || faction != warHorse.Faction)
-								{
-									creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1042590, from.NetState);
-										// You cannot tame this creature.
-									return;
-								}
-							}
+                                if (faction == null || faction != warHorse.Faction)
+                                {
+                                    creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1042590, from.NetState);
+                                    // You cannot tame this creature.
+                                    return;
+                                }
+                            }
 
-							if (m_BeingTamed.Contains(targeted))
-							{
-								creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502802, from.NetState);
-									// Someone else is already taming this.
-							}
-							else if (creature.CanAngerOnTame && 0.95 >= Utility.RandomDouble())
-							{
-								creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502805, from.NetState);
-									// You seem to anger the beast!
-								creature.PlaySound(creature.GetAngerSound());
-								creature.Direction = creature.GetDirectionTo(from);
+                            if (m_BeingTamed.Contains(targeted))
+                            {
+                                creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502802, from.NetState);
+                                // Someone else is already taming this.
+                            }
+                            else if (creature.CanAngerOnTame && 0.95 >= Utility.RandomDouble())
+                            {
+                                creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502805, from.NetState);
+                                // You seem to anger the beast!
+                                creature.PlaySound(creature.GetAngerSound());
+                                creature.Direction = creature.GetDirectionTo(from);
 
                                 if (!Core.SA)
                                 {
@@ -233,35 +241,35 @@ namespace Server.SkillHandlers
                                     creature.BardPacified = false;
                                 }
 
-								if (creature.AIObject != null)
-								{
-									creature.AIObject.DoMove(creature.Direction);
-								}
+                                if (creature.AIObject != null)
+                                {
+                                    creature.AIObject.DoMove(creature.Direction);
+                                }
 
-								if (from is PlayerMobile &&
-									!(((PlayerMobile)from).HonorActive ||
-									  TransformationSpellHelper.UnderTransformation(from, typeof(EtherealVoyageSpell))))
-								{
-									creature.Combatant = from;
-								}
-							}
-							else
-							{
-								m_SetSkillTime = false;
+                                if (from is PlayerMobile &&
+                                    !(((PlayerMobile)from).HonorActive ||
+                                      TransformationSpellHelper.UnderTransformation(from, typeof(EtherealVoyageSpell))))
+                                {
+                                    creature.Combatant = from;
+                                }
+                            }
+                            else
+                            {
+                                m_SetSkillTime = false;
 
-								m_BeingTamed[targeted] = from;
+                                m_BeingTamed[targeted] = from;
 
-								from.LocalOverheadMessage(MessageType.Emote, 0x59, 1010597); // You start to tame the creature.
-								from.NonlocalOverheadMessage(MessageType.Emote, 0x59, 1010598); // *begins taming a creature.*
+                                from.LocalOverheadMessage(MessageType.Emote, 0x59, 1010597); // You start to tame the creature.
+                                from.NonlocalOverheadMessage(MessageType.Emote, 0x59, 1010598); // *begins taming a creature.*
 
-								new InternalTimer(from, creature, Utility.Random(3, 2)).Start();
-							}
-						}
-						else
-						{
-							creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502806, from.NetState);
-								// You have no chance of taming this creature.
-						}
+                                new InternalTimer(from, creature, Utility.Random(3, 2)).Start();
+                            }
+                        }
+                        else
+                        {
+                            creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502806, from.NetState);
+                            // You have no chance of taming this creature.
+                        }
 					}
 					else
 					{
