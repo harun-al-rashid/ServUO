@@ -575,7 +575,7 @@ namespace Server.Items
                         ApplyAttribute(primary, min, max, AosAttribute.LowerManaCost, 1, 8);
                         break;
                     case 16:
-                        ApplyAttribute(secondary, min, max, AosArmorAttribute.SelfRepair, 1, 5);//was LowerRegCost, 1, 20
+                        //ApplyAttribute(secondary, min, max, AosArmorAttribute.SelfRepair, 1, 5);//was LowerRegCost, 1, 20
                         break;
                     case 17:
                         ApplyAttribute(primary, min, max, AosAttribute.Luck, 1, 100);
@@ -671,7 +671,7 @@ namespace Server.Items
                         ApplyAttribute(primary, min, max, AosAttribute.LowerManaCost, 1, 8);
                         break;
                     case 9:
-                        ApplyAttribute(primary, min, max, AosAttribute.LowerRegCost, 1, 20);
+                        //ApplyAttribute(primary, min, max, AosAttribute.LowerRegCost, 1, 20);
                         break;
                     case 10:
                         ApplyAttribute(primary, min, max, AosAttribute.Luck, 1, 100);
@@ -790,7 +790,7 @@ namespace Server.Items
                         ApplyAttribute(primary, min, max, AosAttribute.LowerManaCost, 1, 8);
                         break;
                     case 15:
-                        ApplyAttribute(primary, min, max, AosAttribute.LowerRegCost, 1, 20);
+                        //ApplyAttribute(primary, min, max, AosAttribute.LowerRegCost, 1, 20);
                         break;
                     case 16:
                         ApplyAttribute(primary, min, max, AosAttribute.Luck, 1, 100);
@@ -890,7 +890,7 @@ namespace Server.Items
                         ApplySkillBonus(skills, min, max, 3, 1, 15);
                         break;
                     case 12:
-                        ApplyAttribute(primary, min, max, AosAttribute.LowerRegCost, 1, 20);
+                        //ApplyAttribute(primary, min, max, AosAttribute.LowerRegCost, 1, 20);
                         break;
                     case 13:
                         ApplyAttribute(primary, min, max, AosAttribute.LowerManaCost, 1, 8);
