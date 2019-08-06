@@ -19,7 +19,7 @@ namespace Server.Misc
 	
     public class TreasuresOfTokuno
     {
-        public const int ItemsPerReward = 10;
+        public const int ItemsPerReward = 5;
 		
         private static readonly Type[] m_LesserArtifactsTotal = new Type[]
         {
@@ -173,7 +173,7 @@ namespace Server.Misc
 
             double chance = A * Math.Pow(10, B * x);
 
-            if (chance > Utility.RandomDouble())
+            if (chance > (Utility.RandomDouble()-0.75))
             {
                 Item i = null;
 				
