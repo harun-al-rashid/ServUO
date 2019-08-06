@@ -548,7 +548,7 @@ namespace Server.Items
                         break;
                         /* End Shields */
                     case 7:
-                        ApplyAttribute(secondary, min, max, AosArmorAttribute.SelfRepair, 1, 5);//was .MageArmor, 1, 1
+                        //ApplyAttribute(secondary, min, max, AosArmorAttribute.SelfRepair, 1, 5);//was .MageArmor, 1, 1
                         break;
                     case 8:
                         ApplyAttribute(primary, min, max, AosAttribute.RegenHits, 1, 2);
