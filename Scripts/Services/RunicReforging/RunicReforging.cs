@@ -1088,7 +1088,7 @@ namespace Server.Items
                     },
                     new NamedInfoCol[] // armor
                     {
-                        new NamedInfoCol(AosAttribute.LowerRegCost, LowerRegTable),
+                        /*new NamedInfoCol(AosAttribute.LowerRegCost, LowerRegTable),*/
                         new NamedInfoCol(AosAttribute.BonusMana, ArmorStamManaLMCTable),
                         new NamedInfoCol(AosAttribute.LowerManaCost, ArmorStamManaLMCTable),
                         new NamedInfoCol(AosAttribute.RegenMana, ArmorRegenTable),
@@ -1105,7 +1105,7 @@ namespace Server.Items
                         new NamedInfoCol(AosAttribute.BonusMana, ArmorStamManaLMCTable),
                         new NamedInfoCol(AosAttribute.BonusInt, DexIntTable),
                         new NamedInfoCol(AosAttribute.LowerManaCost, ArmorStamManaLMCTable),
-                        new NamedInfoCol(AosAttribute.LowerRegCost, LowerRegTable),
+                        //new NamedInfoCol(AosAttribute.LowerRegCost, LowerRegTable),
                     },
 				};
 				
@@ -1159,7 +1159,7 @@ namespace Server.Items
                         new NamedInfoCol(AosAttribute.BonusInt, DexIntTable),
                         new NamedInfoCol(AosAttribute.LowerManaCost, ArmorStamManaLMCTable),
                         new NamedInfoCol(AosAttribute.RegenMana, ArmorRegenTable),
-                        new NamedInfoCol(AosAttribute.LowerRegCost, LowerRegTable),
+                        //new NamedInfoCol(AosAttribute.LowerRegCost, LowerRegTable),
                     },
                     new NamedInfoCol[]
                     {
@@ -1174,7 +1174,7 @@ namespace Server.Items
                         new NamedInfoCol(AosAttribute.BonusInt, DexIntTable),
                         new NamedInfoCol(AosAttribute.LowerManaCost, ArmorStamManaLMCTable),
                         new NamedInfoCol(AosAttribute.RegenMana, ArmorRegenTable),
-                        new NamedInfoCol(AosAttribute.LowerRegCost, LowerRegTable),
+                        //new NamedInfoCol(AosAttribute.LowerRegCost, LowerRegTable),
                         new NamedInfoCol(AosAttribute.CastSpeed, 1),
                         new NamedInfoCol(AosAttribute.CastRecovery, 4),
                         new NamedInfoCol(AosAttribute.SpellDamage, 15),
@@ -2941,15 +2941,15 @@ namespace Server.Items
 			AosAttribute.BonusStam,
 			AosAttribute.BonusMana,
 			AosAttribute.LowerManaCost,
-			AosAttribute.LowerRegCost,
+			//AosAttribute.LowerRegCost,
 			AosAttribute.Luck,
 			AosAttribute.ReflectPhysical,
 			AosElementAttribute.Physical,
 			AosElementAttribute.Fire,
 			AosElementAttribute.Cold,
 			AosElementAttribute.Poison,
-			AosElementAttribute.Energy,
-            AosArmorAttribute.MageArmor
+			AosElementAttribute.Energy
+            //AosArmorAttribute.MageArmor
 		};
 
         private static object[] m_HatStandard = new object[]
@@ -2962,7 +2962,7 @@ namespace Server.Items
 			AosAttribute.BonusStam,
 			AosAttribute.BonusMana,
 			AosAttribute.LowerManaCost,
-			AosAttribute.LowerRegCost,
+			//AosAttribute.LowerRegCost,
 			AosAttribute.Luck,
 			AosAttribute.ReflectPhysical,
 			AosElementAttribute.Physical,
@@ -2999,7 +2999,7 @@ namespace Server.Items
 			AosAttribute.CastSpeed,
 			AosAttribute.CastRecovery,
 			AosAttribute.LowerManaCost,
-			AosAttribute.LowerRegCost,
+			//AosAttribute.LowerRegCost,
 			AosAttribute.Luck,
 			AosAttribute.SpellDamage,
 			AosAttribute.NightSight,
