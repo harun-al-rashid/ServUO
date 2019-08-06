@@ -151,7 +151,7 @@ namespace Server.Mobiles
 
             double chance = 1 / Math.Round(20.0 - (fame / 3200));
 
-            return (chance > Utility.RandomDouble());
+            return (chance > (Utility.RandomDouble()-0.25));
         }
 
         public static bool CheckArtifactChance(Mobile m, BaseCreature bc)
