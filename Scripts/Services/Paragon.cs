@@ -168,7 +168,7 @@ namespace Server.Mobiles
 
             double chance = 1 / (Math.Max(10, 100 * (0.83 - Math.Round(Math.Log(Math.Round(fame / 6000, 3) + 0.001, 10), 3))) * (100 - Math.Sqrt(luck)) / 100.0);
 
-            return chance > Utility.RandomDouble();
+            return chance > (Utility.RandomDouble()-0.5);
         }
 
         public static void GiveArtifactTo(Mobile m)

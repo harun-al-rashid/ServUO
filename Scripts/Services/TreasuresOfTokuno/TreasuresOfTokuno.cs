@@ -173,7 +173,7 @@ namespace Server.Misc
 
             double chance = A * Math.Pow(10, B * x);
 
-            if (chance > (Utility.RandomDouble()-0.75))
+            if (chance > (Utility.RandomDouble()-0.5))
             {
                 Item i = null;
 				
