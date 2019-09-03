@@ -196,7 +196,7 @@ namespace Server.Gumps
 
         private bool CanReforge(Mobile from, ReforgingOption option)
         {
-            double skill = from.Skills[SkillName.Imbuing].Value;
+            double skill = 120;//from.Skills[SkillName.Imbuing].Value;
 
             switch (option)
             {

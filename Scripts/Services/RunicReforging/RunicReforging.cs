@@ -3492,7 +3492,65 @@ namespace Server.Items
                     if (item.IsChildOf(from.Backpack))
                     {
                         if (RunicReforging.CanReforge(from, item, m_Tool.CraftSystem))
-                            from.SendGump(new RunicReforgingGump(from, item, m_Tool));
+                        {
+
+                            if (m_Tool.GetType() == typeof(RunicDovetailSaw))
+                            {
+                                if (from.Skills[SkillName.Carpentry].Value >= 100)
+                                {
+                                    from.SendGump(new RunicReforgingGump(from, item, m_Tool));
+                                }
+                                else
+                                {
+                                    from.SendAsciiMessage("You don't have enough Carpentry skill to do that");
+                                }
+                            }
+                            if (m_Tool.GetType() == typeof(RunicFletcherTool))
+                            {
+                                if (from.Skills[SkillName.Fletching].Value >= 100)
+                                {
+                                    from.SendGump(new RunicReforgingGump(from, item, m_Tool));
+                                }
+                                else
+                                {
+                                    from.SendAsciiMessage("You don't have enough Fletching skill to do that");
+                                }
+                            }
+                            if (m_Tool.GetType() == typeof(RunicHammer))
+                            {
+                                if (from.Skills[SkillName.Blacksmith].Value >= 100)
+                                {
+                                    from.SendGump(new RunicReforgingGump(from, item, m_Tool));
+                                }
+                                else
+                                {
+                                    from.SendAsciiMessage("You don't have enough Blacksmithing skill to do that");
+                                }
+                            }
+                            if (m_Tool.GetType() == typeof(RunicMalletAndChisel))
+                            {
+                                if (from.Skills[SkillName.Carpentry].Value >= 100)
+                                {
+                                    from.SendGump(new RunicReforgingGump(from, item, m_Tool));
+                                }
+                                else
+                                {
+                                    from.SendAsciiMessage("You don't have enough Carpentry skill to do that");
+                                }
+                            }
+                            if (m_Tool.GetType() == typeof(RunicSewingKit))
+                            {
+                                if (from.Skills[SkillName.Tailoring].Value >= 100)
+                                {
+                                    from.SendGump(new RunicReforgingGump(from, item, m_Tool));
+                                }
+                                else
+                                {
+                                    from.SendAsciiMessage("You don't have enough Tailoring skill to do that");
+                                }
+                            }
+
+                        }
                     }
                     else
                         from.SendLocalizedMessage(1152271); // The item must be in your backpack to re-forge it.

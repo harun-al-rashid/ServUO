@@ -73,7 +73,7 @@ namespace Server.Items
         #region Runic Reforging
         public override void OnDoubleClick(Mobile from)
         {
-            bool hasSkill = from.Skills[SkillName.Imbuing].Value >= 65;
+            bool hasSkill = ((from.Skills[SkillName.Tailoring].Value >= 100) || (from.Skills[SkillName.Blacksmith].Value >= 100) || (from.Skills[SkillName.Carpentry].Value >= 100) || (from.Skills[SkillName.Fletching].Value >= 100));
 
             IPooledEnumerable eable = from.Map.GetItemsInRange(from.Location, 2);
 
@@ -83,7 +83,7 @@ namespace Server.Items
                 {
                     if (!hasSkill)
                     {
-                        from.SendLocalizedMessage(1152333); // You do not have enough Imbuing skill to re-forge items. Using standard Runic Crafting instead.
+                        from.SendAsciiMessage("You do not have enough skill to re-forge that. Use standard Runic Crafting instead"); // You do not have enough Imbuing skill to re-forge items. Using standard Runic Crafting instead
                         break;
                     }
 
