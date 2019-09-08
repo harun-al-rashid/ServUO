@@ -37,10 +37,10 @@ namespace Server.Items
 
 			var count = 0;
 
-			if (!Siege.SiegeShard)
-			{
-				count += MoonGen(PMList.Trammel);
-			}
+			//if (!Siege.SiegeShard)
+			//{
+			//	count += MoonGen(PMList.Trammel);
+			//}
 
 			count += MoonGen(PMList.Felucca);
 			count += MoonGen(PMList.Ilshenar);
@@ -332,7 +332,7 @@ namespace Server.Items
 				/* Dynamic Z for Magincia to support both old and new maps. */
 				new PMEntry(new Point3D(3563, 2139, Map.Felucca.GetAverageZ(3563, 2139)), 1012010), // (New) Magincia
 				new PMEntry(new Point3D(2711, 2234, 0), 1019001), // Buccaneer's Den
-                new PMEntry(new Point3D(2495, 948, 5), 1075706)
+                //new PMEntry(new Point3D(2495, 948, 5), 1075706)
             });
 
         /*public static readonly PMList Dungeons = new PMList(
@@ -400,16 +400,16 @@ namespace Server.Items
 		public static readonly PMList[] UORListsYoung = {Felucca};
 		public static readonly PMList[] LBRLists = {Felucca};
 		public static readonly PMList[] LBRListsYoung = {Felucca};
-		public static readonly PMList[] AOSLists = {Felucca, Trammel};
-		public static readonly PMList[] AOSListsYoung = {Felucca, Trammel};
-		public static readonly PMList[] SELists = {Felucca, Trammel};
-		public static readonly PMList[] SEListsYoung = {Felucca, Trammel};
-		public static readonly PMList[] SALists = {Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur};
-        public static readonly PMList[] SAListsYoung = {Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur};
-		public static readonly PMList[] RedLists = {Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur};
-		public static readonly PMList[] SigilLists = {Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur};
+		public static readonly PMList[] AOSLists = {Felucca};
+		public static readonly PMList[] AOSListsYoung = {Felucca};
+		public static readonly PMList[] SELists = {Felucca};
+		public static readonly PMList[] SEListsYoung = {Felucca};
+		public static readonly PMList[] SALists = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
+        public static readonly PMList[] SAListsYoung = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
+		public static readonly PMList[] RedLists = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
+		public static readonly PMList[] SigilLists = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
 
-		public static readonly PMList[] AllLists = {Felucca, Trammel};
+		public static readonly PMList[] AllLists = {Felucca};
 
 		public static PMList GetList(Map map)
 		{
