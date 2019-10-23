@@ -11,9 +11,9 @@ namespace Server.Items
         {
             Hue = 0x109;	
             Attributes.RegenHits = 3;
-            Attributes.RegenMana = 3;
+            Attributes.RegenMana = 4;
             //Attributes.ReflectPhysical = 10;
-            Attributes.LowerRegCost = 10;
+            //Attributes.LowerRegCost = 10;
         }
 
         public RoyalZooLeatherLegs(Serial serial)
@@ -32,35 +32,35 @@ namespace Server.Items
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseFireResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseColdResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int InitMinHits
@@ -101,9 +101,9 @@ namespace Server.Items
         {
             Hue = 0x109;
             Attributes.RegenHits = 3;
-            Attributes.RegenMana = 3;
+            Attributes.RegenMana = 4;
             //Attributes.ReflectPhysical = 10;
-            Attributes.LowerRegCost = 10;
+            //Attributes.LowerRegCost = 10;
         }
 
         public RoyalZooLeatherGloves(Serial serial)
@@ -122,35 +122,35 @@ namespace Server.Items
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseFireResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseColdResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int InitMinHits
@@ -191,7 +191,7 @@ namespace Server.Items
         {
             Hue = 0x109;
             Attributes.RegenHits = 3;
-            Attributes.RegenMana = 3;
+            Attributes.RegenMana = 4;
             //Attributes.ReflectPhysical = 10;
             Attributes.LowerRegCost = 10;
         }
@@ -212,28 +212,28 @@ namespace Server.Items
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseFireResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseColdResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseEnergyResistance
@@ -281,7 +281,7 @@ namespace Server.Items
         {
             Hue = 0x109;
             Attributes.RegenHits = 3;
-            Attributes.RegenMana = 3;
+            Attributes.RegenMana = 4;
             //Attributes.ReflectPhysical = 10;
             Attributes.LowerRegCost = 10;
         }
@@ -302,35 +302,35 @@ namespace Server.Items
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseFireResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseColdResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int InitMinHits
@@ -371,7 +371,7 @@ namespace Server.Items
         {
             Hue = 0x109;
             Attributes.RegenHits = 3;
-            Attributes.RegenMana = 3;
+            Attributes.RegenMana = 4;
             //Attributes.ReflectPhysical = 10;
             Attributes.LowerRegCost = 10;
         }
@@ -392,35 +392,35 @@ namespace Server.Items
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseFireResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseColdResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int InitMinHits
@@ -461,7 +461,7 @@ namespace Server.Items
         {
             Hue = 0x109;
             Attributes.RegenHits = 3;
-            Attributes.RegenMana = 3;
+            Attributes.RegenMana = 4;
             //Attributes.ReflectPhysical = 10;
             Attributes.LowerRegCost = 10;
         }
@@ -482,35 +482,35 @@ namespace Server.Items
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseFireResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseColdResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 15;
+                return 10;
             }
         }
         public override int InitMinHits

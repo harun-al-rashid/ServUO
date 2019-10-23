@@ -62,6 +62,9 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(SpidersSilk), 3, 20, 0xF8D, 0));
                 Add(new GenericBuyInfo(typeof(SulfurousAsh), 3, 20, 0xF8C, 0));
 
+                //Add(new GenericBuyInfo(typeof(PowerScroll Magery 120), 100000, 1, 0x14F0, 0));//0x481 is hue
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Magery, 120 })); // 500 charges
+
                 if (Core.AOS)
                 {
                     Add(new GenericBuyInfo(typeof(BatWing), 3, 999, 0xF78, 0));
