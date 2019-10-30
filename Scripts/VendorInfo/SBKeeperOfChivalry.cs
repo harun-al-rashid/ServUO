@@ -32,6 +32,7 @@ namespace Server.Mobiles
             public InternalBuyInfo()
             {
                 Add(new GenericBuyInfo(typeof(BookOfChivalry), 140, 20, 0x2252, 0));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Chivalry, 120 }));
             }
         }
 

@@ -63,7 +63,10 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(SulfurousAsh), 3, 20, 0xF8C, 0));
 
                 //Add(new GenericBuyInfo(typeof(PowerScroll Magery 120), 100000, 1, 0x14F0, 0));//0x481 is hue
-                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Magery, 120 })); // 500 charges
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Magery, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Meditation, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.EvalInt, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.MagicResist, 120 }));
 
                 if (Core.AOS)
                 {

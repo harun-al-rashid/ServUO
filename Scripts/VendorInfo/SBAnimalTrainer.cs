@@ -1,3 +1,4 @@
+using Server.Items;
 using System;
 using System.Collections.Generic;
 
@@ -36,6 +37,10 @@ namespace Server.Mobiles
                 Add(new AnimalBuyInfo(1, typeof(PackHorse), 631, 10, 291, 0));
                 Add(new AnimalBuyInfo(1, typeof(PackLlama), 565, 10, 292, 0));
                 Add(new AnimalBuyInfo(1, typeof(Rabbit), 106, 10, 205, 0));
+
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.AnimalTaming, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.AnimalLore, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Veterinary, 120 }));
 
                 if (!Core.AOS)
                 {

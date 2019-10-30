@@ -43,6 +43,8 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(Arrow), 2, Utility.Random(30, 60), 0xF3F, 0, true));
                 Add(new GenericBuyInfo(typeof(Feather), 2, Utility.Random(30, 60), 0x1BD1, 0, true));
                 Add(new GenericBuyInfo(typeof(Shaft), 3, Utility.Random(30, 60), 0x1BD4, 0, true));
+
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Archery, 120 }));
             }
         }
 

@@ -34,7 +34,12 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(Drums), 21, (10), 0x0E9C, 0)); 
                 Add(new GenericBuyInfo(typeof(Tambourine), 21, (10), 0x0E9E, 0)); 
                 Add(new GenericBuyInfo(typeof(LapHarp), 21, (10), 0x0EB2, 0)); 
-                Add(new GenericBuyInfo(typeof(Lute), 21, (10), 0x0EB3, 0)); 
+                Add(new GenericBuyInfo(typeof(Lute), 21, (10), 0x0EB3, 0));
+
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Provocation, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Musicianship, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Peacemaking, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Discordance, 120 }));
             }
         }
 

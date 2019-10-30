@@ -37,6 +37,10 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(Maul), 21, 20, 0x143B, 0));
                 Add(new GenericBuyInfo(typeof(WarHammer), 25, 20, 0x1439, 0));
                 Add(new GenericBuyInfo(typeof(WarMace), 31, 20, 0x1407, 0));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Macing, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Tactics, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.ArmsLore, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Focus, 120 }));
             }
         }
 

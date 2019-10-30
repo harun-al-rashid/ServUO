@@ -37,7 +37,8 @@ namespace Server.Mobiles
 					Add( new GenericBuyInfo( typeof( PigIron ), 4, 20, 0xF8A, 0 ) );
 
 					Add( new GenericBuyInfo( typeof( NecromancerSpellbook ), 150, 10, 0x2253, 0 ) );
-				}
+                    Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Necromancy, 120 }));
+                }
 				
 				Add(new GenericBuyInfo("1041072", typeof(MagicWizardsHat), 11, 10, 0x1718, Utility.RandomDyedHue()));
                 Add(new GenericBuyInfo(typeof(ScribesPen), 8, 10, 0xFBF, 0));

@@ -34,6 +34,10 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(Pitchfork), 19, 20, 0xE87, 0));
                 Add(new GenericBuyInfo(typeof(ShortSpear), 23, 20, 0x1403, 0));
                 Add(new GenericBuyInfo(typeof(Spear), 31, 20, 0xF62, 0));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Fencing, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Tactics, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.ArmsLore, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Focus, 120 }));
             }
         }
 

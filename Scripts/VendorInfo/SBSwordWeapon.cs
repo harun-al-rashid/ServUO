@@ -39,6 +39,10 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(ThinLongsword), 27, 20, 0x13B8, 0));
                 Add(new GenericBuyInfo(typeof(VikingSword), 55, 20, 0x13B9, 0));
                 Add(new GenericBuyInfo(typeof(Scimitar), 36, 20, 0x13B6, 0));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Swords, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Tactics, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.ArmsLore, 120 }));
+                Add(new GenericBuyInfo("1155771", typeof(PowerScroll), 100000, 1, 0x14F0, 0, new object[] { SkillName.Focus, 120 }));
 
                 if (Core.AOS)
                 {
