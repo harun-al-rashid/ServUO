@@ -1407,15 +1407,21 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2740, 310, NaturalDye, 4));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157218, 0, 350, CraftsmanTalisman, 25));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2732, 375, NaturalDye, 5));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157118, 0x481, 400, PowerScroll, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157265, 0, 410, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2731, 450, NaturalDye, 6));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2735, 475, NaturalDye, 7));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157119, 0x481, 475, PowerScroll, 10));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157291, 0, 500, ImprovementTalisman, 10));
-            RewardCollection.Add(new BODCollectionItem(0x0FBF, 1157219, 0, 500, PenOfWisdom));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157120, 0x481, 550, PowerScroll, 15));
+            RewardCollection.Add(new BODCollectionItem(0x0FBF, 1157219, 0, 600, PenOfWisdom));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157121, 0x481, 650, PowerScroll, 20));
 
         }
 
         #region Constructors
+
+        private static readonly ConstructCallback PowerScroll = new ConstructCallback(CreatePowerScroll);
 
         private static Item ScribesPen(int type)
         {
@@ -1440,6 +1446,14 @@ namespace Server.Engines.BulkOrders
         private static Item ImprovementTalisman(int type)
         {
             return new GuaranteedSpellbookImprovementTalisman(type);
+        }
+
+        private static Item CreatePowerScroll(int type)
+        {
+            if (type == 5 || type == 10 || type == 15 || type == 20)
+                return new PowerScroll(SkillName.Inscribe, 100 + type);
+
+            throw new InvalidOperationException();
         }
 
         #endregion

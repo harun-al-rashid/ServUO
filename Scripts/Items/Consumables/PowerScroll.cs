@@ -9,6 +9,7 @@ namespace Server.Items
         {
             SkillName.Blacksmith,
             SkillName.Tailoring,
+            SkillName.Inscribe,
             SkillName.Swords,
             SkillName.Fencing,
             SkillName.Macing,
