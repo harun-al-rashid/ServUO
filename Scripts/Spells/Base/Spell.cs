@@ -274,7 +274,7 @@ namespace Server.Spells
                 if (focus > 12) 
                     focus = 12;
 
-                focus += m_Caster.Skills[SkillName.Inscribe].Value >= 50 ? GetInscribeFixed(m_Caster) / 200 : 0;
+                focus += m_Caster.Skills[SkillName.Inscribe].Value >= 50 ? GetInscribeFixed(m_Caster) / 170 : 0;//change last from 200
 
                 if (focus > 0 && focus > Utility.Random(100))
                 {
