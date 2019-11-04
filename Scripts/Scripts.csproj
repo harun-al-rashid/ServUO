@@ -467,6 +467,7 @@
     <Compile Include="Gumps\Guilds\RecruitTarget.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Gumps\HeritageSovereign.cs" />
     <Compile Include="Gumps\HeritageTokenGump.cs">
       <SubType>Code</SubType>
     </Compile>
