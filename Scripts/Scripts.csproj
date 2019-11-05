@@ -467,7 +467,6 @@
     <Compile Include="Gumps\Guilds\RecruitTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\HeritageSovereign.cs" />
     <Compile Include="Gumps\HeritageTokenGump.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -710,6 +709,7 @@
     <Compile Include="Mobiles\Normal\Eowmu.cs" />
     <Compile Include="Mobiles\Normal\UnicornPrincess.cs" />
     <Compile Include="Multis\ContestHouses.cs" />
+    <Compile Include="Services\BulkOrders\HeritageSovereign.cs" />
     <Compile Include="Services\DailyRares.cs" />
     <Compile Include="Services\Expansions\MondainsLegacy.cs" />
     <Compile Include="Services\GiftGiving\HolidayGiftBox2018.cs" />
