@@ -1197,6 +1197,7 @@ namespace Server.Items
 			int resHue)
 		{
 			int magery = from.Skills.Magery.BaseFixedPoint;
+            int inscription = from.Skills.Inscribe.BaseFixedPoint;
 
 			if (magery >= 800)
 			{
@@ -1206,21 +1207,24 @@ namespace Server.Items
 
 				if (magery >= 1000)
 				{
-					if (magery >= 1200)
+					if (magery >= 1200 && inscription >= 1200)
 					{
 						propertyCounts = m_LegendPropertyCounts;
-					}
-					else if (magery >= 1100)
+                        minIntensity = 80;
+                        maxIntensity = 100;
+                    }
+					else if (magery >= 1100 && inscription >= 1100)
 					{
 						propertyCounts = m_ElderPropertyCounts;
-					}
+                        minIntensity = 65;
+                        maxIntensity = 85;
+                    }
 					else
 					{
 						propertyCounts = m_GrandPropertyCounts;
-					}
-
-					minIntensity = 55;
-					maxIntensity = 75;
+                        minIntensity = 55;
+                        maxIntensity = 75;
+                    }
 				}
 				else if (magery >= 900)
 				{
