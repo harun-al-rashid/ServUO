@@ -368,7 +368,7 @@ namespace Server.Engines.BulkOrders
                 case BODType.Carpentry: points = CarpentryRewardCalculator.Instance.ComputePoints(bod); break;
             }
 
-            banked = (double)points * 0.1;
+            banked = (double)points * 0.05;
         }
 
         public static void ComputePoints(LargeBOD bod, out int points, out double banked)
@@ -389,7 +389,7 @@ namespace Server.Engines.BulkOrders
                 case BODType.Carpentry: points = CarpentryRewardCalculator.Instance.ComputePoints(bod); break;
             }
 
-            banked = (double)points * 0.5;
+            banked = (double)points * 0.4;
         }
 
         public static void AddToPending(Mobile m, BODType type, int points)
