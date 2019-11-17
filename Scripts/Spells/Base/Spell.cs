@@ -1,24 +1,24 @@
 #region References
-using System;
-using System.Collections.Generic;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
 using Server.Spells.Bushido;
-using Server.Spells.Necromancy;
 using Server.Spells.Chivalry;
-using Server.Spells.Ninjitsu;
 using Server.Spells.First;
-using Server.Spells.Second;
-using Server.Spells.Third;
 using Server.Spells.Fourth;
-using Server.Spells.Spellweaving;
-using Server.Targeting;
-using Server.Spells.SkillMasteries;
-using System.Reflection;
 using Server.Spells.Mysticism;
+using Server.Spells.Necromancy;
+using Server.Spells.Ninjitsu;
+using Server.Spells.Second;
+using Server.Spells.SkillMasteries;
+using Server.Spells.Spellweaving;
+using Server.Spells.Third;
+using Server.Targeting;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 #endregion
 
 namespace Server.Spells
@@ -222,7 +222,20 @@ namespace Server.Spells
             int damage = Utility.Dice(dice, sides, bonus) * 100;
 
             int inscribeSkill = GetInscribeFixed(m_Caster);
-            int scribeBonus = inscribeSkill >= 1000 ? 10 : inscribeSkill / 200;
+            int scribeBonus = 0;
+
+            if (inscribeSkill == 1200)
+            {
+                scribeBonus = 15;
+            }
+            else if (inscribeSkill >= 1000)
+            {
+                scribeBonus = inscribeSkill / 100;//inscribeSkill >= 1000 ? 10 : inscribeSkill / 200;
+            }
+            else
+            {
+                scribeBonus = inscribeSkill / 200;
+            }
 
             int damageBonus = scribeBonus +
                               (Caster.Int / 10) +
