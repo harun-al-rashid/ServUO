@@ -26,13 +26,13 @@ namespace Server.Items
 			this.Weight = 1;
 
             this.Attributes.BonusInt = 1;
-            this.Attributes.LowerRegCost = 10;
+            //this.Attributes.LowerRegCost = 10;
 
             this.SetAttributes.BonusInt = 6;
             this.SetAttributes.RegenMana = 2;
             this.SetAttributes.DefendChance = 10;
             this.SetAttributes.LowerManaCost = 5;
-            this.SetAttributes.LowerRegCost = 40;
+            //this.SetAttributes.LowerRegCost = 40;
 
             this.SetHue = 1165;
 

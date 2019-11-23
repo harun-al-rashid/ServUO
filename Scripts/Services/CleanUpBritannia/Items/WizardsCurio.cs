@@ -14,7 +14,7 @@ namespace Server.Items
             this.Hue = 1912;
             this.SkillBonuses.SetValues(0, SkillName.EvalInt, 10.0);
             this.Attributes.RegenMana = 1;
-            this.Attributes.LowerRegCost = 10;
+            //this.Attributes.LowerRegCost = 10;
             this.Attributes.SpellDamage = 5;
         }
 

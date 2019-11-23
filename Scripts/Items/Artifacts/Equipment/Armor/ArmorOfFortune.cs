@@ -11,7 +11,7 @@ namespace Server.Items
             Hue = 0x501;
             Attributes.Luck = 200;
             Attributes.DefendChance = 15;
-            Attributes.LowerRegCost = 40;
+            //Attributes.LowerRegCost = 40;
             ArmorAttributes.MageArmor = 1;
         }
 

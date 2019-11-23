@@ -26,7 +26,7 @@ namespace Server.Items
             Attributes.BonusMana = 8;
             Attributes.RegenMana = 2;
             Attributes.SpellDamage = 8;
-            Attributes.LowerRegCost = 15;
+            //Attributes.LowerRegCost = 15;
         }
 
         public KelpWovenLeggings(Serial serial)

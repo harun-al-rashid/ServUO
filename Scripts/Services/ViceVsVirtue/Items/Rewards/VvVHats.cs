@@ -23,7 +23,7 @@ namespace Server.Engines.VvV
             Attributes.RegenMana = 3;
             Attributes.DefendChance = 4;
             Attributes.SpellDamage = 10;
-            Attributes.LowerRegCost = 20;
+            //Attributes.LowerRegCost = 20;
         }
 
         public VvVWizardsHat(Serial serial)
@@ -64,7 +64,7 @@ namespace Server.Engines.VvV
             Attributes.RegenMana = 3;
             Attributes.DefendChance = 4;
             Attributes.SpellDamage = 10;
-            Attributes.LowerRegCost = 20;
+            //Attributes.LowerRegCost = 20;
         }
 
         public VvVGargishEarrings(Serial serial)
