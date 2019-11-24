@@ -20,7 +20,7 @@ namespace Server.Items
             Resource = CraftResource.None;
 
 			Hue = 1778;
-			ArmorAttributes.MageArmor = 1;
+			//ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -90,7 +90,7 @@ namespace Server.Items
 		public GorgetOfVillainousEpiphany()
 		{
 			Hue = 1778;
-			ArmorAttributes.MageArmor = 1;
+			//ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -162,7 +162,7 @@ namespace Server.Items
             Resource = CraftResource.None;
 
 			Hue = 1778;
-			ArmorAttributes.MageArmor = 1;
+			//ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -234,7 +234,7 @@ namespace Server.Items
             Resource = CraftResource.None;
 
 			Hue = 1778;
-			ArmorAttributes.MageArmor = 1;
+			//ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -306,7 +306,7 @@ namespace Server.Items
             Resource = CraftResource.None;
 
 			Hue = 1778;
-			ArmorAttributes.MageArmor = 1;
+			//ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -378,7 +378,7 @@ namespace Server.Items
             Resource = CraftResource.None;
 
 			Hue = 1778;
-			ArmorAttributes.MageArmor = 1;
+			//ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -448,7 +448,7 @@ namespace Server.Items
 		public KiltOfVillainousEpiphany()
 		{
 			Hue = 1778;
-			ArmorAttributes.MageArmor = 1;
+			//ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -518,7 +518,7 @@ namespace Server.Items
 		public EarringsOfVillainousEpiphany()
 		{
 			Hue = 1778;
-			ArmorAttributes.MageArmor = 1;
+			//ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -588,7 +588,7 @@ namespace Server.Items
 		public GargishBreastplateOfVillainousEpiphany()
 		{
 			Hue = 1778;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -658,7 +658,7 @@ namespace Server.Items
 		public GargishArmsOfVillainousEpiphany()
 		{
 			Hue = 1778;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -728,7 +728,7 @@ namespace Server.Items
 		public NecklaceOfVillainousEpiphany()
 		{
 			Hue = 1778;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)
@@ -798,7 +798,7 @@ namespace Server.Items
 		public GargishLegsOfVillainousEpiphany()
 		{
 			Hue = 1778;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
 		}
 
         public override void AddWeightProperty(ObjectPropertyList list)

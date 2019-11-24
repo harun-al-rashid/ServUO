@@ -11,7 +11,7 @@ namespace Server.Items
             Hue = 0x26d;
             Attributes.BonusHits = 10;
             Attributes.AttackChance = 10;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public GladiatorsCollar(Serial serial)

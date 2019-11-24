@@ -11,7 +11,7 @@ namespace Server.Items
         {
             this.SetHue = 0x278;
 			
-            this.ArmorAttributes.MageArmor = 1;
+            //this.ArmorAttributes.MageArmor = 1;
             this.Attributes.BonusHits = 5;
             this.Attributes.NightSight = 1;
 			

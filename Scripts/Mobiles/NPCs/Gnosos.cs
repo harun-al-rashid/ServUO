@@ -82,7 +82,7 @@ namespace Server.Engines.Quests
 
     public class Gnosos : MondainQuester
     {
-        public override bool ConvertsMageArmor { get { return true; } }
+        //public override bool ConvertsMageArmor { get { return true; } }
 
         [Constructable]
         public Gnosos()

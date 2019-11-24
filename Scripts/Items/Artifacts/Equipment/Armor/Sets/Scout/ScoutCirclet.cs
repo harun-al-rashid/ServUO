@@ -26,7 +26,7 @@ namespace Server.Items
             this.Weight = 2;
 
             this.Attributes.BonusDex = 1;
-            this.ArmorAttributes.MageArmor = 1;
+            //this.ArmorAttributes.MageArmor = 1;
 
             this.SetAttributes.BonusDex = 6;
             this.SetAttributes.RegenHits = 2;

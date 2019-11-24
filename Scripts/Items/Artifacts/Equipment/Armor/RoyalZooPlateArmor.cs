@@ -12,7 +12,7 @@ namespace Server.Items
             Hue = 0x109;	
             Attributes.Luck = 100;
             Attributes.DefendChance = 10;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public RoyalZooPlateLegs(Serial serial)
@@ -101,7 +101,7 @@ namespace Server.Items
             Hue = 0x109;
             Attributes.Luck = 100;
             Attributes.DefendChance = 10;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public RoyalZooPlateGloves(Serial serial)
@@ -190,7 +190,7 @@ namespace Server.Items
             Hue = 0x109;	
             Attributes.Luck = 100;
             Attributes.DefendChance = 10;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public RoyalZooPlateGorget(Serial serial)
@@ -279,7 +279,7 @@ namespace Server.Items
             Hue = 0x109;	
             Attributes.Luck = 100;
             Attributes.DefendChance = 10;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public RoyalZooPlateArms(Serial serial)
@@ -368,7 +368,7 @@ namespace Server.Items
             Hue = 0x109;	
             Attributes.Luck = 100;
             Attributes.DefendChance = 10;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public RoyalZooPlateChest(Serial serial)
@@ -457,7 +457,7 @@ namespace Server.Items
             Hue = 0x109;	
             Attributes.Luck = 100;
             Attributes.DefendChance = 10;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public RoyalZooPlateFemaleChest(Serial serial)
@@ -546,7 +546,7 @@ namespace Server.Items
             Hue = 0x109;		
             Attributes.Luck = 100;
             Attributes.DefendChance = 10;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public RoyalZooPlateHelm(Serial serial)

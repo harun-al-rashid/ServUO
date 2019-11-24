@@ -12,7 +12,7 @@ namespace Server.Items
             Attributes.Luck = 200;
             Attributes.DefendChance = 15;
             //Attributes.LowerRegCost = 40;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public ArmorOfFortune(Serial serial)

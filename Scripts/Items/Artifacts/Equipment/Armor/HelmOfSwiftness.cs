@@ -24,7 +24,7 @@ namespace Server.Items
             Attributes.BonusInt = 5;
             Attributes.CastSpeed = 1;
             Attributes.CastRecovery = 2;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public HelmOfSwiftness(Serial serial)

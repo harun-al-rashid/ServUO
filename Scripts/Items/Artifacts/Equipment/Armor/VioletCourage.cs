@@ -12,7 +12,7 @@ namespace Server.Items
             Attributes.Luck = 95;
             Attributes.DefendChance = 15;
             ArmorAttributes.LowerStatReq = 100;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
         }
 
         public VioletCourage(Serial serial)

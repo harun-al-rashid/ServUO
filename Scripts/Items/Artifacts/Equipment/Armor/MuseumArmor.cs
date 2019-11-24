@@ -100,7 +100,7 @@ namespace Server.Items
             Hue = 0x84E;	
             Attributes.RegenHits = 3;
             Attributes.NightSight = 1;
-            ArmorAttributes.MageArmor = 1;			
+            //ArmorAttributes.MageArmor = 1;			
         }
 
         public KeeoneansChainMail(Serial serial)

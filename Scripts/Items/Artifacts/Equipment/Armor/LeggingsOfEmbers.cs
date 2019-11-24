@@ -11,7 +11,7 @@ namespace Server.Items
             Hue = 0x2C;
             LootType = LootType.Blessed;
             ArmorAttributes.SelfRepair = 10;
-            ArmorAttributes.MageArmor = 1;
+            //ArmorAttributes.MageArmor = 1;
             ArmorAttributes.LowerStatReq = 100;
         }
 
