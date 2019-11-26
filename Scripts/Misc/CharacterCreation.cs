@@ -64,7 +64,7 @@ namespace Server.Misc
 			PackItem(new RedBook("a book", m.Name, 20, true));
 			PackItem(new Gold(1000)); // Starting gold can be customized here
 			PackItem(new Candle());
-            PackItem(new MythicCharacterToken());
+            //PackItem(new MythicCharacterToken());
 
 			if (m.Race != Race.Gargoyle)
 				PackItem(new Dagger());
@@ -1166,6 +1166,7 @@ namespace Server.Misc
 					PackScroll(2);
 
 					var book = new Spellbook((ulong)0x382A8C38);
+                        //var book = new HallowedSpellbook();
 					book.LootType = LootType.Blessed;
 					EquipItem(book);
 
