@@ -360,7 +360,7 @@ namespace Server.Items
             if (Core.ML)
             {
                 spined.RunicMinIntensity = 40;
-                spined.RunicMaxIntensity = 100;
+                spined.RunicMaxIntensity = 70;
             }
             else
             {
@@ -379,8 +379,8 @@ namespace Server.Items
             horned.RunicMaxAttributes = 4;
             if (Core.ML)
             {
-                horned.RunicMinIntensity = 45;
-                horned.RunicMaxIntensity = 100;
+                horned.RunicMinIntensity = 60;
+                horned.RunicMaxIntensity = 80;
             }
             else
             {
@@ -399,7 +399,7 @@ namespace Server.Items
             barbed.RunicMaxAttributes = 5;
             if (Core.ML)
             {
-                barbed.RunicMinIntensity = 50;
+                barbed.RunicMinIntensity = 80;
                 barbed.RunicMaxIntensity = 100;
             }
             else
