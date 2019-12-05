@@ -6210,7 +6210,8 @@ namespace Server.Items
 
 				if (Core.ML && Quality == ItemQuality.Exceptional)
 				{
-                    double div = Siege.SiegeShard ? 12.5 : 10;//second number used to be 20...
+                    //double div = Siege.SiegeShard ? 12.5 : 20;
+                    double div = 12.5;
 
 					Attributes.WeaponDamage += (int)(from.Skills.ArmsLore.Value / div);
 					from.CheckSkill(SkillName.ArmsLore, 0, 100);
