@@ -350,7 +350,7 @@ namespace Server.Items
                 new PDMEntry(new Point3D(1179, 2650, 0), 1078300), //Destard
                 new PDMEntry(new Point3D(4732, 3831, 0), 1075705), //Hythloth
                 new PDMEntry(new Point3D(495, 1581, 0), 1075707), //Shame
-                new PDMEntry(new Point3D(1325, 1092, 0), 1075707) //Despise
+                new PDMEntry(new Point3D(1325, 1092, 0), 1075704) //Despise
             });
 /*
 
