@@ -289,6 +289,7 @@ namespace Server.Items
             agapite.ArmorColdResist = 2;
             agapite.ArmorPoisonResist = 2;
             agapite.ArmorEnergyResist = 2;
+            agapite.ArmorDurability = 20;
             agapite.WeaponColdDamage = 30;
             agapite.WeaponEnergyDamage = 20;
             agapite.RunicMinAttributes = 4;
@@ -311,6 +312,8 @@ namespace Server.Items
             verite.ArmorColdResist = 3;
             verite.ArmorPoisonResist = 4;
             verite.ArmorEnergyResist = 1;
+            verite.ArmorDurability = 20;
+            verite.ArmorLowerRequirements = 10;
             verite.WeaponPoisonDamage = 40;
             verite.WeaponEnergyDamage = 20;
             verite.RunicMinAttributes = 4;
@@ -329,10 +332,12 @@ namespace Server.Items
             CraftAttributeInfo valorite = Valorite = new CraftAttributeInfo();
 
             valorite.ArmorPhysicalResist = 5;
+            valorite.ArmorFireResist = 1;
             valorite.ArmorColdResist = 4;
             valorite.ArmorPoisonResist = 4;
             valorite.ArmorEnergyResist = 4;
             valorite.ArmorDurability = 50;
+            valorite.ArmorLowerRequirements = 25;
             valorite.WeaponFireDamage = 10;
             valorite.WeaponColdDamage = 40;
             valorite.WeaponPoisonDamage = 10;
