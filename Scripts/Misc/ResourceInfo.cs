@@ -77,6 +77,12 @@ namespace Server.Items
         private int m_ArmorHitChance;
         private int m_ArmorRegenHits;
         private int m_ArmorMage;
+        private int m_ArmorEaterFire;
+        private int m_ArmorEaterCold;
+        private int m_ArmorEaterPoison;
+        private int m_ArmorEaterKinetic;
+        private int m_ArmorEaterDamage;
+        private int m_ArmorEaterEnergy;
 
         private int m_ShieldPhysicalResist;
         private int m_ShieldFireResist;
@@ -133,6 +139,12 @@ namespace Server.Items
         public int ArmorHitChance { get { return m_ArmorHitChance; } set { m_ArmorHitChance = value; } }
         public int ArmorRegenHits { get { return m_ArmorRegenHits; } set { m_ArmorRegenHits = value; } }
         public int ArmorMage { get { return m_ArmorMage; } set { m_ArmorMage = value; } }
+        public int ArmorEaterFire { get { return m_ArmorEaterFire; } set { m_ArmorEaterFire = value; } }
+        public int ArmorEaterCold { get { return m_ArmorEaterCold; } set { m_ArmorEaterCold = value; } }
+        public int ArmorEaterPoison { get { return m_ArmorEaterPoison; } set { m_ArmorEaterPoison = value; } }
+        public int ArmorEaterKinetic { get { return m_ArmorEaterKinetic; } set { m_ArmorEaterKinetic = value; } }
+        public int ArmorEaterDamage { get { return m_ArmorEaterDamage; } set { m_ArmorEaterDamage = value; } }
+        public int ArmorEaterEnergy { get { return m_ArmorEaterEnergy; } set { m_ArmorEaterEnergy = value; } }
 
         public int ShieldPhysicalResist { get { return m_ShieldPhysicalResist; } set { m_ShieldPhysicalResist = value; } }
         public int ShieldFireResist { get { return m_ShieldFireResist; } set { m_ShieldFireResist = value; } }
@@ -416,50 +428,55 @@ namespace Server.Items
             CraftAttributeInfo red = RedScales = new CraftAttributeInfo();
             red.ArmorPhysicalResist = 1;
             red.ArmorFireResist = 11;
-            red.ArmorColdResist = -3;
+            red.ArmorColdResist = -10;
             red.ArmorPoisonResist = 1;
             red.ArmorEnergyResist = 1;
+            red.ArmorEaterFire = 4;
 
             CraftAttributeInfo yellow = YellowScales = new CraftAttributeInfo();
 
-            yellow.ArmorPhysicalResist = -3;
+            yellow.ArmorPhysicalResist = -5;
             yellow.ArmorFireResist = 1;
             yellow.ArmorColdResist = 1;
             yellow.ArmorPoisonResist = 1;
-            yellow.ArmorPoisonResist = 1;
-            yellow.ArmorLuck = 20;
+            yellow.ArmorEnergyResist = 1;
+            yellow.ArmorLuck = 70;
 
             CraftAttributeInfo black = BlackScales = new CraftAttributeInfo();
 
             black.ArmorPhysicalResist = 11;
-            black.ArmorEnergyResist = -3;
+            black.ArmorEnergyResist = -9;
             black.ArmorFireResist = 1;
             black.ArmorPoisonResist = 1;
             black.ArmorColdResist = 1;
+            black.ArmorEaterKinetic = 4;
 
             CraftAttributeInfo green = GreenScales = new CraftAttributeInfo();
 
-            green.ArmorFireResist = -3;
+            green.ArmorFireResist = -7;
             green.ArmorPhysicalResist = 1;
             green.ArmorColdResist = 1;
-            green.ArmorEnergyResist = 1;
+            green.ArmorEnergyResist = -2;
             green.ArmorPoisonResist = 11;
+            green.ArmorEaterPoison = 4;
 
             CraftAttributeInfo white = WhiteScales = new CraftAttributeInfo();
 
-            white.ArmorPhysicalResist = -3;
-            white.ArmorFireResist = 1;
+            white.ArmorPhysicalResist = 1;
+            white.ArmorFireResist = -10;
             white.ArmorEnergyResist = 1;
             white.ArmorPoisonResist = 1;
             white.ArmorColdResist = 11;
+            white.ArmorEaterCold = 4;
 
             CraftAttributeInfo blue = BlueScales = new CraftAttributeInfo();
 
-            blue.ArmorPhysicalResist = 1;
+            blue.ArmorPhysicalResist = -7;
             blue.ArmorFireResist = 1;
             blue.ArmorColdResist = 1;
             blue.ArmorPoisonResist = -3;
             blue.ArmorEnergyResist = 11;
+            blue.ArmorEaterEnergy = 4;
 
             #region Mondain's Legacy
             CraftAttributeInfo oak = OakWood = new CraftAttributeInfo();

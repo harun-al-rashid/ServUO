@@ -3200,6 +3200,15 @@ namespace Server.Items
                 m_AosAttributes.WeaponDamage += attrInfo.ArmorDamage;
                 m_AosAttributes.AttackChance += attrInfo.ArmorHitChance;
                 m_AosAttributes.RegenHits += attrInfo.ArmorRegenHits;
+                m_SAAbsorptionAttributes.EaterCold += attrInfo.ArmorEaterCold;
+                m_SAAbsorptionAttributes.EaterDamage += attrInfo.ArmorEaterDamage;
+                m_SAAbsorptionAttributes.EaterFire += attrInfo.ArmorEaterFire;
+                m_SAAbsorptionAttributes.EaterKinetic += attrInfo.ArmorEaterKinetic;
+                m_SAAbsorptionAttributes.EaterPoison += attrInfo.ArmorEaterPoison;
+                m_SAAbsorptionAttributes.EaterEnergy += attrInfo.ArmorEaterEnergy;
+                m_AosArmorAttributes.LowerStatReq += attrInfo.ArmorLowerRequirements;
+                m_AosArmorAttributes.DurabilityBonus += attrInfo.ArmorDurability;
+                // m_AosAttributes.
                 //m_AosArmorAttributes.MageArmor += attrInfo.ArmorMage;
             }
             else
@@ -3229,13 +3238,13 @@ namespace Server.Items
         {
             Type t = armor.GetType();
 
-            foreach (Type type in _MageArmorTypes)
-            {
-                if (type == t || t.IsSubclassOf(type))
-                {
-                    return true;
-                }
-            }
+            //foreach (Type type in _MageArmorTypes)
+            //{
+            //    if (type == t || t.IsSubclassOf(type))
+            //    {
+            //       return true;
+            //    }
+            //} no mage armour in OldSchool
 
             return false;
         }
