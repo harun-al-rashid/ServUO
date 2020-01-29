@@ -3182,9 +3182,9 @@ namespace Server.Items
             // add new bonus
             m_PhysicalBonus += info.ArmorPhysicalResist;
             m_FireBonus += info.ArmorFireResist;
-            World.Broadcast(0, false, "m_ColdBonus = " + m_ColdBonus);
+            //World.Broadcast(0, false, "m_ColdBonus = " + m_ColdBonus);
             m_ColdBonus += info.ArmorColdResist;
-            World.Broadcast(0, false, "m_ColdBonus = " + m_ColdBonus + " ArmorColdResist = " + info.ArmorColdResist);//m_ColdBonus = -11;
+            //World.Broadcast(0, false, "m_ColdBonus = " + m_ColdBonus + " ArmorColdResist = " + info.ArmorColdResist);//m_ColdBonus = -11;
             m_PoisonBonus += info.ArmorPoisonResist;
             m_EnergyBonus += info.ArmorEnergyResist;
 
