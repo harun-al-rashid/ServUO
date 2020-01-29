@@ -3163,18 +3163,18 @@ namespace Server.Items
             {
                 info = GetResourceAttrs(oldResource);
 
-                // Remove old bonus
-                m_PhysicalBonus = Math.Max(0, m_PhysicalBonus - info.ArmorPhysicalResist);
-                m_FireBonus = Math.Max(0, m_FireBonus - info.ArmorFireResist);
-                m_ColdBonus = Math.Max(0, m_ColdBonus - info.ArmorColdResist);
-                m_PoisonBonus = Math.Max(0, m_PoisonBonus - info.ArmorPoisonResist);
-                m_EnergyBonus = Math.Max(0, m_EnergyBonus - info.ArmorEnergyResist);
+                 //Remove old bonus
+                m_PhysicalBonus = Math.Max(0, m_PhysicalBonus - Math.Abs(info.ArmorPhysicalResist));
+                m_FireBonus = Math.Max(0, m_FireBonus - Math.Abs(info.ArmorFireResist));
+                m_ColdBonus = Math.Max(0, m_ColdBonus - Math.Abs(info.ArmorColdResist));
+                m_PoisonBonus = Math.Max(0, m_PoisonBonus - Math.Abs(info.ArmorPoisonResist));
+                m_EnergyBonus = Math.Max(0, m_EnergyBonus - Math.Abs(info.ArmorEnergyResist));
 
-                m_PhysNonImbuing = Math.Max(0, PhysNonImbuing - info.ArmorPhysicalResist);
-                m_FireNonImbuing = Math.Max(0, m_FireNonImbuing - info.ArmorFireResist);
-                m_ColdNonImbuing = Math.Max(0, m_ColdNonImbuing - info.ArmorColdResist);
-                m_PoisonNonImbuing = Math.Max(0, m_PoisonNonImbuing - info.ArmorPoisonResist);
-                m_EnergyNonImbuing = Math.Max(0, m_EnergyNonImbuing - info.ArmorEnergyResist);
+                m_PhysNonImbuing = Math.Max(0, PhysNonImbuing - Math.Abs(info.ArmorPhysicalResist));
+                m_FireNonImbuing = Math.Max(0, m_FireNonImbuing - Math.Abs(info.ArmorFireResist));
+                m_ColdNonImbuing = Math.Max(0, m_ColdNonImbuing - Math.Abs(info.ArmorColdResist));
+                m_PoisonNonImbuing = Math.Max(0, m_PoisonNonImbuing - Math.Abs(info.ArmorPoisonResist));
+                m_EnergyNonImbuing = Math.Max(0, m_EnergyNonImbuing - Math.Abs(info.ArmorEnergyResist));
             }
 
             info = GetResourceAttrs(m_Resource);
@@ -3182,7 +3182,9 @@ namespace Server.Items
             // add new bonus
             m_PhysicalBonus += info.ArmorPhysicalResist;
             m_FireBonus += info.ArmorFireResist;
+            World.Broadcast(0, false, "m_ColdBonus = " + m_ColdBonus);
             m_ColdBonus += info.ArmorColdResist;
+            World.Broadcast(0, false, "m_ColdBonus = " + m_ColdBonus + " ArmorColdResist = " + info.ArmorColdResist);//m_ColdBonus = -11;
             m_PoisonBonus += info.ArmorPoisonResist;
             m_EnergyBonus += info.ArmorEnergyResist;
 
@@ -3206,7 +3208,7 @@ namespace Server.Items
                 m_SAAbsorptionAttributes.EaterKinetic += attrInfo.ArmorEaterKinetic;
                 m_SAAbsorptionAttributes.EaterPoison += attrInfo.ArmorEaterPoison;
                 m_SAAbsorptionAttributes.EaterEnergy += attrInfo.ArmorEaterEnergy;
-                m_AosArmorAttributes.LowerStatReq += attrInfo.ArmorLowerRequirements;
+                //m_AosArmorAttributes.LowerStatReq += attrInfo.ArmorLowerRequirements;
                 m_AosArmorAttributes.DurabilityBonus += attrInfo.ArmorDurability;
                 // m_AosAttributes.
                 //m_AosArmorAttributes.MageArmor += attrInfo.ArmorMage;

@@ -277,9 +277,9 @@ namespace Server.Items
             golden.ArmorFireResist = 2;
             golden.ArmorColdResist = 2;
             golden.ArmorEnergyResist = 3;
-            golden.ArmorLuck = 40;
+            golden.ArmorLuck = 50;
             golden.ArmorLowerRequirements = 30;
-            golden.WeaponLuck = 40;
+            golden.WeaponLuck = 50;
             golden.WeaponLowerRequirements = 50;
             golden.RunicMinAttributes = 3;
             golden.RunicMaxAttributes = 4;
@@ -324,7 +324,7 @@ namespace Server.Items
             verite.ArmorColdResist = 3;
             verite.ArmorPoisonResist = 4;
             verite.ArmorEnergyResist = 1;
-            verite.ArmorDurability = 20;
+            verite.ArmorDurability = 25;
             verite.ArmorLowerRequirements = 10;
             verite.WeaponPoisonDamage = 40;
             verite.WeaponEnergyDamage = 20;
@@ -428,55 +428,55 @@ namespace Server.Items
             CraftAttributeInfo red = RedScales = new CraftAttributeInfo();
             red.ArmorPhysicalResist = 1;
             red.ArmorFireResist = 11;
-            red.ArmorColdResist = -10;
+            red.ArmorColdResist = -6;
             red.ArmorPoisonResist = 1;
             red.ArmorEnergyResist = 1;
-            red.ArmorEaterFire = 4;
+            red.ArmorEaterFire = 5;
 
             CraftAttributeInfo yellow = YellowScales = new CraftAttributeInfo();
 
-            yellow.ArmorPhysicalResist = -5;
+            yellow.ArmorPhysicalResist = 0;
             yellow.ArmorFireResist = 1;
             yellow.ArmorColdResist = 1;
             yellow.ArmorPoisonResist = 1;
             yellow.ArmorEnergyResist = 1;
-            yellow.ArmorLuck = 70;
+            yellow.ArmorLuck = 100;
 
             CraftAttributeInfo black = BlackScales = new CraftAttributeInfo();
 
             black.ArmorPhysicalResist = 11;
-            black.ArmorEnergyResist = -9;
+            black.ArmorEnergyResist = -6;
             black.ArmorFireResist = 1;
             black.ArmorPoisonResist = 1;
             black.ArmorColdResist = 1;
-            black.ArmorEaterKinetic = 4;
+            black.ArmorEaterKinetic = 5;
 
             CraftAttributeInfo green = GreenScales = new CraftAttributeInfo();
 
-            green.ArmorFireResist = -7;
+            green.ArmorFireResist = -3;
             green.ArmorPhysicalResist = 1;
             green.ArmorColdResist = 1;
-            green.ArmorEnergyResist = -2;
+            green.ArmorEnergyResist = -3;
             green.ArmorPoisonResist = 11;
-            green.ArmorEaterPoison = 4;
+            green.ArmorEaterPoison = 5;
 
             CraftAttributeInfo white = WhiteScales = new CraftAttributeInfo();
 
             white.ArmorPhysicalResist = 1;
-            white.ArmorFireResist = -10;
+            white.ArmorFireResist = -6;
             white.ArmorEnergyResist = 1;
             white.ArmorPoisonResist = 1;
             white.ArmorColdResist = 11;
-            white.ArmorEaterCold = 4;
+            white.ArmorEaterCold = 5;
 
             CraftAttributeInfo blue = BlueScales = new CraftAttributeInfo();
 
-            blue.ArmorPhysicalResist = -7;
+            blue.ArmorPhysicalResist = -3;
             blue.ArmorFireResist = 1;
             blue.ArmorColdResist = 1;
             blue.ArmorPoisonResist = -3;
             blue.ArmorEnergyResist = 11;
-            blue.ArmorEaterEnergy = 4;
+            blue.ArmorEaterEnergy = 5;
 
             #region Mondain's Legacy
             CraftAttributeInfo oak = OakWood = new CraftAttributeInfo();
