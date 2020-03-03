@@ -84,7 +84,7 @@ namespace Server.Multis
 
         #endregion
 
-        public const bool DecayEnabled = false;
+        public const bool DecayEnabled = true;
 
         public static void Decay_OnTick()
         {
@@ -178,7 +178,7 @@ namespace Server.Multis
                 if (this == newest)
                     return DecayType.AutoRefresh;
 
-                return DecayType.ManualRefresh;
+                return DecayType.Condemned;
             }
         }
 
