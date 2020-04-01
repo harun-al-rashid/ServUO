@@ -37,10 +37,10 @@ namespace Server.Items
 
 			var count = 0;
 
-			//if (!Siege.SiegeShard)
-			//{
-			//	count += MoonGen(PMList.Trammel);
-			//}
+			if (!Siege.SiegeShard)
+			{
+				count += MoonGen(PMList.Trammel);
+			}
 
 			count += MoonGen(PMList.Felucca);
 			count += MoonGen(PMList.Ilshenar);
@@ -404,10 +404,10 @@ namespace Server.Items
 		public static readonly PMList[] AOSListsYoung = {Felucca};
 		public static readonly PMList[] SELists = {Felucca};
 		public static readonly PMList[] SEListsYoung = {Felucca};
-		public static readonly PMList[] SALists = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
-        public static readonly PMList[] SAListsYoung = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
-		public static readonly PMList[] RedLists = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
-		public static readonly PMList[] SigilLists = {Felucca, Ilshenar, Malas, Tokuno, TerMur};
+		public static readonly PMList[] SALists = {Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur};
+        public static readonly PMList[] SAListsYoung = {Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur};
+		public static readonly PMList[] RedLists = {Trammel, Ilshenar, Malas, Tokuno, TerMur};
+		public static readonly PMList[] SigilLists = {Trammel, Ilshenar, Malas, Tokuno, TerMur};
 
 		public static readonly PMList[] AllLists = {Felucca};
 

@@ -58,7 +58,7 @@ namespace Server.Misc
 
         private static readonly CityInfo[] StartingCitiesSA = new CityInfo[]
         {
-            //new CityInfo("New Haven",	"New Haven Bank",	1150168, 3503,	2574,	14),
+            new CityInfo("New Haven",	"New Haven Bank",	1150168, 3503,	2574,	14)
             //new CityInfo("Yew", "The Empath Abbey",	1075072, 633,	858,	0),
             //new CityInfo("Minoc", "The Barnacle", 1075073, 2476,	413,	15),
             //new CityInfo("Britain",	"The Wayfarer's Inn",	1075074, 1602,	1591,	20),
@@ -68,7 +68,7 @@ namespace Server.Misc
             //new CityInfo("Skara Brae",	"The Falconer's Inn",	1075079, 618,	2234,	0),
             //new CityInfo("Vesper", "The Ironwood Inn",	1075080, 2771,	976,	0),
             //new CityInfo("Royal City", "Royal City Inn", 1150169, 738, 3486, -19, Map.TerMur)
-            new CityInfo("Britain", "Sweet Dreams Inn",   1075074, 1495,  1628,   10, Map.Felucca)
+            //new CityInfo("Britain", "Sweet Dreams Inn",   1075074, 1495,  1628,   10, Map.Felucca)
             
         };
 

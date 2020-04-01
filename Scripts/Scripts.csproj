@@ -281,6 +281,50 @@
     <Compile Include="Context Menus\TeachEntry.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Custom\FullSpellBooks\FullSpellbooks.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\Gump.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\Load.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\Main.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\NewRunePrompt.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\NewRuneTarget.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\Persistence.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\Rune.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\RuneAccount.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\RuneGate.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\Save.cs" />
+    <Compile Include="Custom\StaffRunebook\StaffRunebook\Utilities.cs" />
+    <Compile Include="Custom\TameCommand\TameCommand.cs" />
+    <Compile Include="Custom\Toolbar\Toolbar\Core\ToolbarCore.cs" />
+    <Compile Include="Custom\Toolbar\Toolbar\Core\ToolbarInfo.cs" />
+    <Compile Include="Custom\Toolbar\Toolbar\Core\ToolbarModule.cs" />
+    <Compile Include="Custom\Toolbar\Toolbar\Gumps\GumpIDs.cs" />
+    <Compile Include="Custom\Toolbar\Toolbar\Gumps\Toolbar.cs" />
+    <Compile Include="Custom\Toolbar\Toolbar\Gumps\ToolbarEdit.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\Error Reporting\Errors.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\Error Reporting\ErrorsGump.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\Error Reporting\ErrorsNotifyGump.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\Gumps Plus Light\BackgroundPlus.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\Gumps Plus Light\ButtonPlus.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\Gumps Plus Light\GumpPlusLight.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\Gumps Plus Light\HTML.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\Gumps Plus Light\HtmlPlus.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\Gumps Plus Light\InfoGump.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\TownHouse Gumps\ContractConfirmGump.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\TownHouse Gumps\ContractSetupGump.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\TownHouse Gumps\TownHouseConfirmGump.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\TownHouse Gumps\TownHouseSetupGump.cs" />
+    <Compile Include="Custom\TownHouses\Gumps\TownHouse Gumps\TownHousesGump.cs" />
+    <Compile Include="Custom\TownHouses\Items\RentalContract.cs" />
+    <Compile Include="Custom\TownHouses\Items\RentalContractCopy.cs" />
+    <Compile Include="Custom\TownHouses\Items\RentalLicense.cs" />
+    <Compile Include="Custom\TownHouses\Items\SignHammer.cs" />
+    <Compile Include="Custom\TownHouses\Items\TownHouse.cs" />
+    <Compile Include="Custom\TownHouses\Items\TownHouseSign.cs" />
+    <Compile Include="Custom\TownHouses\Misc\CommandInfo.cs" />
+    <Compile Include="Custom\TownHouses\Misc\DecoreItemInfo.cs" />
+    <Compile Include="Custom\TownHouses\Misc\General.cs" />
+    <Compile Include="Custom\TownHouses\Misc\GumpResponse.cs" />
+    <Compile Include="Custom\TownHouses\RUOVersion.cs" />
     <Compile Include="Deprecated\AlchemyStone.cs" />
     <Compile Include="Deprecated\GamblingStone.cs" />
     <Compile Include="Deprecated\GMStone.cs" />
@@ -12053,6 +12097,9 @@
       <Project>{e08cfbe4-e013-44ee-8829-426d05bc083f}</Project>
       <Name>Ultima</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Custom\TownHouses\Read.doc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
