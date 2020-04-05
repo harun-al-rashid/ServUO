@@ -42,7 +42,7 @@ namespace Server.Items
 				count += MoonGen(PMList.Trammel);
 			}
 
-			count += MoonGen(PMList.Felucca);
+			//count += MoonGen(PMList.Felucca);
 			count += MoonGen(PMList.Ilshenar);
 			count += MoonGen(PMList.Malas);
 			count += MoonGen(PMList.Tokuno);
@@ -404,7 +404,7 @@ namespace Server.Items
 		public static readonly PMList[] AOSListsYoung = {Felucca};
 		public static readonly PMList[] SELists = {Felucca};
 		public static readonly PMList[] SEListsYoung = {Felucca};
-		public static readonly PMList[] SALists = {Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur};
+		public static readonly PMList[] SALists = {Trammel, Ilshenar, Malas, Tokuno, TerMur};
         public static readonly PMList[] SAListsYoung = {Trammel, Felucca, Ilshenar, Malas, Tokuno, TerMur};
 		public static readonly PMList[] RedLists = {Trammel, Ilshenar, Malas, Tokuno, TerMur};
 		public static readonly PMList[] SigilLists = {Trammel, Ilshenar, Malas, Tokuno, TerMur};

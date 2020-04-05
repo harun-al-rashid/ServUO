@@ -340,7 +340,7 @@ namespace Server.Items
         public static readonly PDMList Dungeons = new PDMList(
             1078373,
             1078373,
-            Map.Felucca,
+            Map.Trammel,
             new[]
             {
                 new PDMEntry(new Point3D(1372, 1463, 10), 1011028), //Brit Cemetary

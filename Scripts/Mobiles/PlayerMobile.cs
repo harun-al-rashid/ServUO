@@ -3805,9 +3805,9 @@ namespace Server.Mobiles
             if (Young)
 				return false;
 
-			if (InsuranceEnabled && item.Insured)
+			if (!Murderer && !Criminal)//(InsuranceEnabled && item.Insured)
 			{
-                int insuredAmount = GetInsuranceCost(item);
+                /*int insuredAmount = GetInsuranceCost(item);
 
 				if (AutoRenewInsurance)
 				{
@@ -3842,7 +3842,7 @@ namespace Server.Mobiles
 							((PlayerMobile)m_InsuranceAward).m_InsuranceBonus += insuredAmount / 2;
 						}
 					}
-				}
+				}*/
 
 				return true;
 			}
@@ -3853,6 +3853,7 @@ namespace Server.Mobiles
 		public override DeathMoveResult GetParentMoveResultFor(Item item)
 		{
 			if (CheckInsuranceOnDeath(item) && !Young)
+            
 			{
 				return DeathMoveResult.MoveToBackpack;
 			}

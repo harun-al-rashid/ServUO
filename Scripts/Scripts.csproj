@@ -282,6 +282,81 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Custom\FullSpellBooks\FullSpellbooks.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Channels\Alliance.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Channels\Channel.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Channels\Faction.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Channels\Guild.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Channels\Irc.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Channels\Multi.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Channels\Public.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Channels\Staff.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Commands\All.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Commands\Friends.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Commands\HelpContents.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Commands\Mail.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Commands\Pm.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Commands\ViewAll.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\Avatar.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\Chat3Guild.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\CommandInfo.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\Data.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\DefaultLocal.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\Events.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\Filter.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\General.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\IrcConnection.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\Logging.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\Message.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\MultiConnection.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\Notification.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\General\TrackSpam.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\1.0 Skin\ListGump10.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\1.0 Skin\PmNotifyGump10.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\2.0 Skin\ListGump20.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\2.0 Skin\PmNotifyGump20.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\ChannelGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\ColorsGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\EditNotGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\FilterGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\GeneralGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\GlobalGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\HelpContentsGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\HistoryGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\IrcGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\ListGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\LoggingGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\MailGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\MessageGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\MultiGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\PmNotifyGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\ProfileGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\SendMessageGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\3.0 Skin\SpamGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Error Reporting\Errors.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Error Reporting\ErrorsGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Error Reporting\ErrorsNotifyGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Gumps Plus\BackgroundPlus.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Gumps Plus\ButtonPlus.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Gumps Plus\GumpInfo.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Gumps Plus\GumpPlus.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Gumps Plus\HTML.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Gumps Plus\HtmlPlus.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Gumps\Gumps Plus\InfoGump.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Jail.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\RUOVersion.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\JailBoots.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\JailCommand.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\JailConfig.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\JailHammer.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\JailRock.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\JailSlaveDriver.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\JailTeleporter.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Utilities\ConfigParser.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Utilities\findMobs.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Utilities\Interfaces.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Utilities\Misc.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Utilities\Replace.cs" />
+    <Compile Include="Custom\Knives Chat Reborn 1.2\Xanthos\Utilities\wipemobs.cs" />
     <Compile Include="Custom\StaffRunebook\StaffRunebook\Gump.cs" />
     <Compile Include="Custom\StaffRunebook\StaffRunebook\Load.cs" />
     <Compile Include="Custom\StaffRunebook\StaffRunebook\Main.cs" />
@@ -12082,6 +12157,15 @@
     <Compile Include="VendorInfo\VendorInventory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Text Data Files\ChatAvatars.txt" />
+    <Content Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Text Data Files\ChatBacks.txt" />
+    <Content Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Text Data Files\ChatColors.txt" />
+    <Content Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Text Data Files\ChatFilters.txt" />
+    <Content Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Text Data Files\ChatLocal.txt" />
+    <Content Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Text Data Files\HelpContents.txt" />
+    <Content Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\JailConfig.xml" />
+    <Content Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\JailWords.txt" />
+    <Content Include="Custom\Knives Chat Reborn 1.2\Xanthos\Jail System\Readme.htm" />
     <Content Include="Services\New Magincia\ReadMe.txt" />
     <Content Include="Services\Revamped Dungeons\DespiseRevamped\Read Me.txt" />
     <Content Include="Services\Revamped Dungeons\Shame Revamped\Read Me.txt" />
@@ -12099,6 +12183,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Beta 9.doc" />
+    <None Include="Custom\Knives Chat Reborn 1.2\Knives Chat 3.0 Beta 9\Read.doc" />
     <None Include="Custom\TownHouses\Read.doc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
