@@ -6,9 +6,11 @@ using System.Text;
 using Server.Mobiles;
 using Server.Network;
 using Server.Spells;
+using Server.Regions;
 #endregion
 
 namespace Server.Items
+//namespace Server.Mobiles
 {
     public class Teleporter : Item
     {
@@ -343,6 +345,15 @@ namespace Server.Items
             BaseCreature.TeleportPets(m, p, map);
 
             m.MoveToWorld(p, map);
+
+            //Dismount Rider if mounted
+            Region region = Region.Find(p, map);
+
+            if (m.Mounted && region.IsPartOf<DungeonRegion>())
+            { 
+                BaseMount.Dismount(m);
+                m.SendMessage("Your steed cannot bear you here");
+            }
 
             if (m_DestEffect && sendEffect)
             {

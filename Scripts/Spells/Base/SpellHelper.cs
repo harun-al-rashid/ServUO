@@ -821,18 +821,19 @@ namespace Server.Spells
             new TravelValidator(IsMazeOfDeath),
             new TravelValidator(IsSAEntrance),
             new TravelValidator(IsEodon),
+            new TravelValidator(IsTrammelDungeon),
         };
 
         private static readonly bool[,] m_Rules = new bool[,]
         {
-					/*T2A(Fel),	Khaldun,	Ilshenar,	Wind(Tram),	Wind(Fel),	Dungeons(Fel),	Solen(Tram),	Solen(Fel),	CrystalCave(Malas),	Gauntlet(Malas),	Gauntlet(Ferry),	SafeZone,	Stronghold,	ChampionSpawn,	Dungeons(Tokuno[Malas]),	LampRoom(Doom),	GuardianRoom(Doom),	Heartwood,	MLDungeons, SA Dungeons		Tomb of Kings	Maze of Death	SA Entrance,    Eodon*/
-/* Recall From */	{ true,     false,		false,		true,		true,		false,			true,			false,		false,				false,				false,				true,		true,		false,			true,						false,			false,				false,		false,      true,           true,           false,          false,          true} ,
-/* Recall To */		{ true,	    false,		false,		false,		false,		false,			false,			false,		false,				false,				false,				false,		false,		false,			false,						false,			false,				false,		false,      false,          false,          false,          false,          false },
-/* Gate From */		{ true,	    false,		false,		false,		false,		false,			false,			false,		false,				false,				false,				false,		false,		false,			false,						false,			false,				false,		false,      false,          false,          false,          false,          false },
-/* Gate To */		{ true,	    false,		false,		false,		false,		false,			false,			false,		false,				false,				false,				false,		false,		false,			false,						false,			false,				false,		false,      false,          false,          false,          false,          false },
-/* Mark In */		{ true, 	false,		false,		false,		false,		false,			false,			false,		false,				false,				false,				false,		false,		false,			false,						false,			false,				false,		false,      false,          false,          false,          false,          false },
-/* Tele From */		{ true,		true,		true,		true,		true,		true,			true,			true,		false,				true,				true,				true,		false,		true,			true,						true,			true,				false,		true,       true,           false,          false,          false,          true },
-/* Tele To */		{ true,		true,		true,		true,		true,		true,			true,			true,		false,				true,				false,				false,		false, 		true,			true,						true,			true,				false,		false,      true,           false,          false,          false,          true },
+					/*T2A(Fel),	Khaldun,	Ilshenar,	Wind(Tram),	Wind(Fel),	Dungeons(Fel),	Solen(Tram),	Solen(Fel),	CrystalCave(Malas),	Gauntlet(Malas),	Gauntlet(Ferry),	SafeZone,	Stronghold,	ChampionSpawn,	Dungeons(Tokuno[Malas]),	LampRoom(Doom),	GuardianRoom(Doom),	Heartwood,	MLDungeons, SA Dungeons		Tomb of Kings	Maze of Death	SA Entrance,    Eodon       Tram Dungeon*/
+/* Recall From */	{ true,     false,		false,		true,		true,		false,			true,			false,		false,				false,				false,				true,		true,		false,			true,						false,			false,				false,		false,      true,           true,           false,          false,          true,       false} ,
+/* Recall To */		{ true,	    false,		false,		false,		false,		false,			false,			false,		false,				false,				false,				false,		false,		false,			false,						false,			false,				false,		false,      false,          false,          false,          false,          false,      false },
+/* Gate From */		{ true,	    false,		false,		false,		false,		false,			false,			false,		false,				false,				false,				false,		false,		false,			false,						false,			false,				false,		false,      false,          false,          false,          false,          false,      false },
+/* Gate To */		{ true,	    false,		false,		false,		false,		false,			false,			false,		false,				false,				false,				false,		false,		false,			false,						false,			false,				false,		false,      false,          false,          false,          false,          false,       false },
+/* Mark In */		{ true, 	false,		false,		false,		false,		false,			false,			false,		false,				false,				false,				false,		false,		false,			false,						false,			false,				false,		false,      false,          false,          false,          false,          false,       false },
+/* Tele From */		{ true,		true,		true,		true,		true,		true,			true,			true,		false,				true,				true,				true,		false,		true,			true,						true,			true,				false,		true,       true,           false,          false,          false,          true,        true },
+/* Tele To */		{ true,		true,		true,		true,		true,		true,			true,			true,		false,				true,				false,				false,		false, 		true,			true,						true,			true,				false,		false,      true,           false,          false,          false,          true,       true },
         };
 
         public static void SendInvalidMessage(Mobile caster, TravelCheckType type)
@@ -934,6 +935,16 @@ namespace Server.Spells
             if (!isValid && caster != null)
                 SendInvalidMessage(caster, type);
 
+            //disallow travel to dungeons while mounted
+            if (isValid && destination is DungeonRegion)
+            {
+                if (caster.Mounted)
+                {
+                    caster.SendMessage("You need to be on foot to travel there");
+                    isValid = false;
+                }
+            }
+
             return isValid;
         }
 
@@ -994,6 +1005,12 @@ namespace Server.Spells
         {
             Region region = Region.Find(loc, map);
             return (region.IsPartOf<DungeonRegion>() && region.Map == Map.Felucca);
+        }
+
+        public static bool IsTrammelDungeon(Map map, Point3D loc)
+        {
+            Region region = Region.Find(loc, map);
+            return (region.IsPartOf<DungeonRegion>() && region.Map == Map.Trammel);
         }
 
         public static bool IsKhaldun(Map map, Point3D loc)

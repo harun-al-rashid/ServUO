@@ -1,6 +1,7 @@
 using System;
 
 using Server.Items;
+using Server.Regions;
 using Server.Network;
 using System.Collections.Generic;
 
@@ -497,6 +498,12 @@ namespace Server.Mobiles
             if (from.HasTrade)
             {
                 from.SendLocalizedMessage(1042317); // You may not ride at this time
+                return;
+            }
+
+            if (from.Region.IsPartOf<DungeonRegion>())
+            {
+                from.SendMessage("The dungeon is too unwholesome to ride in");
                 return;
             }
 
