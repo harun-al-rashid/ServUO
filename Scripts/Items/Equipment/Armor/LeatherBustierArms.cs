@@ -11,7 +11,7 @@ namespace Server.Items
         public LeatherBustierArms()
             : base(0x1C0A)
         {
-            this.Weight = 1.0;
+            this.Weight = 6.0;
         }
 
         public LeatherBustierArms(Serial serial)
@@ -86,7 +86,7 @@ namespace Server.Items
         {
             get
             {
-                return 13;
+                return 25;
             }
         }
         public override ArmorMaterialType MaterialType

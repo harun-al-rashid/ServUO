@@ -1,76 +1,88 @@
 using System;
+using Server.Engines.Craft;
+
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13BB, 0x13C0)]
-    public class ChainCoif : BaseArmor
+    [Alterable(typeof(DefBlacksmithy), typeof(GargishPlateKilt))]
+    [FlipableAttribute(0x13eb, 0x13f2)]
+    public class ChainmailGloves : BaseArmor
     {
         [Constructable]
-        public ChainCoif()
-            : base(0x13BB)
+        public ChainmailGloves()
+            : base(0x13EB)
         {
-            this.Weight = 1.0;
+            this.Weight = 2.0;
+            Hue = 0x911;
         }
 
-        public ChainCoif(Serial serial)
+        public ChainmailGloves(Serial serial)
             : base(serial)
         {
+        }
+
+        public override int LabelNumber
+        {
+            get
+            {
+                return 1063492;
+            }
         }
 
         public override int BasePhysicalResistance
         {
             get
             {
-                return 4;
+                return 3;
             }
         }
         public override int BaseFireResistance
         {
             get
             {
-                return 4;
+                return 3;
             }
         }
         public override int BaseColdResistance
         {
             get
             {
-                return 4;
+                return 1;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 1;
+                return 5;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 2;
+                return 3;
             }
         }
         public override int InitMinHits
         {
             get
             {
-                return 35;
+                return 40;
             }
         }
         public override int InitMaxHits
         {
             get
             {
-                return 60;
+                return 50;
             }
         }
         public override int AosStrReq
         {
             get
             {
-                return 60;
+                return 40;
             }
         }
         public override int OldStrReq
@@ -78,6 +90,13 @@ namespace Server.Items
             get
             {
                 return 20;
+            }
+        }
+        public override int OldDexBonus
+        {
+            get
+            {
+                return -1;
             }
         }
         public override int ArmorBase
@@ -104,6 +123,9 @@ namespace Server.Items
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
+
+            if (this.Weight == 1.0)
+                this.Weight = 2.0;
         }
     }
 }

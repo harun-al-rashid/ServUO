@@ -9,7 +9,7 @@ namespace Server.Items
         public FemaleStuddedChest()
             : base(0x1C02)
         {
-            this.Weight = 6.0;
+            this.Weight = 8.0;
         }
 
         public FemaleStuddedChest(Serial serial)
@@ -84,7 +84,7 @@ namespace Server.Items
         {
             get
             {
-                return 16;
+                return 30;
             }
         }
         public override ArmorMaterialType MaterialType

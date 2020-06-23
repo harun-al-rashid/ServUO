@@ -11,7 +11,7 @@ namespace Server.Items
         public LeatherSkirt()
             : base(0x1C08)
         {
-            this.Weight = 1.0;
+            this.Weight = 3.0;
         }
 
         public LeatherSkirt(Serial serial)
@@ -86,7 +86,7 @@ namespace Server.Items
         {
             get
             {
-                return 13;
+                return 25;
             }
         }
         public override ArmorMaterialType MaterialType

@@ -2,26 +2,34 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13BB, 0x13C0)]
-    public class ChainCoif : BaseArmor
+    public class ChainmailGorget : BaseArmor
     {
         [Constructable]
-        public ChainCoif()
-            : base(0x13BB)
+        public ChainmailGorget()
+            : base(0x13C7)
         {
             this.Weight = 1.0;
+            Hue = 0x911;
         }
 
-        public ChainCoif(Serial serial)
+        public ChainmailGorget(Serial serial)
             : base(serial)
         {
+        }
+
+        public override int LabelNumber
+        {
+            get
+            {
+                return 1063493;
+            }
         }
 
         public override int BasePhysicalResistance
         {
             get
             {
-                return 4;
+                return 2;
             }
         }
         public override int BaseFireResistance
@@ -35,49 +43,49 @@ namespace Server.Items
         {
             get
             {
-                return 4;
+                return 3;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 1;
+                return 3;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 2;
+                return 3;
             }
         }
         public override int InitMinHits
         {
             get
             {
-                return 35;
+                return 30;
             }
         }
         public override int InitMaxHits
         {
             get
             {
-                return 60;
+                return 40;
             }
         }
         public override int AosStrReq
         {
             get
             {
-                return 60;
+                return 20;
             }
         }
         public override int OldStrReq
         {
             get
             {
-                return 20;
+                return 10;
             }
         }
         public override int ArmorBase
@@ -91,7 +99,21 @@ namespace Server.Items
         {
             get
             {
-                return ArmorMaterialType.Chainmail;
+                return ArmorMaterialType.Leather;
+            }
+        }
+        public override CraftResource DefaultResource
+        {
+            get
+            {
+                return CraftResource.RegularLeather;
+            }
+        }
+        public override ArmorMeditationAllowance DefMedAllowance
+        {
+            get
+            {
+                return ArmorMeditationAllowance.All;
             }
         }
         public override void Serialize(GenericWriter writer)

@@ -2,33 +2,40 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13BB, 0x13C0)]
-    public class ChainCoif : BaseArmor
+    public class BoneGorget : BaseArmor
     {
         [Constructable]
-        public ChainCoif()
-            : base(0x13BB)
+        public BoneGorget()
+            : base(0x13D6)
         {
-            this.Weight = 1.0;
+            this.Weight = 2.0;
         }
 
-        public ChainCoif(Serial serial)
+        public BoneGorget(Serial serial)
             : base(serial)
         {
+        }
+
+        public override int LabelNumber
+        {
+            get
+            {
+                return 1063496;
+            }
         }
 
         public override int BasePhysicalResistance
         {
             get
             {
-                return 4;
+                return 7;
             }
         }
         public override int BaseFireResistance
         {
             get
             {
-                return 4;
+                return 5;
             }
         }
         public override int BaseColdResistance
@@ -42,58 +49,74 @@ namespace Server.Items
         {
             get
             {
-                return 1;
+                return 5;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 2;
+                return 4;
             }
         }
         public override int InitMinHits
         {
             get
             {
-                return 35;
+                return 50;
             }
         }
         public override int InitMaxHits
         {
             get
             {
-                return 60;
+                return 65;
             }
         }
         public override int AosStrReq
         {
             get
             {
-                return 60;
+                return 45;
             }
         }
         public override int OldStrReq
         {
             get
             {
-                return 20;
+                return 30;
+            }
+        }
+        public override int OldDexBonus
+        {
+            get
+            {
+                return -1;
             }
         }
         public override int ArmorBase
         {
             get
             {
-                return 45;
+                return 35;
             }
         }
         public override ArmorMaterialType MaterialType
         {
             get
             {
-                return ArmorMaterialType.Chainmail;
+                return ArmorMaterialType.Bone;
             }
         }
+
+        public override CraftResource DefaultResource
+        {
+            get
+            {
+                return CraftResource.RegularLeather;
+            }
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

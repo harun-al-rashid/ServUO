@@ -9,7 +9,7 @@ namespace Server.Items
         public StuddedBustierArms()
             : base(0x1C0C)
         {
-            this.Weight = 1.0;
+            this.Weight = 8.0;
         }
 
         public StuddedBustierArms(Serial serial)
@@ -84,7 +84,7 @@ namespace Server.Items
         {
             get
             {
-                return 16;
+                return 30;
             }
         }
         public override ArmorMaterialType MaterialType

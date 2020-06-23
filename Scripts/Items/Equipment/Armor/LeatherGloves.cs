@@ -75,7 +75,7 @@ namespace Server.Items
         {
             get
             {
-                return 13;
+                return 25;
             }
         }
 

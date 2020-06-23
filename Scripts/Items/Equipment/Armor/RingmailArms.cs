@@ -91,7 +91,7 @@ namespace Server.Items
         {
             get
             {
-                return 22;
+                return 40;
             }
         }
         public override ArmorMaterialType MaterialType

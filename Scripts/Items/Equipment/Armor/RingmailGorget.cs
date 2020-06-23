@@ -2,26 +2,33 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13BB, 0x13C0)]
-    public class ChainCoif : BaseArmor
+    public class RingmailGorget : BaseArmor
     {
         [Constructable]
-        public ChainCoif()
-            : base(0x13BB)
+        public RingmailGorget()
+            : base(0x13D6)
         {
             this.Weight = 1.0;
         }
 
-        public ChainCoif(Serial serial)
+        public RingmailGorget(Serial serial)
             : base(serial)
         {
+        }
+
+        public override int LabelNumber
+        {
+            get
+            {
+                return 1063494;
+            }
         }
 
         public override int BasePhysicalResistance
         {
             get
             {
-                return 4;
+                return 2;
             }
         }
         public override int BaseFireResistance
@@ -35,21 +42,21 @@ namespace Server.Items
         {
             get
             {
-                return 4;
+                return 3;
             }
         }
         public override int BasePoisonResistance
         {
             get
             {
-                return 1;
+                return 3;
             }
         }
         public override int BaseEnergyResistance
         {
             get
             {
-                return 2;
+                return 4;
             }
         }
         public override int InitMinHits
@@ -63,35 +70,49 @@ namespace Server.Items
         {
             get
             {
-                return 60;
+                return 45;
             }
         }
         public override int AosStrReq
         {
             get
             {
-                return 60;
+                return 25;
             }
         }
         public override int OldStrReq
         {
             get
             {
-                return 20;
+                return 25;
             }
         }
         public override int ArmorBase
         {
             get
             {
-                return 45;
+                return 40;
             }
         }
         public override ArmorMaterialType MaterialType
         {
             get
             {
-                return ArmorMaterialType.Chainmail;
+                return ArmorMaterialType.Ringmail;
+            }
+        }
+        public override CraftResource DefaultResource
+        {
+            get
+            {
+                return CraftResource.Iron;
+            }
+        }
+        public override ArmorMeditationAllowance DefMedAllowance
+        {
+            get
+            {
+                return ArmorMeditationAllowance.Half;
             }
         }
         public override void Serialize(GenericWriter writer)
@@ -104,6 +125,9 @@ namespace Server.Items
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
+
+            if (this.Weight == 2.0)
+                this.Weight = 1.0;
         }
     }
 }
