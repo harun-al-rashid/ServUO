@@ -20,6 +20,15 @@ namespace Server.Items
         SpinedLeather,
         HornedLeather,
         BarbedLeather,
+        Dullhide,
+        Shadowhide,
+        Copperhide,
+        Bronzehide,
+        Goldenhide,
+        Rosehide,
+        Verehide,
+        Valehide,
+
 
         RedScales = 201,
         YellowScales,
@@ -178,7 +187,7 @@ namespace Server.Items
 
         public static readonly CraftAttributeInfo Blank;
         public static readonly CraftAttributeInfo DullCopper, ShadowIron, Copper, Bronze, Golden, Agapite, Verite, Valorite;
-        public static readonly CraftAttributeInfo Spined, Horned, Barbed;
+        public static readonly CraftAttributeInfo Spined, Horned, Barbed, Dullhide, Shadowhide, Copperhide, Bronzehide, Goldenhide, Rosehide, Verehide, Valehide;
         public static readonly CraftAttributeInfo RedScales, YellowScales, BlackScales, GreenScales, WhiteScales, BlueScales;
         public static readonly CraftAttributeInfo OakWood, AshWood, YewWood, Heartwood, Bloodwood, Frostwood;
 
@@ -422,6 +431,166 @@ namespace Server.Items
             else
             {
                 barbed.RunicMinIntensity = 40;
+                barbed.RunicMaxIntensity = 100;
+            }
+
+            CraftAttributeInfo dullhide = Dullhide = new CraftAttributeInfo();
+
+            barbed.ArmorPhysicalResist = 3;
+            barbed.ArmorFireResist = 2;
+            barbed.ArmorColdResist = 3;
+            barbed.ArmorPoisonResist = 3;
+            barbed.ArmorEnergyResist = 5;
+            barbed.RunicMinAttributes = 4;
+            barbed.RunicMaxAttributes = 5;
+            if (Core.ML)
+            {
+                barbed.RunicMinIntensity = 80;
+                barbed.RunicMaxIntensity = 100;
+            }
+            else
+            {
+                barbed.RunicMinIntensity = 10;
+                barbed.RunicMaxIntensity = 35;
+            }
+
+            CraftAttributeInfo shadowhide = Shadowhide = new CraftAttributeInfo();
+
+            barbed.ArmorPhysicalResist = 3;
+            barbed.ArmorFireResist = 2;
+            barbed.ArmorColdResist = 3;
+            barbed.ArmorPoisonResist = 3;
+            barbed.ArmorEnergyResist = 5;
+            barbed.RunicMinAttributes = 4;
+            barbed.RunicMaxAttributes = 5;
+            if (Core.ML)
+            {
+                barbed.RunicMinIntensity = 80;
+                barbed.RunicMaxIntensity = 100;
+            }
+            else
+            {
+                barbed.RunicMinIntensity = 20;
+                barbed.RunicMaxIntensity = 45;
+            }
+
+            CraftAttributeInfo copperhide = copperhide = new CraftAttributeInfo();
+
+            barbed.ArmorPhysicalResist = 3;
+            barbed.ArmorFireResist = 2;
+            barbed.ArmorColdResist = 3;
+            barbed.ArmorPoisonResist = 3;
+            barbed.ArmorEnergyResist = 5;
+            barbed.RunicMinAttributes = 4;
+            barbed.RunicMaxAttributes = 5;
+            if (Core.ML)
+            {
+                barbed.RunicMinIntensity = 80;
+                barbed.RunicMaxIntensity = 100;
+            }
+            else
+            {
+                barbed.RunicMinIntensity = 25;
+                barbed.RunicMaxIntensity = 50;
+            }
+
+            CraftAttributeInfo bronzehide = Bronzehide = new CraftAttributeInfo();
+
+            barbed.ArmorPhysicalResist = 3;
+            barbed.ArmorFireResist = 2;
+            barbed.ArmorColdResist = 3;
+            barbed.ArmorPoisonResist = 3;
+            barbed.ArmorEnergyResist = 5;
+            barbed.RunicMinAttributes = 4;
+            barbed.RunicMaxAttributes = 5;
+            if (Core.ML)
+            {
+                barbed.RunicMinIntensity = 80;
+                barbed.RunicMaxIntensity = 100;
+            }
+            else
+            {
+                barbed.RunicMinIntensity = 30;
+                barbed.RunicMaxIntensity = 65;
+            }
+
+            CraftAttributeInfo goldenhide = Goldenhide = new CraftAttributeInfo();
+
+            barbed.ArmorPhysicalResist = 3;
+            barbed.ArmorFireResist = 2;
+            barbed.ArmorColdResist = 3;
+            barbed.ArmorPoisonResist = 3;
+            barbed.ArmorEnergyResist = 5;
+            barbed.RunicMinAttributes = 4;
+            barbed.RunicMaxAttributes = 5;
+            if (Core.ML)
+            {
+                barbed.RunicMinIntensity = 80;
+                barbed.RunicMaxIntensity = 100;
+            }
+            else
+            {
+                barbed.RunicMinIntensity = 35;
+                barbed.RunicMaxIntensity = 75;
+            }
+
+            CraftAttributeInfo rosehide = Rosehide = new CraftAttributeInfo();
+
+            barbed.ArmorPhysicalResist = 3;
+            barbed.ArmorFireResist = 2;
+            barbed.ArmorColdResist = 3;
+            barbed.ArmorPoisonResist = 3;
+            barbed.ArmorEnergyResist = 5;
+            barbed.RunicMinAttributes = 4;
+            barbed.RunicMaxAttributes = 5;
+            if (Core.ML)
+            {
+                barbed.RunicMinIntensity = 80;
+                barbed.RunicMaxIntensity = 100;
+            }
+            else
+            {
+                barbed.RunicMinIntensity = 40;
+                barbed.RunicMaxIntensity = 80;
+            }
+
+            CraftAttributeInfo verehide = Verehide = new CraftAttributeInfo();
+
+            barbed.ArmorPhysicalResist = 3;
+            barbed.ArmorFireResist = 2;
+            barbed.ArmorColdResist = 3;
+            barbed.ArmorPoisonResist = 3;
+            barbed.ArmorEnergyResist = 5;
+            barbed.RunicMinAttributes = 4;
+            barbed.RunicMaxAttributes = 5;
+            if (Core.ML)
+            {
+                barbed.RunicMinIntensity = 80;
+                barbed.RunicMaxIntensity = 100;
+            }
+            else
+            {
+                barbed.RunicMinIntensity = 45;
+                barbed.RunicMaxIntensity = 95;
+            }
+
+            CraftAttributeInfo valehide = Valehide = new CraftAttributeInfo();
+
+            barbed.ArmorPhysicalResist = 3;
+            barbed.ArmorFireResist = 2;
+            barbed.ArmorColdResist = 3;
+            barbed.ArmorPoisonResist = 3;
+            barbed.ArmorEnergyResist = 5;
+            barbed.RunicMinAttributes = 4;
+            barbed.RunicMaxAttributes = 5;
+            if (Core.ML)
+            {
+                barbed.RunicMinIntensity = 80;
+                barbed.RunicMaxIntensity = 100;
+            }
+            else
+            {
+                barbed.RunicMinIntensity = 60;
                 barbed.RunicMaxIntensity = 100;
             }
 
@@ -711,6 +880,15 @@ namespace Server.Items
         private static readonly CraftResourceInfo[] m_LeatherInfo = new CraftResourceInfo[]
         {
             new CraftResourceInfo(0x000, 1049353, "Normal", CraftAttributeInfo.Blank, CraftResource.RegularLeather,	typeof(Leather), typeof(Hides)),
+            new CraftResourceInfo(0x973, 1049354, "Dull Hide", CraftAttributeInfo.Dullhide, CraftResource.Dullhide, typeof(DullLeather),  typeof(DullHides)),
+            new CraftResourceInfo(0x966, 1049354, "Shadow Hide", CraftAttributeInfo.Shadowhide, CraftResource.Shadowhide, typeof(ShadowLeather),  typeof(ShadowHides)),
+            new CraftResourceInfo(0x96D, 1049354, "Copper Hide", CraftAttributeInfo.Copperhide, CraftResource.Copperhide, typeof(CopperLeather),  typeof(CopperHides)),
+            new CraftResourceInfo(0x972, 1049354, "Bronze Hide", CraftAttributeInfo.Bronzehide, CraftResource.Bronzehide, typeof(BronzeLeather),  typeof(BronzeHides)),
+            new CraftResourceInfo(0x8A5, 1049354, "Golden Hide", CraftAttributeInfo.Goldenhide, CraftResource.Goldenhide, typeof(GoldenLeather),  typeof(GoldenHides)),
+            new CraftResourceInfo(0x979, 1049354, "Rose Hide", CraftAttributeInfo.Rosehide, CraftResource.Rosehide, typeof(RoseLeather),  typeof(RoseHides)),
+            new CraftResourceInfo(0x89F, 1049354, "Vere Hide", CraftAttributeInfo.Verehide, CraftResource.Verehide, typeof(VereLeather),  typeof(VereHides)),
+            new CraftResourceInfo(0x8AB, 1049354, "Vale Hide", CraftAttributeInfo.Valehide, CraftResource.Valehide, typeof(ValeLeather),  typeof(ValeHides)),
+
             new CraftResourceInfo(0x283, 1049354, "Spined", CraftAttributeInfo.Spined, CraftResource.SpinedLeather,	typeof(SpinedLeather),	typeof(SpinedHides)),
             new CraftResourceInfo(0x227, 1049355, "Horned", CraftAttributeInfo.Horned, CraftResource.HornedLeather,	typeof(HornedLeather),	typeof(HornedHides)),
             new CraftResourceInfo(0x1C1, 1049356, "Barbed", CraftAttributeInfo.Barbed, CraftResource.BarbedLeather,	typeof(BarbedLeather),	typeof(BarbedHides))

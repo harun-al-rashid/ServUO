@@ -988,7 +988,19 @@ namespace Server.Mobiles
             }
         }
 
-		public override void OnSkillInvalidated(Skill skill)
+        private BaseCreature herding_target;
+        public void set_current_herding_target(BaseCreature bc)
+        {
+            herding_target = bc;
+        }
+
+        public void remove_herding_target()
+        {
+            herding_target.is_herding_target = false;
+            herding_target = null;
+        }
+
+        public override void OnSkillInvalidated(Skill skill)
 		{
 			if (Core.AOS && skill.SkillName == SkillName.MagicResist)
 			{
@@ -4078,7 +4090,20 @@ namespace Server.Mobiles
 			}
 		}
 
-		[CommandProperty(AccessLevel.GameMaster)]
+        [CommandProperty(AccessLevel.GameMaster)]
+        public TimeSpan NextTamerBulkOrder
+        {
+            get
+            {
+                return BulkOrderSystem.GetNextBulkOrder(BODType.Taming, this);
+            }
+            set
+            {
+                BulkOrderSystem.SetNextBulkOrder(BODType.Taming, this, value);
+            }
+        }
+
+        [CommandProperty(AccessLevel.GameMaster)]
 		public TimeSpan NextTailorBulkOrder
 		{
 			get

@@ -9,6 +9,7 @@ using Server.Network;
 using Server.Targeting;
 using Server.Engines.Quests;
 using System.Linq;
+using Server.Engines.BulkOrders;
 #endregion
 
 namespace Server.Mobiles
@@ -49,6 +50,59 @@ namespace Server.Mobiles
 
 			AddItem(Utility.RandomBool() ? new QuarterStaff() : (Item)new ShepherdsCrook());
 		}
+
+        #region Bulk Orders
+        public override BODType BODType { get { return BODType.Taming; } }
+
+        public override Item CreateBulkOrder(Mobile from, bool fromContextMenu)
+        {
+            PlayerMobile pm = from as PlayerMobile;
+
+            if (pm != null && pm.NextSmithBulkOrder == TimeSpan.Zero && (fromContextMenu || 0.2 > Utility.RandomDouble()))
+            {
+                double theirSkill = pm.Skills[SkillName.AnimalTaming].Base;
+
+                if (theirSkill >= 70.1)
+                    pm.NextTamerBulkOrder = TimeSpan.FromHours(6.0);
+                else if (theirSkill >= 50.1)
+                    pm.NextTamerBulkOrder = TimeSpan.FromHours(2.0);
+                else
+                    pm.NextTamerBulkOrder = TimeSpan.FromHours(1.0);
+
+                if (theirSkill >= 70.1 && ((theirSkill - 40.0) / 300.0) > Utility.RandomDouble())
+                    return new LargeSmithBOD();
+
+                return SmallSmithBOD.CreateRandomFor(from);
+            }
+
+            return null;
+        }
+
+        public override bool IsValidBulkOrder(Item item)
+        {
+            return (item is SmallSmithBOD || item is LargeSmithBOD);
+        }
+
+        public override bool SupportsBulkOrders(Mobile from)
+        {
+            return (from is PlayerMobile && from.Skills[SkillName.AnimalTaming].Base > 0);
+        }
+
+        public override TimeSpan GetNextBulkOrder(Mobile from)
+        {
+            if (from is PlayerMobile)
+                return ((PlayerMobile)from).NextTamerBulkOrder;
+
+            return TimeSpan.Zero;
+        }
+
+        public override void OnSuccessfulBulkOrderReceive(Mobile from)
+        {
+            if (Core.SE && from is PlayerMobile)
+                ((PlayerMobile)from).NextTamerBulkOrder= TimeSpan.Zero;
+        }
+
+        #endregion
 
 		public override void AddCustomContextEntries(Mobile from, List<ContextMenuEntry> list)
 		{
@@ -146,11 +200,17 @@ namespace Server.Mobiles
 			var taming = from.Skills[SkillName.AnimalTaming].Value;
 			var anlore = from.Skills[SkillName.AnimalLore].Value;
 			var vetern = from.Skills[SkillName.Veterinary].Value;
-			var sklsum = taming + anlore + vetern;
+            var herd = from.Skills[SkillName.Herding].Value;
+			var sklsum = taming + anlore + vetern + herd;
 
             int max = from is PlayerMobile ? ((PlayerMobile)from).RewardStableSlots : 0;
 
-			if (sklsum >= 240.0)
+            if(sklsum >=360)
+            {
+                max += 25;
+            }
+
+            else if (sklsum >= 240.0)
 			{
 				max += 15;
 			}
@@ -192,6 +252,11 @@ namespace Server.Mobiles
 			{
 				max += (int)((vetern - 90.0) / 10);
 			}
+
+            if (herd >= 100.0)
+            {
+                max += (int)((herd - 90.0) / 10);
+            }
 
             return max + Server.Spells.SkillMasteries.MasteryInfo.BoardingSlotIncrease(from);
 		}

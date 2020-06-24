@@ -70,7 +70,7 @@ namespace Server.Mobiles
 
 		public override HideType HideType
 		{
-			get { return HideType.Horned; }
+			get { return HideType.Rose; }
 		}
 
 		public override PackInstinct PackInstinct

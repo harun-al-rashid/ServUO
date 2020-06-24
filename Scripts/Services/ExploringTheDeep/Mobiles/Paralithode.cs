@@ -185,7 +185,7 @@ namespace Server.Mobiles
         }
         public override int Meat { get { return 9; } }
         public override int Hides { get { return 20; } }
-        public override HideType HideType { get { return HideType.Horned; } }
+        public override HideType HideType { get { return HideType.Bronze; } }
 
         public override void Serialize(GenericWriter writer)
         {

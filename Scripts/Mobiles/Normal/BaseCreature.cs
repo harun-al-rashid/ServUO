@@ -121,7 +121,15 @@ namespace Server.Mobiles
         Regular,
         Spined,
         Horned,
-        Barbed
+        Barbed,
+        Dull,
+        Shadow,
+        Copper,
+        Bronze,
+        Golden,
+        Rose,
+        Vere,
+        Vale
     }
 
     public enum FurType
@@ -332,6 +340,8 @@ namespace Server.Mobiles
         public virtual InhumanSpeech SpeechType { get { return null; } }
 
         public virtual bool ForceStayHome { get { return false; } }
+
+        public bool is_herding_target { get; set; }
 
         public int FollowRange { get; set; }
 
@@ -2574,6 +2584,15 @@ namespace Server.Mobiles
                         case HideType.Spined: leather = new SpinedLeather(hides); break;
                         case HideType.Horned: leather = new HornedLeather(hides); break;
                         case HideType.Barbed: leather = new BarbedLeather(hides); break;
+                        case HideType.Dull: leather = new DullLeather(hides); break;
+                        case HideType.Shadow: leather = new ShadowLeather(hides); break;
+                        case HideType.Copper: leather = new CopperLeather(hides); break;
+                        case HideType.Bronze: leather = new BronzeLeather(hides); break;
+                        case HideType.Golden: leather = new GoldenLeather(hides); break;
+                        case HideType.Rose: leather = new RoseLeather(hides); break;
+                        case HideType.Vere: leather = new VereLeather(hides); break;
+                        case HideType.Vale: leather = new ValeLeather(hides); break;
+
                     }
 
                     if (!Core.AOS || !special || !from.AddToBackpack(leather) || !(with is ButchersWarCleaver))

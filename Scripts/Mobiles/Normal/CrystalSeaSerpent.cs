@@ -54,7 +54,7 @@ namespace Server.Mobiles
         //public override int TreasureMapLevel{ get{ return 3; } } //Can't get conformation as to if this is true, commented out for now.
         public override int Meat{ get{ return 10; } }
         public override int Hides{ get{ return 11; } }
-        public override HideType HideType{ get{ return HideType.Horned; } }
+        public override HideType HideType{ get{ return HideType.Rose; } }
         public override int Scales{ get{ return 8; } }
         public override ScaleType ScaleType{ get{ return ScaleType.Blue; } } 
 

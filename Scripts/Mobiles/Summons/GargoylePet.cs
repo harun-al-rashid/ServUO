@@ -60,7 +60,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Horned;
+                return HideType.Copper;
             }
         }
         public override void GenerateLoot()

@@ -83,7 +83,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Spined;
+                return HideType.Shadow;
             }
         }
 

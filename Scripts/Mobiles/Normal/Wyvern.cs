@@ -95,7 +95,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Horned;
+                return HideType.Bronze;
             }
         }
         public override bool CanFly

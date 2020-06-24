@@ -52,7 +52,7 @@ namespace Server.Mobiles
 
         public override int Meat { get { return 5; } }
         public override int Hides { get { return 14; } }
-        public override HideType HideType { get { return HideType.Spined; } }
+        public override HideType HideType { get { return HideType.Bronze; } }
         public override FoodType FavoriteFood { get { return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
         public override int DragonBlood { get { return 8; } }
         public override int Fur { get { return GatheredFur ? 0 : 15; } }

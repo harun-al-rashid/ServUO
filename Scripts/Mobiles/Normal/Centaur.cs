@@ -76,7 +76,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Spined;
+                return HideType.Golden;
             }
         }
         public override void GenerateLoot()

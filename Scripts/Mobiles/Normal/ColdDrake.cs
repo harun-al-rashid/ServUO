@@ -72,7 +72,7 @@ namespace Server.Mobiles
         public override bool ReacquireOnMovement { get { return !Controlled; } }
         public override int Meat { get { return 10; } }
         public override int Hides { get { return 22; } }
-        public override HideType HideType { get { return HideType.Horned; } }
+        public override HideType HideType { get { return HideType.Rose; } }
         public override int DragonBlood { get { return 8; } }
         public override FoodType FavoriteFood { get { return FoodType.Fish; } }
 

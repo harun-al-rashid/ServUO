@@ -54,6 +54,9 @@ namespace Server.Mobiles
             Fame = 5000;  //Guessing here
             Karma = 5000;  //Guessing here
 
+                        this.VirtualArmor = 60;
+
+
             Tamable = true;
             ControlSlots = 4;
             MinTameSkill = 101.1;

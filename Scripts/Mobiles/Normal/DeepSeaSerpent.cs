@@ -58,7 +58,7 @@ namespace Server.Mobiles
         public override bool HasBreath { get { return true; } }
         public override int Meat { get { return 10; } }
 		public override int Hides { get { return 10; } }
-        public override HideType HideType { get { return HideType.Horned; } }
+        public override HideType HideType { get { return HideType.Golden; } }
         public override int Scales { get { return 8; } }
         public override ScaleType ScaleType { get { return ScaleType.Blue; } }
 

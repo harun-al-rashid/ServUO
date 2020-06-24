@@ -415,7 +415,7 @@ namespace Server.Items
         {
             get
             {
-                int ar = BaseArmorRating;
+                double ar = BaseArmorRating;
 
                 if (m_Protection != ArmorProtectionLevel.Regular)
                     ar += 10 + (5 * (int)m_Protection);
@@ -423,28 +423,28 @@ namespace Server.Items
                 switch ( m_Resource )
                 {
                     case CraftResource.DullCopper:
-                        ar += 2;
+                        ar *= 1.05;
                         break;
                     case CraftResource.ShadowIron:
-                        ar += 4;
+                        ar *= 1.1;
                         break;
                     case CraftResource.Copper:
-                        ar += 6;
+                        ar *= 1.15;
                         break;
                     case CraftResource.Bronze:
-                        ar += 8;
+                        ar *= 1.2;
                         break;
                     case CraftResource.Gold:
-                        ar += 10;
+                        ar *= 1.25;
                         break;
                     case CraftResource.Agapite:
-                        ar += 12;
+                        ar *= 1.3;
                         break;
                     case CraftResource.Verite:
-                        ar += 14;
+                        ar *= 1.35;
                         break;
                     case CraftResource.Valorite:
-                        ar += 16;
+                        ar *= 1.4;
                         break;
                     case CraftResource.SpinedLeather:
                         ar += 10;

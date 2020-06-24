@@ -97,7 +97,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Horned;
+                return HideType.Golden;
             }
         }
         public override int Scales

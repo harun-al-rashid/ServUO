@@ -76,7 +76,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Spined;
+                return HideType.Dull;
             }
         }
         public override FoodType FavoriteFood

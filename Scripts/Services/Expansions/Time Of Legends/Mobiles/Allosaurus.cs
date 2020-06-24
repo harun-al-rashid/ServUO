@@ -91,7 +91,7 @@ namespace Server.Mobiles
 
         public override int Meat { get { return 3; } }
         public override int Hides { get { return 11; } }
-        public override HideType HideType { get { return HideType.Horned; } }
+        public override HideType HideType { get { return HideType.Bronze; } }
 
         public Allosaurus(Serial serial) : base(serial)
         {

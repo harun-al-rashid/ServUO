@@ -97,7 +97,7 @@ namespace Server.Mobiles
         public override bool StatLossAfterTame { get { return true; } }
         public override int Meat { get { return 1; } }
         public override int Hides { get { return 11; } }
-        public override HideType HideType { get { return HideType.Spined; } }
+        public override HideType HideType { get { return HideType.Copper; } }
         public override FoodType FavoriteFood { get { return FoodType.FruitsAndVegies; } }
 
         public override Poison HitAreaPoison { get { return Poison.Lethal; } }

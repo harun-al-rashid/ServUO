@@ -114,7 +114,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Horned;
+                return HideType.Rose;
             }
         }
         public override FoodType FavoriteFood

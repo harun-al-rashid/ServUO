@@ -135,7 +135,7 @@ namespace Server.Mobiles
         public override int Meat { get { return 10; } }
         public override int DragonBlood { get { return 8; } }
         public override int Hides { get { return 22; } }
-        public override HideType HideType { get { return HideType.Horned; } }
+        public override HideType HideType { get { return HideType.Rose; } }
         public override int Scales { get { return 2; } }
         public override ScaleType ScaleType { get { return ScaleType.Black; } }
         public override FoodType FavoriteFood { get { return FoodType.Meat | FoodType.Fish; } }

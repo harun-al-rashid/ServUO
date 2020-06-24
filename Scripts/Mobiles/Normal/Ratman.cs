@@ -70,7 +70,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Spined;
+                return HideType.Dull;
             }
         }
         public override void GenerateLoot()
