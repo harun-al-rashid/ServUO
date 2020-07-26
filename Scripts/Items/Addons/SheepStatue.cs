@@ -115,9 +115,9 @@ namespace Server.Items
                     {
                         case 0: res = new Wool(); break;
                         case 1: res = new Leather(); break;
-                        case 2: res = new SpinedLeather(); break;
-                        case 3: res = new HornedLeather(); break;
-                        case 4: res = new BarbedLeather(); break;
+                        case 2: res = new ShadowLeather(); break;
+                        case 3: res = new GoldenLeather(); break;
+                        case 4: res = new RoseLeather(); break;
                     }
 
                     int amount = Math.Min(10, m_ResourceCount);

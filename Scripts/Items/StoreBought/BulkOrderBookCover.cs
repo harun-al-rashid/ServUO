@@ -17,9 +17,14 @@ namespace Server.Items
         Agapite,
         Verite,
         Valorite,
-        Spined,
-        Horned,
-        Barbed,
+        Dullhide,
+        Shadowhide,
+        Copperhide,
+        Bronzehide,
+        Goldenhide,
+        Rosehide,
+        Verehide,
+        Valehide,
         Oak,
         Ash,
         Yew,
@@ -53,9 +58,14 @@ namespace Server.Items
             Infos.Add(new CoverInfo(CoverType.Agapite, 1071113, CraftResources.GetHue(CraftResource.Agapite)));
             Infos.Add(new CoverInfo(CoverType.Verite, 1071114, CraftResources.GetHue(CraftResource.Verite)));
             Infos.Add(new CoverInfo(CoverType.Valorite, 1071115, CraftResources.GetHue(CraftResource.Valorite)));
-            Infos.Add(new CoverInfo(CoverType.Spined, 1071098, CraftResources.GetHue(CraftResource.SpinedLeather)));
-            Infos.Add(new CoverInfo(CoverType.Horned, 1071099, CraftResources.GetHue(CraftResource.HornedLeather)));
-            Infos.Add(new CoverInfo(CoverType.Barbed, 1071100, CraftResources.GetHue(CraftResource.BarbedLeather)));
+            Infos.Add(new CoverInfo(CoverType.Dullhide, 1063519, CraftResources.GetHue(CraftResource.Dullhide)));
+            Infos.Add(new CoverInfo(CoverType.Shadowhide, 1063520, CraftResources.GetHue(CraftResource.Shadowhide)));
+            Infos.Add(new CoverInfo(CoverType.Copperhide, 1063521, CraftResources.GetHue(CraftResource.Copperhide)));
+            Infos.Add(new CoverInfo(CoverType.Bronzehide, 1063522, CraftResources.GetHue(CraftResource.Bronzehide)));
+            Infos.Add(new CoverInfo(CoverType.Goldenhide, 1063523, CraftResources.GetHue(CraftResource.Goldenhide)));
+            Infos.Add(new CoverInfo(CoverType.Rosehide, 1063524, CraftResources.GetHue(CraftResource.Rosehide)));
+            Infos.Add(new CoverInfo(CoverType.Verehide, 1063525, CraftResources.GetHue(CraftResource.Verehide)));
+            Infos.Add(new CoverInfo(CoverType.Valehide, 1063526, CraftResources.GetHue(CraftResource.Valehide)));
             Infos.Add(new CoverInfo(CoverType.Oak, 1071410, CraftResources.GetHue(CraftResource.OakWood)));
             Infos.Add(new CoverInfo(CoverType.Ash, 1071411, CraftResources.GetHue(CraftResource.AshWood)));
             Infos.Add(new CoverInfo(CoverType.Yew, 1071412, CraftResources.GetHue(CraftResource.YewWood)));

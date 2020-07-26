@@ -9,6 +9,7 @@ using Server.Engines.XmlSpawner2;
 using Server.Ethics;
 using Server.Factions;
 using Server.Mobiles;
+using Server.Misc;
 using Server.Network;
 using Server.Services.Virtues;
 using Server.SkillHandlers;
@@ -2145,7 +2146,7 @@ namespace Server.Items
 		}
 
         public virtual void OnHit(Mobile attacker, IDamageable damageable, double damageBonus)
-		{
+        {
             if (EndDualWield)
             {
                 ProcessingMultipleHits = false;
@@ -2165,17 +2166,32 @@ namespace Server.Items
                 defender = clone;
             }
 
-			PlaySwingAnimation(attacker);
+            PlaySwingAnimation(attacker);
 
-            if(defender != null)
-			    PlayHurtAnimation(defender);
+            if (defender != null)
+                PlayHurtAnimation(defender);
 
-			attacker.PlaySound(GetHitAttackSound(attacker, defender));
+            attacker.PlaySound(GetHitAttackSound(attacker, defender));
 
-            if(defender != null)
-			    defender.PlaySound(GetHitDefendSound(attacker, defender));
+            if (defender != null)
+                defender.PlaySound(GetHitDefendSound(attacker, defender));
 
-			int damage = ComputeDamage(attacker, defender);
+            int damage = ComputeDamage(attacker, defender);
+
+            if (defender.IsPlayer())
+            {
+                PlayerMobile mob = defender as PlayerMobile;
+                double stamina_loss = 0;
+                int stam = defender.Stam;
+                double armor_stamina_penalty = RegenRates.GetArmorOffset(mob) / 2;
+                stamina_loss = ((damage / 5) * (defender.Dex / 100)) * ((armor_stamina_penalty / 100) + 1);
+                if (this.Skill == SkillName.Macing)
+                {
+                    stamina_loss *= 1.25;
+                }
+                stam -= (int)stamina_loss;
+                defender.Stam = Math.Max(0, stam);
+            }
 
             WeaponAbility a = WeaponAbility.GetCurrentAbility(attacker);
             SpecialMove move = SpecialMove.GetCurrentMove(attacker);
@@ -5186,16 +5202,31 @@ namespace Server.Items
 				case CraftResource.Valorite:
 					oreType = 1053101;
 					break; // valorite
-				case CraftResource.SpinedLeather:
-					oreType = 1061118;
-					break; // spined
-				case CraftResource.HornedLeather:
-					oreType = 1061117;
-					break; // horned
-				case CraftResource.BarbedLeather:
-					oreType = 1061116;
-					break; // barbed
-				case CraftResource.RedScales:
+                case CraftResource.Dullhide:
+                    oreType = 1063503;
+                    break; // dull leather
+                case CraftResource.Shadowhide:
+                    oreType = 1063504;
+                    break; // shadow leather
+                case CraftResource.Copperhide:
+                    oreType = 1063505;
+                    break; // copper leather
+                case CraftResource.Bronzehide:
+                    oreType = 1063506;
+                    break; // bronze leather
+                case CraftResource.Goldenhide:
+                    oreType = 1063507;
+                    break; // golden leather
+                case CraftResource.Rosehide:
+                    oreType = 1063508;
+                    break; // rose leather
+                case CraftResource.Verehide:
+                    oreType = 1063509;
+                    break; // vere leather
+                case CraftResource.Valehide:
+                    oreType = 1063510;
+                    break; // vale leather
+                case CraftResource.RedScales:
 					oreType = 1060814;
 					break; // red
 				case CraftResource.YellowScales:

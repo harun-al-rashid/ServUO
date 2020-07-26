@@ -21,8 +21,8 @@ namespace Server.Misc
         public static void Configure()
         {
             Mobile.DefaultHitsRate = TimeSpan.FromSeconds(11.0);
-            Mobile.DefaultStamRate = TimeSpan.FromSeconds(7.0);
-            Mobile.DefaultManaRate = TimeSpan.FromSeconds(7.0);
+            Mobile.DefaultStamRate = TimeSpan.FromSeconds(4.0);
+            Mobile.DefaultManaRate = TimeSpan.FromSeconds(2.0);
 
             Mobile.ManaRegenRateHandler = new RegenRateHandler(Mobile_ManaRegenRate);
 
@@ -37,17 +37,66 @@ namespace Server.Misc
         {
             double rating = 0.0;
 
-            if (!Core.AOS)
-                rating += GetArmorMeditationValue(from.ShieldArmor as BaseArmor);
+            //if (!Core.AOS)
+                rating += GetShieldMeditationPenalty(from.ShieldArmor as BaseShield)*0.35;
 
-            rating += GetArmorMeditationValue(from.NeckArmor as BaseArmor);
-            rating += GetArmorMeditationValue(from.HandArmor as BaseArmor);
-            rating += GetArmorMeditationValue(from.HeadArmor as BaseArmor);
-            rating += GetArmorMeditationValue(from.ArmsArmor as BaseArmor);
-            rating += GetArmorMeditationValue(from.LegsArmor as BaseArmor);
-            rating += GetArmorMeditationValue(from.ChestArmor as BaseArmor);
+            rating += GetArmorMaterialPenalty(from.NeckArmor as BaseArmor)*0.07;
+            rating += GetArmorMaterialPenalty(from.HandArmor as BaseArmor)*0.07;
+            rating += GetArmorMaterialPenalty(from.HeadArmor as BaseArmor)*0.14;
+            rating += GetArmorMaterialPenalty(from.ArmsArmor as BaseArmor)*0.15;
+            rating += GetArmorMaterialPenalty(from.LegsArmor as BaseArmor)*0.22;
+            rating += GetArmorMaterialPenalty(from.ChestArmor as BaseArmor)*0.35;
 
-            return rating / 4;
+            return rating;
+        }
+
+        private static double GetShieldMeditationPenalty(BaseShield shield) {
+
+            //double rating = 0;
+            //Type type = shield.GetType();
+
+            if (shield == null)
+            {
+                return 0;
+            }
+
+            if (shield.GetType() == typeof(WoodenKiteShield)) { return 20; }
+            else if (shield.GetType() == typeof(MetalShield)) { return 40; }
+            else if (shield.GetType() == typeof(BronzeShield)) { return 60; }
+            else if (shield.GetType() == typeof(MetalKiteShield)) { return 80; }
+            else if (shield.GetType() == typeof(HeaterShield) || shield.GetType() == typeof(ChaosShield) || shield.GetType() == typeof(OrderShield)) { return 100; }
+            /*switch (type)
+            {
+                default:
+                case WoodenKiteShield: return 20;
+                case (shield == typeof(MetalShield)): return 40;
+            }*/
+
+            else return 0;
+
+        }
+
+        private static double GetArmorMaterialPenalty(BaseArmor armor)
+        {
+
+            if (armor == null) return 0;
+            switch (armor.MaterialType)
+            {
+
+                default:
+                case ArmorMaterialType.Leather:
+                    return 0;
+                case ArmorMaterialType.Studded:
+                    return 20;
+                case ArmorMaterialType.Bone:
+                    return 40;
+                case ArmorMaterialType.Ringmail:
+                    return 60;
+                case ArmorMaterialType.Chainmail:
+                    return 80;
+                case ArmorMaterialType.Plate:
+                    return 100;
+            }
         }
 
         private static void CheckBonusSkill(Mobile m, int cur, int max, SkillName skill)
@@ -108,10 +157,12 @@ namespace Server.Misc
             if (!from.Meditating)
                 CheckBonusSkill(from, from.Mana, from.ManaMax, SkillName.Meditation);
 
+
             double rate;
             double armorPenalty = GetArmorOffset(from);
+            double regen_penalty = armorPenalty * 2;
 
-            if (Core.ML)
+            /*if (Core.ML)
             {
                 double med = from.Skills[SkillName.Meditation].Value;
                 double focus = from.Skills[SkillName.Focus].Value;
@@ -170,28 +221,55 @@ namespace Server.Misc
                 rate = 1.0 / (0.1 * (2 + totalPoints));
             }
             else
+            {*/
+            //double medPoints = (from.Int + from.Skills[SkillName.Meditation].Value) * 0.5;
+
+            double skill = from.Skills[SkillName.Meditation].Value - armorPenalty;
+
+
+            //if (medPoints <= 0)
+
+            /*else if (medPoints <= 100)
+                rate = 7.0 - (239 * medPoints / 2400) + (19 * medPoints * medPoints / 48000);
+            else if (medPoints < 120)
+                rate = 1.0;
+            else
+                rate = 0.75;*/
+
+
+            rate = 2.0;
+
+            if (regen_penalty < 100)
             {
-                double medPoints = (from.Int + from.Skills[SkillName.Meditation].Value) * 0.5;
-
-                if (medPoints <= 0)
-                    rate = 7.0;
-                else if (medPoints <= 100)
-                    rate = 7.0 - (239 * medPoints / 2400) + (19 * medPoints * medPoints / 48000);
-                else if (medPoints < 120)
-                    rate = 1.0;
-                else
-                    rate = 0.75;
-
-                rate += armorPenalty;
+                rate *= (regen_penalty / 100) + 1;
+            }
+            else if (regen_penalty < 200)
+            {
+                rate *= 2;
+                rate *= ((regen_penalty - 100) / 100) + 1;
+            }
+            else
+            {
+                rate *= 4;
+                rate *= ((regen_penalty - 200) / 100) + 1;
+            }
 
                 if (from.Meditating)
-                    rate *= 0.5;
+            {
+                rate *= 0.5;
+            }
+            if (skill > 0)
+            {
+                rate *= 1 / ((skill / 100) + 1);
+            }
 
                 if (rate < 0.5)
                     rate = 0.5;
-                else if (rate > 7.0)
-                    rate = 7.0;
-            }
+                else if (rate > 8.0)
+                    rate = 8.0;
+
+                
+            
 
             return TimeSpan.FromSeconds(rate);
         }
@@ -285,7 +363,7 @@ namespace Server.Misc
 
         private static double GetArmorMeditationValue(BaseArmor ar)
         {
-            if (ar == null || ar.ArmorAttributes.MageArmor != 0 || ar.Attributes.SpellChanneling != 0)
+            if (ar == null)// || ar.ArmorAttributes.MageArmor != 0 || ar.Attributes.SpellChanneling != 0)
                 return 0.0;
 
             switch ( ar.MeditationAllowance )

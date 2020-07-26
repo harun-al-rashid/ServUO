@@ -208,12 +208,17 @@ namespace Server.Engines.CityLoyalty
                     }
                     break;
                 case 1:
-                    switch (Utility.Random(4))
+                    switch (Utility.Random(9))
                     {
                         case 0: return new Leather(amount);
-                        case 1: return new SpinedLeather(amount);
-                        case 2: return new HornedLeather(amount);
-                        case 3: return new BarbedLeather(amount);
+                        case 1: return new DullLeather(amount);
+                        case 2: return new ShadowLeather(amount);
+                        case 3: return new CopperLeather(amount);
+                        case 4: return new BronzeLeather(amount);
+                        case 5: return new GoldenLeather(amount);
+                        case 6: return new RoseLeather(amount);
+                        case 7: return new VereLeather(amount);
+                        case 8: return new ValeLeather(amount);
                     }
                     break;
                 case 2:

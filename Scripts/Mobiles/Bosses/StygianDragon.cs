@@ -90,7 +90,7 @@ namespace Server.Mobiles
         public override bool AutoDispel { get { return !Controlled; } }
         public override int Meat { get { return 19; } }
         public override int Hides { get { return 30; } }
-        public override HideType HideType { get { return HideType.Barbed; } }
+        public override HideType HideType { get { return HideType.Vale; } }
         public override int Scales { get { return 7; } }
         public override ScaleType ScaleType { get { return (Body == 12 ? ScaleType.Yellow : ScaleType.Red); } }
         public override int DragonBlood { get { return 48; } }

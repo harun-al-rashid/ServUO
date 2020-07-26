@@ -277,7 +277,7 @@ namespace Server.Items
 			
             foreach (Item i in ((Container)this).FindItemsByType(typeof(Item), true))
             {
-                if ((i is Leather) || (i is Cloth) || (i is SpinedLeather) || (i is HornedLeather) || (i is BarbedLeather) || (i is Bandage) || (i is Bone))
+                if ((i is Leather) || (i is Cloth) || (i is DullLeather) || (i is ShadowLeather) || (i is CopperLeather) || (i is GoldenLeather) || (i is BronzeLeather) || (i is RoseLeather) || (i is VereLeather) || (i is ValeLeather) || (i is Bandage) || (i is Bone))
                 {
                     from.AddToBackpack(i);
                 }

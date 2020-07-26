@@ -258,9 +258,9 @@ namespace Server.Misc
             PlaceItemIn(cont, 73, 51, new RunicHammer(CraftResource.Verite, 1000));
             PlaceItemIn(cont, 79, 51, new RunicHammer(CraftResource.Valorite, 1000));
 
-            PlaceItemIn(cont, 36, 55, new RunicSewingKit(CraftResource.SpinedLeather, 1000));
-            PlaceItemIn(cont, 42, 55, new RunicSewingKit(CraftResource.HornedLeather, 1000));
-            PlaceItemIn(cont, 48, 55, new RunicSewingKit(CraftResource.BarbedLeather, 1000));
+            PlaceItemIn(cont, 36, 55, new RunicSewingKit(CraftResource.Dullhide, 1000));
+            PlaceItemIn(cont, 42, 55, new RunicSewingKit(CraftResource.Goldenhide, 1000));
+            PlaceItemIn(cont, 48, 55, new RunicSewingKit(CraftResource.Valehide, 1000));
 
             PlaceItemIn(bank, 118, 169, cont);
             // End bag of tools
@@ -304,9 +304,9 @@ namespace Server.Misc
             cont.Hue = 0x835;
             cont.Name = "Raw Materials Bag";
 
-            PlaceItemIn(cont, 92, 60, new BarbedLeather(5000));
-            PlaceItemIn(cont, 92, 68, new HornedLeather(5000));
-            PlaceItemIn(cont, 92, 76, new SpinedLeather(5000));
+            PlaceItemIn(cont, 92, 60, new DullLeather(5000));
+            PlaceItemIn(cont, 92, 68, new GoldenLeather(5000));
+            PlaceItemIn(cont, 92, 76, new ValeLeather(5000));
             PlaceItemIn(cont, 92, 84, new Leather(5000));
 
             PlaceItemIn(cont, 30, 118, new Cloth(5000));

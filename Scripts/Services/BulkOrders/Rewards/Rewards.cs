@@ -340,7 +340,7 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152677, CraftResources.GetHue(CraftResource.Valorite), 575, SmeltersTalisman, (int)CraftResource.Valorite));
                 RewardCollection.Add(new BODCollectionItem(0x14EC, 1152665, CraftResources.GetHue(CraftResource.Gold), 600, HarvestMap, (int)CraftResource.Gold));
                 RewardCollection.Add(new BODCollectionItem(0xFAF, 1157100, 0, 625, ColoredAnvil));
-                RewardCollection.Add(new BODCollectionItem(0x13EB, 1157088, 0, 625, MiningGloves, 5));
+                RewardCollection.Add(new BODCollectionItem(0x1414, 1063545, 0, 625, MiningGloves, 10));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157105, 0x481, 625, PowerScroll, 5));
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157094, CraftResources.GetHue(CraftResource.Copper), 650, RunicHammer, 3));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157106, 0x481, 675, PowerScroll, 10));
@@ -687,7 +687,7 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157111, 0, 300, StretchedHide));
                 RewardCollection.Add(new BODCollectionItem(0x1765, 1157109, 0, 300, Cloth, 5)); // TODO: Get other 4 colors
                 RewardCollection.Add(new BODCollectionItem(0x9E25, 1157218, 0, 300, CraftsmanTalisman, 25)); // todo: Get id
-                RewardCollection.Add(new BODCollectionItem(0xF9D, 1157115, CraftResources.GetHue(CraftResource.SpinedLeather), 350, RunicKit, 1));
+                RewardCollection.Add(new BODCollectionItem(0xF9D, 1157115, CraftResources.GetHue(CraftResource.Dullhide), 350, RunicKit, 1));
                 RewardCollection.Add(new BODCollectionItem(0x9E25, 1157265, 0, 350, CraftsmanTalisman, 50)); // todo: Get id
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157118, 0x481, 400, PowerScroll, 5));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157112, 0, 400, Tapestry));
@@ -695,9 +695,9 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157119, 0x481, 500, PowerScroll, 10));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157114, 0, 550, ClothingBlessDeed));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157120, 0x481, 575, PowerScroll, 15));
-                RewardCollection.Add(new BODCollectionItem(0xF9D, 1157116, CraftResources.GetHue(CraftResource.HornedLeather), 600, RunicKit, 2));
+                RewardCollection.Add(new BODCollectionItem(0xF9D, 1157116, CraftResources.GetHue(CraftResource.Goldenhide), 600, RunicKit, 2));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157121, 0x481, 650, PowerScroll, 20));
-                RewardCollection.Add(new BODCollectionItem(0xF9D, 1157117, CraftResources.GetHue(CraftResource.BarbedLeather), 700, RunicKit, 3));
+                RewardCollection.Add(new BODCollectionItem(0xF9D, 1157117, CraftResources.GetHue(CraftResource.Valehide), 700, RunicKit, 3));
             }
             else
             {
@@ -875,12 +875,22 @@ namespace Server.Engines.BulkOrders
             else if (itemCount == 6)
                 points += 500;
 
-            if (material == BulkMaterialType.Spined)
+            if (material == BulkMaterialType.Dullhide)
                 points += 50;
-            else if (material == BulkMaterialType.Horned)
+            else if (material == BulkMaterialType.Shadowhide)
+                points += 60;
+            else if (material == BulkMaterialType.Copperhide)
+                points += 75;
+            else if (material == BulkMaterialType.Bronzehide)
                 points += 100;
-            else if (material == BulkMaterialType.Barbed)
+            else if (material == BulkMaterialType.Goldenhide)
+                points += 115;
+            else if (material == BulkMaterialType.Rosehide)
+                points += 135;
+            else if (material == BulkMaterialType.Verehide)
                 points += 150;
+            else if (material == BulkMaterialType.Valehide)
+                points += 175;
 
             return points;
         }
@@ -941,51 +951,51 @@ namespace Server.Engines.BulkOrders
         {
             new int[][] // 1-part (regular)
             {
-                new int[] { 150, 150, 300, 300 },
-                new int[] { 225, 225, 450, 450 },
-                new int[] { 300, 400, 600, 750 }
+                new int[] { 150, 150, 150, 225, 225, 225, 300, 300, 300 },
+                new int[] { 225, 225, 300, 350, 350, 350, 400, 450, 450 },
+                new int[] { 300, 350, 400, 450, 500, 550, 600, 700, 750 }
             },
             new int[][] // 1-part (exceptional)
             {
-                new int[] { 300, 300, 600, 600 },
-                new int[] { 450, 450, 900, 900 },
-                new int[] { 600, 750, 1200, 1800 }
+                new int[] { 300, 300, 300, 450, 450, 450, 600, 600, 600 },
+                new int[] { 450, 450, 550, 700, 700, 800, 900, 900, 1000 },
+                new int[] { 600, 650, 750, 900, 1100, 1300, 1500, 1800, 2000 }
             },
             new int[][] // 4-part (regular)
             {
-                new int[] { 3000, 3000, 4000, 4000 },
-                new int[] { 4500, 4500, 6000, 6000 },
-                new int[] { 6000, 8000, 8000, 10000 }
+                new int[] { 3000, 3000, 3250, 3250, 3500, 3500, 3750, 4000, 4500 },
+                new int[] { 4500, 4500, 4800, 5250, 5250, 5700, 6000, 6000, 7500 },
+                new int[] { 6000, 6500, 7000, 8000, 8000, 8500, 9000, 10000, 12000 }
             },
             new int[][] // 4-part (exceptional)
             {
-                new int[] { 4000, 4000, 5000, 5000 },
-                new int[] { 6000, 6000, 7500, 7500 },
-                new int[] { 8000, 10000, 10000, 15000 }
+                new int[] { 4000, 4000, 4000, 4500, 4500, 4500, 5000, 5000, 6000 },
+                new int[] { 6000, 6000, 6500, 6500, 7000, 7000, 7500, 7500, 8500 },
+                new int[] { 8000, 9000, 10000, 10000, 11000, 12000, 13000, 15000, 17000 }
             },
             new int[][] // 5-part (regular)
             {
-                new int[] { 4000, 4000, 5000, 5000 },
-                new int[] { 6000, 6000, 7500, 7500 },
-                new int[] { 8000, 10000, 10000, 15000 }
+                new int[] { 4000, 4000, 4000, 4500, 4500, 4500, 5000, 5000, 5000 },
+                new int[] { 6000, 6000, 6500, 6500, 7000, 7000, 7500, 7500, 8000 },
+                new int[] { 8000, 9000, 10000, 10000, 11000, 12000, 13000, 15000, 17500 }
             },
             new int[][] // 5-part (exceptional)
             {
-                new int[] { 5000, 5000, 7500, 7500 },
-                new int[] { 7500, 7500, 11250, 11250 },
-                new int[] { 10000, 15000, 15000, 20000 }
+                new int[] { 5000, 5000, 6000, 6000, 7000, 7000, 7500, 7500, 8500 },
+                new int[] { 7500, 7500, 8500, 8500, 9500, 9500, 11250, 11250, 15000 },
+                new int[] { 10000, 12500, 12500, 15000, 15000, 17500, 19000, 22500, 25000 }
             },
             new int[][] // 6-part (regular)
             {
-                new int[] { 5000, 5000, 7500, 7500 },
-                new int[] { 7500, 7500, 11250, 11250 },
-                new int[] { 10000, 15000, 15000, 20000 }
+                new int[] { 5000, 5000, 6000, 6000, 7000, 7000, 8000, 9000, 10000 },
+                new int[] { 7500, 7500, 8500, 8500, 9500, 9500, 11250, 12500, 14000 },
+                new int[] { 10000, 11000, 12000, 15000, 15000, 16000, 17000, 20000, 25000 }
             },
             new int[][] // 6-part (exceptional)
             {
-                new int[] { 7500, 7500, 10000, 10000 },
-                new int[] { 11250, 11250, 15000, 15000 },
-                new int[] { 15000, 20000, 20000, 30000 }
+                new int[] { 7500, 7500, 8000, 8000, 8500, 8500, 9000, 10000, 12000 },
+                new int[] { 11250, 11250, 12500, 12500, 13750, 15000, 17500, 20000 },
+                new int[] { 15000, 17500, 20000, 20000, 25000, 27500, 32500, 40000 }
             }
         };
 
@@ -1002,7 +1012,7 @@ namespace Server.Engines.BulkOrders
 
             int typeIndex = ((itemCount == 6 ? 3 : itemCount == 5 ? 2 : itemCount == 4 ? 1 : 0) * 2) + (exceptional ? 1 : 0);
             int quanIndex = (quantity == 20 ? 2 : quantity == 15 ? 1 : 0);
-            int mtrlIndex = (material == BulkMaterialType.Barbed ? 3 : material == BulkMaterialType.Horned ? 2 : material == BulkMaterialType.Spined ? 1 : 0);
+            int mtrlIndex = (material == BulkMaterialType.Verehide ? 8 : material == BulkMaterialType.Verehide ? 7 : material == BulkMaterialType.Rosehide ? 6 : material == BulkMaterialType.Goldenhide ? 5 : material == BulkMaterialType.Bronzehide ? 4 : material == BulkMaterialType.Copperhide ? 3 : material == BulkMaterialType.Shadowhide ? 2 : material == BulkMaterialType.Dullhide ? 1 : 0);
 
             gold = goldTable[typeIndex][quanIndex][mtrlIndex];
 

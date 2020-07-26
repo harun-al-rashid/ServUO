@@ -159,30 +159,76 @@ namespace Server.Items
 
             protected override void OnTarget(Mobile from, object targ)
             {
+
+                //object controlled = from.
+
                 if (targ is BaseCreature)
                 {
                     BaseCreature bc = (BaseCreature)targ;
 
-                    if (IsHerdable(bc))
+                    //if (IsHerdable(bc))
+                    if(bc.CanBeControlledBy(from))
                     {
-                        if (bc.Controlled)
+                        /* if (bc.Controlled)
+                         {
+                             bc.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502467, from.NetState); // That animal looks tame already.
+                         }
+                         else 
+                         {
+                             from.SendLocalizedMessage(502475); // Click where you wish the animal to go.
+                             from.Target = new InternalTarget(bc, m_Crook);
+                         }*/
+                        //from.Target = new InternalTarget(bc, m_Crook);
+
+
+                        int control_slots = bc.ControlSlots;
+                        double herding_skill = from.Skills[SkillName.Herding].Value;
+                        bool success = false;
+                        double ratio = herding_skill / control_slots;
+                        if (ratio < 14)
                         {
-                            bc.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502467, from.NetState); // That animal looks tame already.
+                            from.SendMessage("You cannot focus your herding skill on that creature");
                         }
-                        else 
+                        else if (ratio > 33)
                         {
-                            from.SendLocalizedMessage(502475); // Click where you wish the animal to go.
-                            from.Target = new InternalTarget(bc, m_Crook);
+                            from.SendMessage("That was easy!");
+                            success = true;
                         }
+                        else
+                        {
+                            success = from.CheckSkill(SkillName.Herding, (ratio-13)*5 );
+                        }
+
+                        if(success)
+                        {
+                            
+                            bc.is_herding_target = true;
+                       
+                        }
+                        /*switch (control_slots)
+                        {
+                            case 1:
+
+
+                           
+
+                        }*/
+
+
+
+
+
                     }
                     else
                     {
-                        from.SendLocalizedMessage(502468); // That is not a herdable animal.
+                        //from.SendLocalizedMessage(502468); // That is not a herdable animal.
+                        from.SendMessage("You do not control that");
                     }
                 }
                 else
                 {
-                    from.SendLocalizedMessage(502472); // You don't seem to be able to persuade that to move.
+                    from.SendMessage("That is not a creature you control"); 
+                   //from.SendLocalizedMessage(502472); // You don't seem to be able to persuade that to move.
                 }
             }
 

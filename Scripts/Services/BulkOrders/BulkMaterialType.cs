@@ -15,15 +15,21 @@ namespace Server.Engines.BulkOrders
         Agapite,
         Verite,
         Valorite,
-        Spined,
-        Horned,
-        Barbed,
+        Dullhide,
+        Shadowhide,
+        Copperhide,
+        Bronzehide,
+        Goldenhide,
+        Rosehide,
+        Verehide,
+        Valehide,
         OakWood,
         AshWood,
         YewWood,
         Heartwood,
         Bloodwood,
-        Frostwood
+        Frostwood,
+        
     }
 
     public enum BulkGenericType

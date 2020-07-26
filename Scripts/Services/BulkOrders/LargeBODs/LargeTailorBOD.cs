@@ -9,10 +9,23 @@ namespace Server.Engines.BulkOrders
 
         public static double[] m_TailoringMaterialChances = new double[]
         {
-            0.857421875, // None
-            0.125000000, // Spined
-            0.015625000, // Horned
-            0.001953125  // Barbed
+            //0.857421875, // None
+            //0.
+            //0.125000000, // Spined
+            //0.015625000, // Horned
+            //0.001953125  // Barbed
+            0.6, //None
+            0.125,    //Dull
+            0.125,    //shadow
+            0.07,   //copper
+            0.05,   //bronze
+            0.01,   //golden
+            0.01,    //rose
+            0.007,  //vere
+            0.003   //vale
+
+
+
         };
         [Constructable]
         public LargeTailorBOD()
@@ -79,7 +92,7 @@ namespace Server.Engines.BulkOrders
             BulkMaterialType material;
 
             if (useMaterials)
-                material = GetRandomMaterial(BulkMaterialType.Spined, m_TailoringMaterialChances);
+                material = GetRandomMaterial(BulkMaterialType.Dullhide, m_TailoringMaterialChances);
             else
                 material = BulkMaterialType.None;
 

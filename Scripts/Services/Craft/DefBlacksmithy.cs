@@ -308,25 +308,36 @@ namespace Server.Engines.Craft
             #region Metal Armor
 
             #region Ringmail
-            AddCraft(typeof(RingmailGloves), 1111704, 1025099, 12.0, 62.0, typeof(IronIngot), 1044036, 10, 1044037);
-            AddCraft(typeof(RingmailLegs), 1111704, 1025104, 19.4, 69.4, typeof(IronIngot), 1044036, 16, 1044037);
-            AddCraft(typeof(RingmailArms), 1111704, 1025103, 16.9, 66.9, typeof(IronIngot), 1044036, 14, 1044037);
-            AddCraft(typeof(RingmailChest), 1111704, 1025100, 21.9, 71.9, typeof(IronIngot), 1044036, 18, 1044037);
+            AddCraft(typeof(RingmailGloves), 1111704, 1025099, 25.0, 75.0, typeof(IronIngot), 1044036, 6, 1044037);
+            AddCraft(typeof(RingmailLegs), 1111704, 1025104, 40.0, 90.0, typeof(IronIngot), 1044036, 10, 1044037);
+            AddCraft(typeof(RingmailArms), 1111704, 1025103, 35.0, 85.0, typeof(IronIngot), 1044036, 10, 1044037);
+            AddCraft(typeof(RingmailChest), 1111704, 1025100, 45.0, 95.0, typeof(IronIngot), 1044036, 12, 1044037);
+            AddCraft(typeof(RingmailGorget), 1111704, 1063494, 20.0, 50.0, typeof(IronIngot), 1044036, 6, 1044037);
+            AddCraft(typeof(RingmailHelm), 1111704, 1063495, 30.0, 80.0, typeof(IronIngot), 1044036, 8, 1044037);
+            AddCraft(typeof(RingmailSkirt), 1111704, 1063501, 40.0, 90.0, typeof(IronIngot), 1044036, 10, 1044037);
             #endregion
 
             #region Chainmail
-            AddCraft(typeof(ChainCoif), 1111704, 1025051, 14.5, 64.5, typeof(IronIngot), 1044036, 10, 1044037);
-            AddCraft(typeof(ChainLegs), 1111704, 1025054, 36.7, 86.7, typeof(IronIngot), 1044036, 18, 1044037);
-            AddCraft(typeof(ChainChest), 1111704, 1025055, 39.1, 89.1, typeof(IronIngot), 1044036, 20, 1044037);
+            AddCraft(typeof(ChainCoif), 1111704, 1025051, 50.0, 100.0, typeof(IronIngot), 1044036, 8, 1044037);
+            AddCraft(typeof(ChainLegs), 1111704, 1025054, 60.0, 110.0, typeof(IronIngot), 1044036, 12, 1044037);
+            AddCraft(typeof(ChainChest), 1111704, 1025055, 65.0, 115.0, typeof(IronIngot), 1044036, 14, 1044037);
+           AddCraft(typeof(ChainmailArms), 1111704, 1063491, 55.0, 105.0, typeof(IronIngot), 1044036, 10, 1044037);
+           AddCraft(typeof(ChainmailGloves), 1111704, 1063492, 45.0, 95.0, typeof(IronIngot), 1044036, 6, 1044037);
+            AddCraft(typeof(ChainmailGorget), 1111704, 1063493, 40.0, 90.0, typeof(IronIngot), 1044036, 6, 1044037);
+            AddCraft(typeof(ChainmailSkirt), 1111704, 1063493, 60.0, 110.0, typeof(IronIngot), 1044036, 12, 1044037);
+
             #endregion
 
             #region Platemail
-            AddCraft(typeof(PlateArms), 1111704, 1025136, 66.3, 116.3, typeof(IronIngot), 1044036, 18, 1044037);
-            AddCraft(typeof(PlateGloves), 1111704, 1025140, 58.9, 108.9, typeof(IronIngot), 1044036, 12, 1044037);
-            AddCraft(typeof(PlateGorget), 1111704, 1025139, 56.4, 106.4, typeof(IronIngot), 1044036, 10, 1044037);
-            AddCraft(typeof(PlateLegs), 1111704, 1025137, 68.8, 118.8, typeof(IronIngot), 1044036, 20, 1044037);
-            AddCraft(typeof(PlateChest), 1111704, 1046431, 75.0, 125.0, typeof(IronIngot), 1044036, 25, 1044037);
-            AddCraft(typeof(FemalePlateChest), 1111704, 1046430, 44.1, 94.1, typeof(IronIngot), 1044036, 20, 1044037);
+            AddCraft(typeof(PlateArms), 1111704, 1025136, 75.0, 125.0, typeof(IronIngot), 1044036, 12, 1044037);
+            AddCraft(typeof(PlateGloves), 1111704, 1025140, 65.0, 115.0, typeof(IronIngot), 1044036, 8, 1044037);
+            AddCraft(typeof(PlateGorget), 1111704, 1025139, 60.0, 110.0, typeof(IronIngot), 1044036, 8, 1044037);
+            AddCraft(typeof(PlateLegs), 1111704, 1025137, 80.0, 130.0, typeof(IronIngot), 1044036, 14, 1044037);
+            AddCraft(typeof(PlateChest), 1111704, 1046431, 75.0, 125.0, typeof(IronIngot), 1044036, 16, 1044037);
+            AddCraft(typeof(FemalePlateChest), 1111704, 1046430, 85.0, 135.0, typeof(IronIngot), 1044036, 16, 1044037);
+            AddCraft(typeof(PlateSkirt), 1111704, 1063500, 80.0, 130.0, typeof(IronIngot), 1044036, 14, 1044037);
+            AddCraft(typeof(PlateHelm), 1111704, 1025138, 70.0, 120.0, typeof(IronIngot), 1044036, 10, 1044037);
+
 
             if (Core.AOS) // exact pre-aos functionality unknown
             {

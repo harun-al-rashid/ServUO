@@ -373,10 +373,18 @@ namespace Server.Items
     {
         [Constructable]
         public PlatemailGlovesOfMining(int bonus)
-            : base(bonus, 0x13EB)
+            : base(bonus, 0x1414)
         {
             Weight = 3;
         }
+
+        public override int LabelNumber
+        {
+            get
+            {
+                return 1063544;
+            }
+        }// plate gloves of mining
 
         public PlatemailGlovesOfMining(Serial serial)
             : base(serial)
@@ -457,7 +465,7 @@ namespace Server.Items
         {
             get
             {
-                return 30;
+                return 50;
             }
         }
         public override ArmorMaterialType MaterialType
@@ -467,13 +475,7 @@ namespace Server.Items
                 return ArmorMaterialType.Plate;
             }
         }
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1045124;
-            }
-        }// ringmail blacksmith gloves of mining
+        
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

@@ -79,7 +79,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Spined;
+                return HideType.Bronze;
             }
         }
         public override int Hides

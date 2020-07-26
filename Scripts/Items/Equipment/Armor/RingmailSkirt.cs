@@ -11,6 +11,7 @@ namespace Server.Items
             : base(0x1C08)
         {
             this.Weight = 15.0;
+            Hue = 0x461;
         }
 
         public RingmailSkirt(Serial serial)

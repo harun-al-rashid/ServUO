@@ -9,6 +9,7 @@ namespace Server.Items
             : base(0x13D6)
         {
             this.Weight = 2.0;
+            Hue = 0x7b4;
         }
 
         public BoneGorget(Serial serial)

@@ -623,7 +623,7 @@ namespace Server.Engines.Quests
                         break;
                 }
 
-                switch (Utility.Random(4))
+                switch (Utility.Random(9))
                 {
                     case 0:
                         if (Utility.RandomBool())
@@ -633,21 +633,51 @@ namespace Server.Engines.Quests
                         break;
                     case 1:
                         if (Utility.RandomBool())
-                            hold.DropItem(new SpinedLeather(Utility.RandomMinMax(40, 50)));
+                            hold.DropItem(new DullLeather(Utility.RandomMinMax(40, 50)));
                         else
-                            hold.DropItem(new SpinedHides(Utility.RandomMinMax(40, 50)));
+                            hold.DropItem(new DullHides(Utility.RandomMinMax(40, 50)));
                         break;
                     case 2:
                         if (Utility.RandomBool())
-                            hold.DropItem(new HornedLeather(Utility.RandomMinMax(40, 50)));
+                            hold.DropItem(new ShadowLeather(Utility.RandomMinMax(40, 50)));
                         else
-                            hold.DropItem(new HornedHides(Utility.RandomMinMax(40, 50)));
+                            hold.DropItem(new ShadowHides(Utility.RandomMinMax(40, 50)));
                         break;
                     case 3:
                         if (Utility.RandomBool())
-                            hold.DropItem(new BarbedLeather(Utility.RandomMinMax(40, 50)));
+                            hold.DropItem(new CopperLeather(Utility.RandomMinMax(40, 50)));
                         else
-                            hold.DropItem(new BarbedHides(Utility.RandomMinMax(40, 50)));
+                            hold.DropItem(new CopperHides(Utility.RandomMinMax(40, 50)));
+                        break;
+                    case 4:
+                        if (Utility.RandomBool())
+                            hold.DropItem(new BronzeLeather(Utility.RandomMinMax(40, 50)));
+                        else
+                            hold.DropItem(new BronzeHides(Utility.RandomMinMax(40, 50)));
+                        break;
+                    case 5:
+                        if (Utility.RandomBool())
+                            hold.DropItem(new GoldenLeather(Utility.RandomMinMax(40, 50)));
+                        else
+                            hold.DropItem(new GoldenHides(Utility.RandomMinMax(40, 50)));
+                        break;
+                    case 6:
+                        if (Utility.RandomBool())
+                            hold.DropItem(new RoseLeather(Utility.RandomMinMax(40, 50)));
+                        else
+                            hold.DropItem(new RoseHides(Utility.RandomMinMax(40, 50)));
+                        break;
+                    case 7:
+                        if (Utility.RandomBool())
+                            hold.DropItem(new VereLeather(Utility.RandomMinMax(40, 50)));
+                        else
+                            hold.DropItem(new VereHides(Utility.RandomMinMax(40, 50)));
+                        break;
+                    case 8:
+                        if (Utility.RandomBool())
+                            hold.DropItem(new ValeLeather(Utility.RandomMinMax(40, 50)));
+                        else
+                            hold.DropItem(new ValeHides(Utility.RandomMinMax(40, 50)));
                         break;
                 }
 

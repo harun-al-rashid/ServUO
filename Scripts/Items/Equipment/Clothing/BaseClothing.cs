@@ -1124,15 +1124,30 @@ namespace Server.Items
                 case CraftResource.Valorite:
                     oreType = 1053101;
                     break; // valorite
-                case CraftResource.SpinedLeather:
-                    oreType = 1061118;
-                    break; // spined
-                case CraftResource.HornedLeather:
-                    oreType = 1061117;
-                    break; // horned
-                case CraftResource.BarbedLeather:
-                    oreType = 1061116;
-                    break; // barbed
+                case CraftResource.Dullhide:
+                    oreType = 1063503;
+                    break; // dull leather
+                case CraftResource.Shadowhide:
+                    oreType = 1063504;
+                    break; // shadow leather
+                case CraftResource.Copperhide:
+                    oreType = 1063505;
+                    break; // copper leather
+                case CraftResource.Bronzehide:
+                    oreType = 1063506;
+                    break; // bronze leather
+                case CraftResource.Goldenhide:
+                    oreType = 1063507;
+                    break; // golden leather
+                case CraftResource.Rosehide:
+                    oreType = 1063508;
+                    break; // rose leather
+                case CraftResource.Verehide:
+                    oreType = 1063509;
+                    break; // vere leather
+                case CraftResource.Valehide:
+                    oreType = 1063510;
+                    break; // vale leather
                 case CraftResource.RedScales:
                     oreType = 1060814;
                     break; // red

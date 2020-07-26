@@ -198,12 +198,22 @@ namespace Server.Engines.BulkOrders
                     return BulkMaterialType.Verite;
                 case CraftResource.Valorite:
                     return BulkMaterialType.Valorite;
-                case CraftResource.SpinedLeather:
-                    return BulkMaterialType.Spined;
-                case CraftResource.HornedLeather:
-                    return BulkMaterialType.Horned;
-                case CraftResource.BarbedLeather:
-                    return BulkMaterialType.Barbed;
+                case CraftResource.Dullhide:
+                    return BulkMaterialType.Dullhide;
+                case CraftResource.Shadowhide:
+                    return BulkMaterialType.Shadowhide;
+                case CraftResource.Copperhide:
+                    return BulkMaterialType.Copperhide;
+                case CraftResource.Bronzehide:
+                    return BulkMaterialType.Bronzehide;
+                case CraftResource.Goldenhide:
+                    return BulkMaterialType.Goldenhide;
+                case CraftResource.Rosehide:
+                    return BulkMaterialType.Rosehide;
+                case CraftResource.Verehide:
+                    return BulkMaterialType.Verehide;
+                case CraftResource.Valehide:
+                    return BulkMaterialType.Valehide;
                 case CraftResource.OakWood:
                     return BulkMaterialType.OakWood;
                 case CraftResource.YewWood:
@@ -411,13 +421,28 @@ namespace Server.Engines.BulkOrders
                 case BulkMaterialType.Valorite:
                     skillReq = 100.0;
                     break;
-                case BulkMaterialType.Spined:
+                case BulkMaterialType.Dullhide:
+                    skillReq = 50.0;
+                    break;
+                case BulkMaterialType.Shadowhide:
+                    skillReq = 55.0;
+                    break;
+                case BulkMaterialType.Copperhide:
+                    skillReq = 60.0;
+                    break;
+                case BulkMaterialType.Bronzehide:
                     skillReq = 65.0;
                     break;
-                case BulkMaterialType.Horned:
+                case BulkMaterialType.Goldenhide:
+                    skillReq = 70.0;
+                    break;
+                case BulkMaterialType.Rosehide:
                     skillReq = 80.0;
                     break;
-                case BulkMaterialType.Barbed:
+                case BulkMaterialType.Verehide:
+                    skillReq = 90.0;
+                    break;
+                case BulkMaterialType.Valehide:
                     skillReq = 99.0;
                     break;
                 case BulkMaterialType.OakWood:

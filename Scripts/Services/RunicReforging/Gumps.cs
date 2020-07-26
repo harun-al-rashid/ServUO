@@ -434,7 +434,7 @@ namespace Server.Gumps
                 default:
                 case CraftResource.DullCopper:
                 case CraftResource.ShadowIron:
-                case CraftResource.SpinedLeather:
+                case CraftResource.Dullhide:
                 case CraftResource.OakWood:
                     budget = 140; break;
                 case CraftResource.Copper:
@@ -442,7 +442,7 @@ namespace Server.Gumps
                     budget = 350; break;
                 case CraftResource.Bronze:
                 case CraftResource.YewWood:
-                case CraftResource.HornedLeather:
+                case CraftResource.Goldenhide:
                     budget = 500; break;
                 case CraftResource.Gold:
                 case CraftResource.Agapite:
@@ -451,7 +451,7 @@ namespace Server.Gumps
                     budget = 600; break;
                 case CraftResource.Verite:
                 case CraftResource.Frostwood:
-                case CraftResource.BarbedLeather:
+                case CraftResource.Valehide:
                     budget = 700; break;
                 case CraftResource.Valorite:
                     budget = 750; break;

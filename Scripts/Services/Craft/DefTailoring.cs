@@ -496,12 +496,18 @@ namespace Server.Engines.Craft
             }
             #endregion
 
-            AddCraft(typeof(LeatherGorget), 1015293, 1025063, 53.9, 78.9, typeof(Leather), 1044462, 4, 1044463);
-            AddCraft(typeof(LeatherCap), 1015293, 1027609, 6.2, 31.2, typeof(Leather), 1044462, 2, 1044463);
-            AddCraft(typeof(LeatherGloves), 1015293, 1025062, 51.8, 76.8, typeof(Leather), 1044462, 3, 1044463);
-            AddCraft(typeof(LeatherArms), 1015293, 1025061, 53.9, 78.9, typeof(Leather), 1044462, 4, 1044463);
-            AddCraft(typeof(LeatherLegs), 1015293, 1025067, 66.3, 91.3, typeof(Leather), 1044462, 10, 1044463);
-            AddCraft(typeof(LeatherChest), 1015293, 1025068, 70.5, 95.5, typeof(Leather), 1044462, 12, 1044463);
+            AddCraft(typeof(LeatherGorget), 1015293, 1025063, 40.0, 90.0, typeof(Leather), 1044462, 6, 1044463);
+            AddCraft(typeof(LeatherCap), 1015293, 1027609, 50.0, 100.0, typeof(Leather), 1044462, 6, 1044463);
+            AddCraft(typeof(LeatherGloves), 1015293, 1025062, 45.0, 95.0, typeof(Leather), 1044462, 6, 1044463);
+            AddCraft(typeof(LeatherArms), 1015293, 1025061, 55.0, 105.0, typeof(Leather), 1044462, 10, 1044463);
+            AddCraft(typeof(LeatherLegs), 1015293, 1025067, 60.0, 110.0, typeof(Leather), 1044462, 10, 1044463);
+            AddCraft(typeof(LeatherChest), 1015293, 1025068, 65.0, 115.0, typeof(Leather), 1044462, 14, 1044463);
+            AddCraft(typeof(LeatherSkirt), 1015293, 1027177, 60.0, 110.0, typeof(Leather), 1044462, 12, 1044463);
+            AddCraft(typeof(LeatherShorts), 1015293, 1027169, 60.0, 110.0, typeof(Leather), 1044462, 12, 1044463);
+            AddCraft(typeof(LeatherBustierArms), 1015293, 1015309, 65.0, 115.0, typeof(Leather), 1044462, 14, 1044463);
+            AddCraft(typeof(FemaleLeatherChest), 1015293, 1027175, 65.0, 115.0, typeof(Leather), 1044462, 14, 1044463);
+
+
 
             if (Core.SE)
             {
@@ -635,11 +641,20 @@ namespace Server.Engines.Craft
             #endregion
 
             #region Studded Armor
-            AddCraft(typeof(StuddedGorget), 1015300, 1025078, 78.8, 103.8, typeof(Leather), 1044462, 6, 1044463);
-            AddCraft(typeof(StuddedGloves), 1015300, 1025077, 82.9, 107.9, typeof(Leather), 1044462, 8, 1044463);
-            AddCraft(typeof(StuddedArms), 1015300, 1025076, 87.1, 112.1, typeof(Leather), 1044462, 10, 1044463);
-            AddCraft(typeof(StuddedLegs), 1015300, 1025082, 91.2, 116.2, typeof(Leather), 1044462, 12, 1044463);
-            AddCraft(typeof(StuddedChest), 1015300, 1025083, 94.0, 119.0, typeof(Leather), 1044462, 14, 1044463);
+            AddCraft(typeof(StuddedGorget), 1015300, 1025078, 60.0, 110.0, typeof(Leather), 1044462, 8, 1044463);
+            AddCraft(typeof(StuddedGloves), 1015300, 1025077, 65.0, 115.0, typeof(Leather), 1044462, 8, 1044463);
+            AddCraft(typeof(StuddedArms), 1015300, 1025076, 75.0, 125.0, typeof(Leather), 1044462, 12, 1044463);
+            AddCraft(typeof(StuddedLegs), 1015300, 1025082, 80.0, 130.0, typeof(Leather), 1044462, 14, 1044463);
+            AddCraft(typeof(StuddedChest), 1015300, 1025083, 85.0, 135.0, typeof(Leather), 1044462, 16, 1044463);
+            AddCraft(typeof(StuddedCap), 1015300, 1063497, 70.0, 130.0, typeof(Leather), 1044462, 10, 1044463);
+            AddCraft(typeof(StuddedSkirt), 1015300, 1063502, 80.0, 130.0, typeof(Leather), 1044462, 14, 1044463);
+            AddCraft(typeof(StuddedBustierArms), 1015300, 1027180, 85.0, 135.0, typeof(Leather), 1044462, 16, 1044463);
+            AddCraft(typeof(FemaleStuddedChest), 1015300, 1027170, 85.0, 135.0, typeof(Leather), 1044462, 16, 1044463);
+
+
+
+
+
 
             if (Core.SE)
             {
@@ -703,22 +718,28 @@ namespace Server.Engines.Craft
             #endregion
 
             #region Bone Armor
-            index = AddCraft(typeof(BoneHelm), 1049149, 1025206, 85.0, 110.0, typeof(Leather), 1044462, 4, 1044463);
+            index = AddCraft(typeof(BoneHelm), 1049149, 1025206, 30.0, 80.0, typeof(Leather), 1044462, 4, 1044463);
             AddRes(index, typeof(Bone), 1049064, 2, 1049063);
 			
-            index = AddCraft(typeof(BoneGloves), 1049149, 1025205, 89.0, 114.0, typeof(Leather), 1044462, 6, 1044463);
+            index = AddCraft(typeof(BoneGloves), 1049149, 1025205, 25.0, 75.0, typeof(Leather), 1044462, 6, 1044463);
             AddRes(index, typeof(Bone), 1049064, 2, 1049063);
 
-            index = AddCraft(typeof(BoneArms), 1049149, 1025203, 92.0, 117.0, typeof(Leather), 1044462, 8, 1044463);
+            index = AddCraft(typeof(BoneGorget), 1049149, 1063496, 20.0, 70.0, typeof(Leather), 1044462, 6, 1044463);
+            AddRes(index, typeof(Bone), 1049064, 2, 1049063);
+
+            index = AddCraft(typeof(BoneArms), 1049149, 1025203, 35.0, 85.0, typeof(Leather), 1044462, 10, 1044463);
             AddRes(index, typeof(Bone), 1049064, 4, 1049063);
 
-            index = AddCraft(typeof(BoneLegs), 1049149, 1025202, 95.0, 120.0, typeof(Leather), 1044462, 10, 1044463);
+            index = AddCraft(typeof(BoneLegs), 1049149, 1025202, 40.0, 90.0, typeof(Leather), 1044462, 12, 1044463);
             AddRes(index, typeof(Bone), 1049064, 6, 1049063);
-		
-            index = AddCraft(typeof(BoneChest), 1049149, 1025199, 96.0, 121.0, typeof(Leather), 1044462, 12, 1044463);
+
+            index = AddCraft(typeof(BoneSkirt), 1049149, 1063498, 40.0, 90.0, typeof(Leather), 1044462, 12, 1044463);
+            AddRes(index, typeof(Bone), 1049064, 6, 1049063);
+
+            index = AddCraft(typeof(BoneChest), 1049149, 1025199, 45.0, 95.0, typeof(Leather), 1044462, 14, 1044463);
             AddRes(index, typeof(Bone), 1049064, 10, 1049063);
 
-            index = AddCraft(typeof(OrcHelm), 1049149, 1027947, 90.0, 115.0, typeof(Leather), 1044462, 6, 1044463);
+            index = AddCraft(typeof(OrcHelm), 1049149, 1027947, 40.0, 90.0, typeof(Leather), 1044462, 6, 1044463);
             AddRes(index, typeof(Bone), 1049064, 4, 1049063);
 
             if (Core.SA)
@@ -738,9 +759,15 @@ namespace Server.Engines.Craft
             // Add every material you want the player to be able to choose from
             // This will override the overridable material
             AddSubRes(typeof(Leather), 1049150, 00.0, 1044462, 1049311);
-            AddSubRes(typeof(SpinedLeather), 1049151, 65.0, 1044462, 1049311);
-            AddSubRes(typeof(HornedLeather), 1049152, 80.0, 1044462, 1049311);
-            AddSubRes(typeof(BarbedLeather), 1049153, 99.0, 1044462, 1049311);
+            AddSubRes(typeof(DullLeather), 1063528, 45.0, 1044462, 1049311);
+            AddSubRes(typeof(ShadowLeather), 1063529, 50.0, 1044462, 1049311);
+            AddSubRes(typeof(CopperLeather), 1063530, 60.0, 1044462, 1049311);
+            AddSubRes(typeof(BronzeLeather), 1063531, 70.0, 1044462, 1049311);
+            AddSubRes(typeof(GoldenLeather), 1063532, 80.0, 1044462, 1049311);
+            AddSubRes(typeof(RoseLeather), 1063533, 90.0, 1044462, 1049311);
+            AddSubRes(typeof(VereLeather), 1063534, 95.0, 1044462, 1049311);
+            AddSubRes(typeof(ValeLeather), 1063535, 99.0, 1044462, 1049311);
+
 
             MarkOption = true;
             Repair = Core.AOS;

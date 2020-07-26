@@ -1946,10 +1946,12 @@ namespace Server.Mobiles
 
 		public override double ArmorRating
 		{
-			get
+         
+        get
 			{
-				//BaseArmor ar;
-				double rating = 0.0;
+                
+                //BaseArmor ar;
+                double rating = 0.0;
 
 				AddArmorRating(ref rating, NeckArmor);
 				AddArmorRating(ref rating, HandArmor);
@@ -1966,11 +1968,19 @@ namespace Server.Mobiles
 		private void AddArmorRating(ref double rating, Item armor)
 		{
 			BaseArmor ar = armor as BaseArmor;
-
-			if (ar != null && (!Core.AOS || ar.ArmorAttributes.MageArmor == 0))
-			{
-				rating += ar.ArmorRatingScaled;
-			}
+            double tailor_skill_bonus = ((Skills[SkillName.Tailoring].Value / 100) * 0.25) + 1;
+            double blacksmith_skill_bonus = ((Skills[SkillName.Blacksmith].Value / 100) * 0.25) + 1;
+            if (ar == null) { return; }
+            if ((int)ar.MaterialType <= 3)// || ar.MaterialType is ArmorMaterialType.Studded || ar.MaterialType is ArmorMaterialType.Bone)
+            {
+                rating += ar.ArmorRatingScaled * tailor_skill_bonus;
+                
+            }
+            else
+            {
+                rating += ar.ArmorRatingScaled * blacksmith_skill_bonus;
+               // World.Broadcast(0x255, true, "rating" + rating);
+            }
 		}
 
 		#region [Stats]Max
@@ -2170,6 +2180,14 @@ namespace Server.Mobiles
                     BuffInfo.RemoveBuff(this, BuffIcon.Berserk);
                     Delta(MobileDelta.WeaponDamage);
                 }
+            }
+
+            if (oldValue > Hits)
+            {
+                int damage = oldValue - Hits;
+                double stam_loss = (damage / 5) * (Dex / 100);
+                Stam -= (int)stam_loss;
+
             }
 
             base.OnHitsChange(oldValue);

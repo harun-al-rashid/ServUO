@@ -2,13 +2,14 @@ using System;
 
 namespace Server.Items
 {
-    public class RingmailHelm : BaseArmor
+    public class RingmailHelm : BaseArmor 
     {
         [Constructable]
         public RingmailHelm()
-            : base(0x140E)
+            : base(0x140A)
         {
             this.Weight = 5.0;
+            Hue = 0x461;
         }
 
         public RingmailHelm(Serial serial)

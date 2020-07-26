@@ -119,9 +119,6 @@ namespace Server.Mobiles
     public enum HideType
     {
         Regular,
-        Spined,
-        Horned,
-        Barbed,
         Dull,
         Shadow,
         Copper,
@@ -2576,14 +2573,13 @@ namespace Server.Mobiles
                 if (hides != 0)
                 {
                     Item leather = null;
+                    //we change number of hides dependant on tailoring skill...
+                    hides = Math.Max(1 , (int)(from.Skills[SkillName.Tailoring].Value / 100 * hides));
 
                     switch (HideType)
                     {
                         default:
                         case HideType.Regular: leather = new Leather(hides); break;
-                        case HideType.Spined: leather = new SpinedLeather(hides); break;
-                        case HideType.Horned: leather = new HornedLeather(hides); break;
-                        case HideType.Barbed: leather = new BarbedLeather(hides); break;
                         case HideType.Dull: leather = new DullLeather(hides); break;
                         case HideType.Shadow: leather = new ShadowLeather(hides); break;
                         case HideType.Copper: leather = new CopperLeather(hides); break;

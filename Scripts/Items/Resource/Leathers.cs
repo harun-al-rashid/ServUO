@@ -45,8 +45,8 @@ namespace Server.Items
         {
             get
             {
-                if (this.m_Resource >= CraftResource.SpinedLeather && this.m_Resource <= CraftResource.BarbedLeather)
-                    return 1049684 + (int)(this.m_Resource - CraftResource.SpinedLeather);
+                if (this.m_Resource >= CraftResource.Dullhide && this.m_Resource <= CraftResource.Valehide)
+                    return 1063503 + (int)(this.m_Resource - CraftResource.Dullhide);
 
                 return 1047022;
             }
@@ -173,7 +173,7 @@ namespace Server.Items
 
         [Constructable]
         public DullLeather(int amount)
-            : base(CraftResource.SpinedLeather, amount)
+            : base(CraftResource.Dullhide, amount)
         {
         }
 
@@ -210,7 +210,7 @@ namespace Server.Items
 
         [Constructable]
         public ShadowLeather(int amount)
-            : base(CraftResource.SpinedLeather, amount)
+            : base(CraftResource.Shadowhide, amount)
         {
         }
 
@@ -247,7 +247,7 @@ namespace Server.Items
 
         [Constructable]
         public CopperLeather(int amount)
-            : base(CraftResource.SpinedLeather, amount)
+            : base(CraftResource.Copperhide, amount)
         {
         }
 
@@ -284,7 +284,7 @@ namespace Server.Items
 
         [Constructable]
         public BronzeLeather(int amount)
-            : base(CraftResource.SpinedLeather, amount)
+            : base(CraftResource.Bronzehide, amount)
         {
         }
 
@@ -321,7 +321,7 @@ namespace Server.Items
 
         [Constructable]
         public GoldenLeather(int amount)
-            : base(CraftResource.SpinedLeather, amount)
+            : base(CraftResource.Goldenhide, amount)
         {
         }
 
@@ -358,7 +358,7 @@ namespace Server.Items
 
         [Constructable]
         public RoseLeather(int amount)
-            : base(CraftResource.SpinedLeather, amount)
+            : base(CraftResource.Rosehide, amount)
         {
         }
 
@@ -395,7 +395,7 @@ namespace Server.Items
 
         [Constructable]
         public ValeLeather(int amount)
-            : base(CraftResource.SpinedLeather, amount)
+            : base(CraftResource.Valehide, amount)
         {
         }
 
@@ -431,7 +431,7 @@ namespace Server.Items
 
         [Constructable]
         public VereLeather(int amount)
-            : base(CraftResource.SpinedLeather, amount)
+            : base(CraftResource.Verehide, amount)
         {
         }
 
@@ -455,114 +455,5 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x1081, 0x1082)]
-    public class SpinedLeather : BaseLeather
-    {
-        protected override CraftResource DefaultResource { get { return CraftResource.SpinedLeather; } }
 
-        [Constructable]
-        public SpinedLeather()
-            : this(1)
-        {
-        }
-
-        [Constructable]
-        public SpinedLeather(int amount)
-            : base(CraftResource.SpinedLeather, amount)
-        {
-        }
-
-        public SpinedLeather(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.Write((int)0); // version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-        }
-    }
-
-    [FlipableAttribute(0x1081, 0x1082)]
-    public class HornedLeather : BaseLeather
-    {
-        protected override CraftResource DefaultResource { get { return CraftResource.HornedLeather; } }
-
-        [Constructable]
-        public HornedLeather()
-            : this(1)
-        {
-        }
-
-        [Constructable]
-        public HornedLeather(int amount)
-            : base(CraftResource.HornedLeather, amount)
-        {
-        }
-
-        public HornedLeather(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.Write((int)0); // version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-        }
-    }
-
-    [FlipableAttribute(0x1081, 0x1082)]
-    public class BarbedLeather : BaseLeather
-    {
-        protected override CraftResource DefaultResource { get { return CraftResource.BarbedLeather; } }
-
-        [Constructable]
-        public BarbedLeather()
-            : this(1)
-        {
-        }
-
-        [Constructable]
-        public BarbedLeather(int amount)
-            : base(CraftResource.BarbedLeather, amount)
-        {
-        }
-
-        public BarbedLeather(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.Write((int)0); // version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-        }
-    }
 }

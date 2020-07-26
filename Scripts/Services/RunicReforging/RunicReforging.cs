@@ -338,7 +338,7 @@ namespace Server.Items
                     }
                     break;
                 case CraftResource.ShadowIron:
-                case CraftResource.SpinedLeather:
+                case CraftResource.Dullhide:
                 case CraftResource.OakWood:
                     {
                         if ((index == 10 || index == 11) && ((options & ReforgingOption.Structural) != 0 ||
@@ -352,7 +352,7 @@ namespace Server.Items
                         return true;
                     }
                 case CraftResource.Copper:
-                case CraftResource.HornedLeather:
+                case CraftResource.Goldenhide:
                 case CraftResource.AshWood:
                     {
                         if (index == 10 || index == 11)
@@ -407,7 +407,7 @@ namespace Server.Items
                     break;
                 case CraftResource.Heartwood:
                 case CraftResource.Verite:
-                case CraftResource.BarbedLeather:
+                case CraftResource.Valehide:
                 case CraftResource.Valorite:
                     {
                         if (index == 9 || index == 10 || index == 11 || index == 12)
@@ -940,9 +940,9 @@ namespace Server.Items
                 case CraftResource.Verite:
                 case CraftResource.Valorite:
                 case CraftResource.Copper: return 2;
-                case CraftResource.HornedLeather:
-                case CraftResource.BarbedLeather:
-                case CraftResource.SpinedLeather: return 3;
+                case CraftResource.Goldenhide:
+                case CraftResource.Valehide:
+                case CraftResource.Dullhide: return 3;
                 case CraftResource.OakWood: return 4;
                 case CraftResource.YewWood:
                 case CraftResource.Heartwood:

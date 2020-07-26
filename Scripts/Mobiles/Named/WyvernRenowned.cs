@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -105,7 +105,7 @@ namespace Server.Mobiles
 
         public override HideType HideType
         {
-            get { return HideType.Horned; }
+            get { return HideType.Rose; }
         }
 
         public override void GenerateLoot()

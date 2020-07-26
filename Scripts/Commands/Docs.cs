@@ -722,7 +722,7 @@ namespace Server.Commands
 				DocumentTailorBOD(html, sbod.ComputeRewards(true), "10, 15", sbod.Material, sbod.Type);
 
 				sbod.Type = typeof(LeatherCap);
-				for (var mat = BulkMaterialType.None; mat <= BulkMaterialType.Barbed; ++mat)
+				for (var mat = BulkMaterialType.None; mat <= BulkMaterialType.Valehide; ++mat)
 				{
 					if (mat >= BulkMaterialType.DullCopper && mat <= BulkMaterialType.Valorite)
 					{
@@ -745,7 +745,7 @@ namespace Server.Commands
 				DocumentTailorBOD(html, sbod.ComputeRewards(true), "20", sbod.Material, sbod.Type);
 
 				sbod.Type = typeof(LeatherCap);
-				for (var mat = BulkMaterialType.None; mat <= BulkMaterialType.Barbed; ++mat)
+				for (var mat = BulkMaterialType.None; mat <= BulkMaterialType.Valehide; ++mat)
 				{
 					if (mat >= BulkMaterialType.DullCopper && mat <= BulkMaterialType.Valorite)
 					{
@@ -769,7 +769,7 @@ namespace Server.Commands
 				DocumentTailorBOD(html, sbod.ComputeRewards(true), "10, 15", sbod.Material, sbod.Type);
 
 				sbod.Type = typeof(LeatherCap);
-				for (var mat = BulkMaterialType.None; mat <= BulkMaterialType.Barbed; ++mat)
+				for (var mat = BulkMaterialType.None; mat <= BulkMaterialType.Valehide; ++mat)
 				{
 					if (mat >= BulkMaterialType.DullCopper && mat <= BulkMaterialType.Valorite)
 					{
@@ -792,7 +792,7 @@ namespace Server.Commands
 				DocumentTailorBOD(html, sbod.ComputeRewards(true), "20", sbod.Material, sbod.Type);
 
 				sbod.Type = typeof(LeatherCap);
-				for (var mat = BulkMaterialType.None; mat <= BulkMaterialType.Barbed; ++mat)
+				for (var mat = BulkMaterialType.None; mat <= BulkMaterialType.Valehide; ++mat)
 				{
 					if (mat >= BulkMaterialType.DullCopper && mat <= BulkMaterialType.Valorite)
 					{
@@ -877,7 +877,7 @@ namespace Server.Commands
 				DocumentTailorBOD(html, lbod.ComputeRewards(true), "10, 15, 20", lbod.Material, typeof(LeatherCap));
 			}
 
-			for (var mat = BulkMaterialType.Spined; mat <= BulkMaterialType.Barbed; ++mat)
+			for (var mat = BulkMaterialType.Dullhide; mat <= BulkMaterialType.Valehide; ++mat)
 			{
 				lbod.Material = mat;
 				lbod.AmountMax = 10;
@@ -926,7 +926,7 @@ namespace Server.Commands
 				DocumentTailorBOD(html, lbod.ComputeRewards(true), "10, 15, 20", lbod.Material, typeof(LeatherCap));
 			}
 
-			for (var mat = BulkMaterialType.Spined; mat <= BulkMaterialType.Barbed; ++mat)
+			for (var mat = BulkMaterialType.Dullhide; mat <= BulkMaterialType.Valehide; ++mat)
 			{
 				lbod.Material = mat;
 				lbod.AmountMax = 10;
@@ -1162,15 +1162,15 @@ namespace Server.Commands
 
 					break;
 				}
-				case BulkMaterialType.Spined:
+				case BulkMaterialType.Dullhide:
 					style = "sp";
 					name = "Spined";
 					break;
-				case BulkMaterialType.Horned:
+				case BulkMaterialType.Goldenhide:
 					style = "ho";
 					name = "Horned";
 					break;
-				case BulkMaterialType.Barbed:
+				case BulkMaterialType.Valehide:
 					style = "ba";
 					name = "Barbed";
 					break;

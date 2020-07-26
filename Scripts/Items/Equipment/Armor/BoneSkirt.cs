@@ -11,6 +11,7 @@ namespace Server.Items
             : base(0x1C08)
         {
             this.Weight = 3.0;
+            Hue = 0x9c1;
         }
 
         public BoneSkirt(Serial serial)

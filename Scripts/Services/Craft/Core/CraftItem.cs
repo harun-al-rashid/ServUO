@@ -387,9 +387,14 @@ namespace Server.Engines.Craft
             new[] {typeof(AshBoard), typeof(AshLog)},
 			new[] {typeof(YewBoard), typeof(YewLog)}, 
             new[] {typeof(Leather), typeof(Hides)},
-			new[] {typeof(SpinedLeather), typeof(SpinedHides)}, 
-            new[] {typeof(HornedLeather), typeof(HornedHides)},
-			new[] {typeof(BarbedLeather), typeof(BarbedHides)}, 
+			new[] {typeof(DullLeather), typeof(DullHides)}, 
+            new[] {typeof(ShadowLeather), typeof(ShadowHides)},
+			new[] {typeof(CopperLeather), typeof(CopperHides)},
+            new[] {typeof(BronzeLeather), typeof(BronzeHides)},
+            new[] {typeof(GoldenLeather), typeof(GoldenHides)},
+            new[] {typeof(RoseLeather), typeof(RoseHides)},
+            new[] {typeof(VereLeather), typeof(VereHides)},
+            new[] {typeof(ValeLeather), typeof(ValeHides)},
             new[] {typeof(BlankMap), typeof(BlankScroll)},
 			new[] {typeof(Cloth), typeof(UncutCloth), typeof(AbyssalCloth)},
             new[] {typeof(CheeseWheel), typeof(CheeseWedge)},
@@ -471,10 +476,15 @@ namespace Server.Engines.Craft
 			{ typeof(AshBoard), typeof(AshLog) },
 			{ typeof(YewBoard), typeof(YewLog) },
 			{ typeof(Leather), typeof(Hides) },
-			{ typeof(SpinedLeather), typeof(SpinedHides) },
-			{ typeof(HornedLeather), typeof(HornedHides) },
-			{ typeof(BarbedLeather), typeof(BarbedHides) },
-		};
+            { typeof(DullLeather), typeof(DullHides) },
+            { typeof(ShadowLeather), typeof(ShadowHides) },
+            { typeof(CopperLeather), typeof(CopperHides) },
+            { typeof(BronzeLeather), typeof(BronzeHides) },
+            { typeof(GoldenLeather), typeof(GoldenHides) },
+            { typeof(RoseLeather), typeof(RoseHides) },
+            { typeof(VereLeather), typeof(VereHides) },
+            { typeof(ValeLeather), typeof(ValeHides) },
+        };
 
 		private static Type[] m_NeverColorTable = new[] {typeof(OrcHelm)};
 		#endregion

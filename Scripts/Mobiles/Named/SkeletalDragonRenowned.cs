@@ -147,7 +147,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Barbed;
+                return HideType.Vale;
             }
         }
         public override void GenerateLoot()

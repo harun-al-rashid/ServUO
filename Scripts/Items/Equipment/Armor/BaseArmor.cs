@@ -89,6 +89,8 @@ namespace Server.Items
         private ArmorDurabilityLevel m_Durability;
         private ArmorProtectionLevel m_Protection;
         private CraftResource m_Resource;
+        private double m_ArmorLocationPenalty;
+        private double m_Armor_Meditation_Penalty;
         private bool m_Identified, m_PlayerConstructed;
         private int m_PhysicalBonus, m_FireBonus, m_ColdBonus, m_PoisonBonus, m_EnergyBonus;
 
@@ -126,6 +128,51 @@ namespace Server.Items
         private int m_StrBonus = -1, m_DexBonus = -1, m_IntBonus = -1;
         private int m_StrReq = -1, m_DexReq = -1, m_IntReq = -1;
         private AMA m_Meditate = (AMA)(-1);
+        private static double ArmorLocationPenalty(BaseArmor armor)
+        {
+
+            switch (armor.BodyPosition)
+            {
+
+                default:
+                case ArmorBodyType.Gorget:
+                    return 7.0;
+                case ArmorBodyType.Shield:
+                    return 35.0;
+                case ArmorBodyType.Gloves:
+                    return 7.0;
+                case ArmorBodyType.Helmet:
+                    return 14;
+                case ArmorBodyType.Arms:
+                    return 15.0;
+                case ArmorBodyType.Legs:
+                    return 22.0;
+                case ArmorBodyType.Chest:
+                    return 35.0;
+            }
+
+        }
+
+        /*private static double GetArmorMaterialPenalty(BaseArmor armor)
+        {
+                switch (armor.MaterialType)
+                {
+
+                    default:
+                    case AMT.Leather:
+                        return 0;
+                    case AMT.Studded:
+                        return 20;
+                    case AMT.Bone:
+                        return 40;
+                    case AMT.Ringmail:
+                        return 60;
+                    case AMT.Chainmail:
+                        return 80;
+                    case AMT.Plate:
+                        return 100;
+                }
+        }*/
 
         public virtual bool AllowMaleWearer
         {
@@ -283,7 +330,7 @@ namespace Server.Items
             }
         }
 
-		public virtual bool CanAlter { get { return true; } }
+        public virtual bool CanAlter { get { return true; } }
 
         public virtual bool UseIntOrDexProperty
         {
@@ -386,6 +433,7 @@ namespace Server.Items
             }
         }
 
+        
         [CommandProperty(AccessLevel.GameMaster)]
         public int BaseArmorRating
         {
@@ -416,49 +464,66 @@ namespace Server.Items
             get
             {
                 double ar = BaseArmorRating;
+                double armor_modifier = 100;
 
                 if (m_Protection != ArmorProtectionLevel.Regular)
-                    ar += 10 + (5 * (int)m_Protection);
+                    armor_modifier += (20 * (int)m_Protection);
 
                 switch ( m_Resource )
                 {
                     case CraftResource.DullCopper:
-                        ar *= 1.05;
+                        armor_modifier += 0.05;
                         break;
                     case CraftResource.ShadowIron:
-                        ar *= 1.1;
+                        armor_modifier += 0.1;
                         break;
                     case CraftResource.Copper:
-                        ar *= 1.15;
+                        armor_modifier += 0.15;
                         break;
                     case CraftResource.Bronze:
-                        ar *= 1.2;
+                        armor_modifier += 0.2;
                         break;
                     case CraftResource.Gold:
-                        ar *= 1.25;
+                        armor_modifier += 0.25;
                         break;
                     case CraftResource.Agapite:
-                        ar *= 1.3;
+                        armor_modifier += 0.3;
                         break;
                     case CraftResource.Verite:
-                        ar *= 1.35;
+                        armor_modifier += 0.35;
                         break;
                     case CraftResource.Valorite:
-                        ar *= 1.4;
+                        armor_modifier += 0.4;
                         break;
-                    case CraftResource.SpinedLeather:
-                        ar += 10;
+                    case CraftResource.Dullhide:
+                        armor_modifier += 0.05;
                         break;
-                    case CraftResource.HornedLeather:
-                        ar += 13;
+                    case CraftResource.Shadowhide:
+                        armor_modifier += 0.1;
                         break;
-                    case CraftResource.BarbedLeather:
-                        ar += 16;
+                    case CraftResource.Copperhide:
+                        armor_modifier += 0.15;
                         break;
+                    case CraftResource.Bronzehide:
+                        armor_modifier += 0.2;
+                        break;
+                    case CraftResource.Goldenhide:
+                        armor_modifier += 0.25;
+                        break;
+                    case CraftResource.Rosehide:
+                        armor_modifier += 0.3;
+                        break;
+                    case CraftResource.Verehide:
+                        armor_modifier += 0.35;
+                        break;
+                    case CraftResource.Valehide:
+                        armor_modifier += 0.4;
+                        break;
+                   
                 }
 
-                ar += -8 + (8 * (int)m_Quality);
-                return ScaleArmorByDurability(ar);
+                armor_modifier += -10 + (10 * (int)m_Quality);
+                return ScaleArmorByDurability(ar*(armor_modifier/100));
             }
         }
 
@@ -1389,7 +1454,7 @@ namespace Server.Items
             int bonus = 0;
 
             if (m_Quality == ItemQuality.Exceptional &&!(this is GargishLeatherWingArmor))
-                bonus += 20;
+                bonus += 25;
 
             switch ( m_Durability )
             {
@@ -1397,16 +1462,16 @@ namespace Server.Items
                     bonus += 20;
                     break;
                 case ArmorDurabilityLevel.Substantial:
-                    bonus += 50;
+                    bonus += 40;
                     break;
                 case ArmorDurabilityLevel.Massive:
-                    bonus += 70;
+                    bonus += 60;
                     break;
                 case ArmorDurabilityLevel.Fortified:
-                    bonus += 100;
+                    bonus += 80;
                     break;
                 case ArmorDurabilityLevel.Indestructible:
-                    bonus += 120;
+                    bonus += 100;
                     break;
             }
 
@@ -1585,12 +1650,18 @@ namespace Server.Items
 
         public virtual double ScaleArmorByDurability(double armor)
         {
-            int scale = 100;
+            double reduction = 100;
+            double ratio;
 
             if (m_MaxHitPoints > 0 && m_HitPoints < m_MaxHitPoints)
-                scale = 50 + ((50 * m_HitPoints) / m_MaxHitPoints);
+            {
+                ratio = m_HitPoints / m_MaxHitPoints;
+                reduction -= ratio * 20;
+            }
+             // 50 + ((50 * m_HitPoints) / m_MaxHitPoints);
 
-            return (armor * scale) / 100;
+
+            return (armor * (reduction / 100));// / 100;
         }
 
         protected void Invalidate()
@@ -2276,12 +2347,22 @@ namespace Server.Items
                         {
                             if (mat == ArmorMaterialType.Studded || mat == ArmorMaterialType.Leather)
                                 m_Resource = CraftResource.RegularLeather;
-                            else if (mat == ArmorMaterialType.Spined)
-                                m_Resource = CraftResource.SpinedLeather;
-                            else if (mat == ArmorMaterialType.Horned)
-                                m_Resource = CraftResource.HornedLeather;
-                            else if (mat == ArmorMaterialType.Barbed)
-                                m_Resource = CraftResource.BarbedLeather;
+                            else if (mat == ArmorMaterialType.Dullhide)
+                                m_Resource = CraftResource.Dullhide;
+                            else if (mat == ArmorMaterialType.Shadowhide)
+                                m_Resource = CraftResource.Shadowhide;
+                            else if (mat == ArmorMaterialType.Copperhide)
+                                m_Resource = CraftResource.Copperhide;
+                            else if (mat == ArmorMaterialType.Bronzehide)
+                                m_Resource = CraftResource.Bronzehide;
+                            else if (mat == ArmorMaterialType.Goldenhide)
+                                m_Resource = CraftResource.Goldenhide;
+                            else if (mat == ArmorMaterialType.Rosehide)
+                                m_Resource = CraftResource.Rosehide;
+                            else if (mat == ArmorMaterialType.Verehide)
+                                m_Resource = CraftResource.Verehide;
+                            else if (mat == ArmorMaterialType.Valehide)
+                                m_Resource = CraftResource.Valehide;
                             else
                                 m_Resource = CraftResource.Iron;
                         }
@@ -2678,9 +2759,14 @@ namespace Server.Items
                 case CraftResource.Agapite: oreType = 1053103; break; // agapite
                 case CraftResource.Verite: oreType = 1053102; break; // verite
                 case CraftResource.Valorite: oreType = 1053101; break; // valorite
-                case CraftResource.SpinedLeather: oreType = 1061118; break; // spined
-                case CraftResource.HornedLeather: oreType = 1061117; break; // horned
-                case CraftResource.BarbedLeather: oreType = 1061116; break; // barbed
+                case CraftResource.Dullhide: oreType = 1063503; break; // dull leather
+                case CraftResource.Shadowhide: oreType = 1063504; break; // shadow leather
+                case CraftResource.Copperhide: oreType = 1063505; break; // copper leather
+                case CraftResource.Bronzehide: oreType = 1063506; break; // bronze leather
+                case CraftResource.Goldenhide: oreType = 1063507; break; // golden leather
+                case CraftResource.Rosehide: oreType = 1063508; break; // rose leather
+                case CraftResource.Verehide: oreType = 1063509; break; // vere leather
+                case CraftResource.Valehide: oreType = 10635010; break; // vale leather
                 case CraftResource.RedScales: oreType = 1060814; break; // red
                 case CraftResource.YellowScales: oreType = 1060818; break; // yellow
                 case CraftResource.BlackScales: oreType = 1060820; break; // black

@@ -25,9 +25,16 @@ namespace Server.Engines.BulkOrders
 				{ 1044094,  2 }, // Tailoring
 				{ 1044286, 12 }, // Cloth
 				{ 1062235, 13 }, // Leather
-				{ 1062236, 14 }, // Spined
-				{ 1062237, 15 }, // Horned
-				{ 1062238, 16 }  // Barbed
+				{ 1063511, 14 }, // Dull
+				{ 1063512, 15 }, // Shadow
+				{ 1063513, 16 },  // Copper
+
+                {       0,  0 }, // --Blank--
+                { 1063514, 17 }, // Bronze
+				{ 1063515, 18 }, // Golden
+				{ 1063516, 19 }, // Rose
+				{ 1063517, 20 },  // Vere
+                { 1063518, 21 }  // Vale
 			};
 
         private static readonly int[,] m_MaterialFiltersNew = new int[,]
@@ -49,49 +56,56 @@ namespace Server.Engines.BulkOrders
             { 1044094, 2 }, // Tailoring
             { 1044286, 18 }, // Cloth
             { 1062235, 19 }, // Leather
-            { 1062236, 20 }, // Spined
-            { 1062237, 21 }, // Horned
-            { 1062238, 22 }, // Barbed
-
-            { 1044097, 3 }, // Tinkering
-            { 1062226, 23 }, // Iron
-            { 1018332, 24 }, // Dull Copper
-            { 1018333, 25 }, // Shadow Iron
-            { 1018334, 26 }, // Copper
-            { 1018335, 27 }, // Bronze
+            { 1063511, 20 }, // Dull
+				{ 1063512, 21 }, // Shadow
+				{ 1063513, 22 },  // Copper
 
             { 0, 0 }, // --Blank--
-            { 1018336, 28 }, // Golden
-            { 1018337, 29 }, // Agapite
-            { 1018338, 30 }, // Verite
-            { 1018339, 31 }, // Valorite
+            { 1063514, 23 }, // Bronze
+				{ 1063515, 24 }, // Golden
+				{ 1063516, 25 }, // Rose
+				{ 1063517, 26 },  // Vere
+                { 1063518, 27 },  // Vale
+
+            { 1044097, 3 }, // Tinkering
+            { 1062226, 28 }, // Iron
+            { 1018332, 29 }, // Dull Copper
+            { 1018333, 30 }, // Shadow Iron
+            { 1018334, 31 }, // Copper
+            { 1018335, 32 }, // Bronze
+
+            { 0, 0 }, // --Blank--
+            { 1018336, 33 }, // Golden
+            { 1018337, 34 }, // Agapite
+            { 1018338, 35 }, // Verite
+            { 1018339, 36 }, // Valorite
             { 0, 0 }, // --Blank--
 
             { 1044071, 4 }, // Carpentry
-            { 1079435, 32 }, // Wood
-            { 1071428, 33 }, // Oak
-            { 1071429, 34 }, // Ash
-            { 1071430, 35 }, // Yew
+            { 1079435, 37 }, // Wood
+            { 1071428, 38 }, // Oak
+            { 1071429, 39 }, // Ash
+            { 1071430, 40 }, // Yew
             { 0, 0 }, // --Blank--
 
             { 0, 0 }, // --Blank--
-            { 1071431, 36 }, // Bloodwood
-            { 1071432, 37 }, // Heartwood
-            { 1071433, 38 }, // Frostwood
+            { 1071431, 41 }, // Bloodwood
+            { 1071432, 42 }, // Heartwood
+            { 1071433, 43 }, // Frostwood
             { 0, 0 }, // --Blank--
             { 0, 0 }, // --Blank--
 
             { 1044068, 5 }, // Fletching
-            { 1079435, 39 }, // Wood
-            { 1071428, 40 }, // Oak
-            { 1071429, 41 }, // Ash
-            { 1071430, 42 }, // Yew
+            { 1079435, 44 }, // Wood
+            { 1071428, 45 }, // Oak
+            { 1071429, 46 }, // Ash
+            { 1071430, 47 }, // Yew
             { 0, 0 }, // --Blank--
 
             { 0, 0 }, // --Blank--
-            { 1071431, 43 }, // Bloodwood
-            { 1071432, 44 }, // Heartwood
-            { 1071433, 45 }, // Frostwood
+            { 1071431, 48 }, // Bloodwood
+            { 1071432, 49 }, // Heartwood
+            { 1071433, 50 }, // Frostwood
             { 0, 0 }, // --Blank--
             { 0, 0 }, // --Blank--
 

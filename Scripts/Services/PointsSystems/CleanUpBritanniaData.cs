@@ -81,11 +81,11 @@ namespace Server.Engines.Points
                 {
                     RunicSewingKit sewing = (RunicSewingKit)item;
 
-                    if (sewing.Resource == CraftResource.SpinedLeather)
+                    if (sewing.Resource == CraftResource.Dullhide)
                         points = 10 * sewing.UsesRemaining;
-                    else if (sewing.Resource == CraftResource.HornedLeather)
+                    else if (sewing.Resource == CraftResource.Goldenhide)
                         points = 100 * sewing.UsesRemaining;
-                    else if (sewing.Resource == CraftResource.BarbedLeather)
+                    else if (sewing.Resource == CraftResource.Valehide)
                         points = 400 * sewing.UsesRemaining;
                 }
                 else if (item is PowerScroll)
@@ -232,9 +232,9 @@ namespace Server.Engines.Points
 
             //Tailoring
             Entries[typeof(Leather)] = 0.10;
-            Entries[typeof(SpinedLeather)] = 0.50;
-            Entries[typeof(HornedLeather)] = 1.0;
-            Entries[typeof(BarbedLeather)] = 2.0;
+            Entries[typeof(DullLeather)] = 0.50;
+            Entries[typeof(GoldenLeather)] = 1.0;
+            Entries[typeof(ValeLeather)] = 2.0;
             Entries[typeof(Fur)] = 0.10;
 
 

@@ -456,7 +456,7 @@ namespace Server.Engines.BulkOrders
                      (!CanUseMaterial(bod) ||
                      (bod.Material == BulkMaterialType.Valorite ||
                       bod.Material == BulkMaterialType.Frostwood ||
-                      bod.Material == BulkMaterialType.Barbed)))
+                      bod.Material == BulkMaterialType.Valehide)))
             {
                 vendor.SayTo(from, 1152291, 0x3B2); // I won't be able to replace that bulk order with a better one.
                 return false;
@@ -551,7 +551,7 @@ namespace Server.Engines.BulkOrders
                 picker.Add(1);
             }
 
-            if (CanUseMaterial(bod) && bod.Material != BulkMaterialType.Frostwood && bod.Material != BulkMaterialType.Barbed && bod.Material != BulkMaterialType.Valorite)
+            if (CanUseMaterial(bod) && bod.Material != BulkMaterialType.Frostwood && bod.Material != BulkMaterialType.Valehide && bod.Material != BulkMaterialType.Valorite)
             {
                 picker.Add(2);
             }
@@ -572,7 +572,7 @@ namespace Server.Engines.BulkOrders
                         {
                             case BulkGenericType.Iron: bod.Material = BulkMaterialType.DullCopper; break;
                             case BulkGenericType.Cloth: break;
-                            case BulkGenericType.Leather: bod.Material = BulkMaterialType.Spined; break;
+                            case BulkGenericType.Leather: bod.Material = BulkMaterialType.Dullhide; break;
                             case BulkGenericType.Wood: bod.Material = BulkMaterialType.OakWood; break;
                         }
                     }
@@ -605,9 +605,14 @@ namespace Server.Engines.BulkOrders
                 case BulkMaterialType.Agapite: worth += 400; break;
                 case BulkMaterialType.Verite: worth += 500; break;
                 case BulkMaterialType.Valorite: worth += 600; break;
-                case BulkMaterialType.Spined: worth += 100; break;
-                case BulkMaterialType.Horned: worth += 250; break;
-                case BulkMaterialType.Barbed: worth += 500; break;
+                case BulkMaterialType.Dullhide: worth += 25; break;
+                case BulkMaterialType.Shadowhide: worth += 50; break;
+                case BulkMaterialType.Copperhide: worth += 100; break;
+                case BulkMaterialType.Bronzehide: worth += 200; break;
+                case BulkMaterialType.Goldenhide: worth += 300; break;
+                case BulkMaterialType.Rosehide: worth += 400; break;
+                case BulkMaterialType.Verehide: worth += 500; break;
+                case BulkMaterialType.Valehide: worth += 600; break;
                 case BulkMaterialType.OakWood: worth += 100; break;
                 case BulkMaterialType.AshWood: worth += 200; break;
                 case BulkMaterialType.YewWood: worth += 300; break;
