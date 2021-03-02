@@ -6,7 +6,7 @@ namespace Server.Mobiles
     [CorpseName("an ostard corpse")]
     public class FrenziedOstard : BaseMount
     {
-        private static int currentHue = 1625;// = 800;
+        //private static int currentHue = 1625;// = 800;
 
         [Constructable]
         public FrenziedOstard()
@@ -18,9 +18,9 @@ namespace Server.Mobiles
         public FrenziedOstard(string name)
             : base(name, 0xDA, 0x3EA4, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            this.Hue = currentHue;//Utility.RandomHairHue() | 0x8000;
-            currentHue++;
-            World.Broadcast(2000, true, "Hue is =" + currentHue);
+            this.Hue = Utility.RandomHairHue() | 0x8000;
+            //currentHue++;
+            //World.Broadcast(2000, true, "Hue is =" + currentHue);
 
             this.BaseSoundID = 0x275;
 

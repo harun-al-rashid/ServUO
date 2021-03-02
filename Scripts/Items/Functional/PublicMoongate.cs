@@ -44,9 +44,9 @@ namespace Server.Items
 
 			//count += MoonGen(PMList.Felucca);
 			count += MoonGen(PMList.Ilshenar);
-			count += MoonGen(PMList.Malas);
-			count += MoonGen(PMList.Tokuno);
-			count += MoonGen(PMList.TerMur);
+			//count += MoonGen(PMList.Malas);
+			//count += MoonGen(PMList.Tokuno);
+			//count += MoonGen(PMList.TerMur);
             //count += MoonGen(PMList.Dungeons);
 
 			World.Broadcast(0x35, true, "{0} moongates generated.", count);
@@ -398,8 +398,8 @@ namespace Server.Items
 
 		public static readonly PMList[] UORLists = {Felucca};
 		public static readonly PMList[] UORListsYoung = {Felucca};
-		public static readonly PMList[] LBRLists = {Felucca};
-		public static readonly PMList[] LBRListsYoung = {Felucca};
+		public static readonly PMList[] LBRLists = {Trammel, Ilshenar};
+		public static readonly PMList[] LBRListsYoung = {Trammel, Ilshenar};
 		public static readonly PMList[] AOSLists = {Felucca};
 		public static readonly PMList[] AOSListsYoung = {Felucca};
 		public static readonly PMList[] SELists = {Felucca};

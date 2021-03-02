@@ -395,8 +395,8 @@ namespace Server.Misc
 				{
 					skills = new[]
 					{
-						new SkillNameValue(SkillName.Anatomy, 30), new SkillNameValue(SkillName.Healing, 45),
-						new SkillNameValue(SkillName.Swords, 35), new SkillNameValue(SkillName.Tactics, 50)
+						new SkillNameValue(SkillName.Anatomy, 50), new SkillNameValue(SkillName.Healing, 50),
+						new SkillNameValue(SkillName.Swords, 50), new SkillNameValue(SkillName.Tactics, 50)
 					};
 
 					break;
@@ -405,7 +405,7 @@ namespace Server.Misc
 				{
 					skills = new[]
 					{
-						new SkillNameValue(SkillName.EvalInt, 30), new SkillNameValue(SkillName.Wrestling, 30),
+						new SkillNameValue(SkillName.EvalInt, 50), new SkillNameValue(SkillName.Wrestling, 50),
 						new SkillNameValue(SkillName.Magery, 50), new SkillNameValue(SkillName.Meditation, 50)
 					};
 
@@ -415,7 +415,7 @@ namespace Server.Misc
 				{
 					skills = new[]
 					{
-						new SkillNameValue(SkillName.Mining, 30), new SkillNameValue(SkillName.ArmsLore, 30),
+						new SkillNameValue(SkillName.Mining, 50), new SkillNameValue(SkillName.ArmsLore, 50),
 						new SkillNameValue(SkillName.Blacksmith, 50), new SkillNameValue(SkillName.Tinkering, 50)
 					};
 
@@ -477,11 +477,14 @@ namespace Server.Misc
 			switch (prof)
 			{
 				case 1: // Warrior
-				{
-					if (elf)
-						EquipItem(new LeafChest());
-					else if (human)
-						EquipItem(new LeatherChest());
+                    {
+                        if (elf)
+                            EquipItem(new LeafChest());
+                        else if (human) { 
+                        EquipItem(new RingmailChest());
+                            //EquipItem(new LeatherLegs());
+
+                    }
 					else if (gargoyle)
 					{
 						EquipItem(new GargishLeatherChest());

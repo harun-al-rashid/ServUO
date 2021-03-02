@@ -2180,10 +2180,10 @@ namespace Server.Items
 
             if (defender.IsPlayer())
             {
-                PlayerMobile mob = defender as PlayerMobile;
+                //PlayerMobile mob = defender as PlayerMobile;
                 double stamina_loss = 0;
                 int stam = defender.Stam;
-                double armor_stamina_penalty = RegenRates.GetArmorOffset(mob) / 2;
+                double armor_stamina_penalty = RegenRates.GetArmorOffset(defender) / 2;
                 stamina_loss = ((damage / 5) * (defender.Dex / 100)) * ((armor_stamina_penalty / 100) + 1);
                 if (this.Skill == SkillName.Macing)
                 {

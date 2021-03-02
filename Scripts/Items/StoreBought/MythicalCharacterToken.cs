@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Server;
 using Server.Gumps;
 using Server.Mobiles;
@@ -24,7 +24,7 @@ namespace Server.Items
         {
             if (m is PlayerMobile && IsChildOf(m.Backpack))
             {
-                if (m.Skills.Total > 2000)
+                if (m.Skills.Total > 2500)
                 {
                     m.SendLocalizedMessage(1152368); // You cannot use this token on this character because you have over 200 skill points. If you 
                     // don’t have a way to lower your skill point total, you will have to use this Mythic Character
@@ -200,11 +200,11 @@ namespace Server.Items
                 for (int i = 0; i < skills.Count; i++)
                 {
                     int hue = Gray;
-                    if (CanSelect(skills[i]))
-                    {
+                    //if (CanSelect(skills[i]))
+                    //{
                         AddButton(x, y + (i * 20), 4005, 4006, (int)skills[i] + 500, GumpButtonType.Reply, 0);
                         hue = Green;
-                    }
+                    //}
 
                     AddHtmlLocalized(x + 34, y + (i * 20), Width / 3, 20, User.Skills[skills[i]].Info.Localization, hue, false, false);
                 }
@@ -212,7 +212,7 @@ namespace Server.Items
 
             public override void OnResponse(RelayInfo info)
             {
-                if (!Token.IsChildOf(User.Backpack) || !User.Alive || User.Skills.Total > 2000)
+                if (!Token.IsChildOf(User.Backpack) || !User.Alive || User.Skills.Total > 2500)
                     return;
 
                 int buttonID = info.ButtonID;

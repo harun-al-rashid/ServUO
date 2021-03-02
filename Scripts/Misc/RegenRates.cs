@@ -37,7 +37,7 @@ namespace Server.Misc
         {
             double rating = 0.0;
 
-            //if (!Core.AOS)
+            if (from.ShieldArmor != null)
                 rating += GetShieldMeditationPenalty(from.ShieldArmor as BaseShield)*0.35;
 
             rating += GetArmorMaterialPenalty(from.NeckArmor as BaseArmor)*0.07;
