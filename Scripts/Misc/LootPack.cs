@@ -504,7 +504,7 @@ namespace Server
 
 		public static readonly LootPack LowScrolls = new LootPack(new[] {new LootPackEntry(false, LowScrollItems, 100.00, 1)});
 
-		public static readonly LootPack MedScrolls = new LootPack(new[] {new LootPackEntry(false, MedScrollItems, 100.00, 1)});
+        public static readonly LootPack MedScrolls = new LootPack(new[] {new LootPackEntry(false, MedScrollItems, 100.00, 1)});
 
 		public static readonly LootPack HighScrolls =
 			new LootPack(new[] {new LootPackEntry(false, HighScrollItems, 100.00, 1)});
@@ -1037,7 +1037,12 @@ namespace Server
 				}
 				else if (m_Type == typeof(ArchCureScroll)) // med scroll
 				{
-					item = RandomScroll(4, 7);
+                    double chance = Utility.RandomDouble();
+                    if (chance < 0.5)
+                    {
+                        item = RandomScroll(4, 7);
+                    }
+                    else { item = new ArcaneScroll(); }
 				}
 				else if (m_Type == typeof(SummonAirElementalScroll)) // high scroll
 				{

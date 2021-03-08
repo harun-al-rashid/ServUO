@@ -163,26 +163,44 @@ namespace Server.Engines.Craft
         {
             double minSkill, maxSkill;
             int cliloc;
+            int scrolls;
 
             switch (m_Circle)
             {
                 default:
-                case 0: minSkill = -25.0; maxSkill = 25.0; cliloc = 1111691; break;
-                case 1: minSkill = -10.8; maxSkill = 39.2; cliloc = 1111691; break;
-                case 2: minSkill = 03.5; maxSkill = 53.5; cliloc = 1111692; break;
-                case 3: minSkill = 17.8; maxSkill = 67.8; cliloc = 1111692; break;
-                case 4: minSkill = 32.1; maxSkill = 82.1; cliloc = 1111693; break;
-                case 5: minSkill = 46.4; maxSkill = 96.4; cliloc = 1111693; break;
-                case 6: minSkill = 60.7; maxSkill = 110.7; cliloc = 1111694; break;
-                case 7: minSkill = 75.0; maxSkill = 125.0; cliloc = 1111694; break;
+                case 0: minSkill = -25.0; maxSkill = 25.0; cliloc = 1111691; scrolls = 1; break;
+                case 1: minSkill = -10.8; maxSkill = 39.2; cliloc = 1111691; scrolls = 1; break;
+                case 2: minSkill = 03.5; maxSkill = 53.5; cliloc = 1111692; scrolls = 2; break;
+                case 3: minSkill = 17.8; maxSkill = 67.8; cliloc = 1111692; scrolls = 2; break;
+                case 4: minSkill = 32.1; maxSkill = 82.1; cliloc = 1111693; scrolls = 2; break;
+                case 5: minSkill = 46.4; maxSkill = 96.4; cliloc = 1111693; scrolls = 3;  break;
+                case 6: minSkill = 60.7; maxSkill = 110.7; cliloc = 1111694; scrolls = 4; break;
+                case 7: minSkill = 75.0; maxSkill = 125.0; cliloc = 1111694; scrolls = 5; break;
             }
 
-            int index = AddCraft(type, cliloc, 1044381 + m_Index++, minSkill, maxSkill, m_RegTypes[(int)regs[0]], 1044353 + (int)regs[0], 1, 1044361 + (int)regs[0]);
+            int index = AddCraft(type, cliloc, 1044381 + m_Index++, minSkill, maxSkill, typeof(BlankScroll), 1044377, scrolls);//m_RegTypes[(int)regs[0]], 1044353 + (int)regs[0], 1, 1044361 + (int)regs[0]);
 
-            for (int i = 1; i < regs.Length; ++i)
-                AddRes(index, m_RegTypes[(int)regs[i]], 1044353 + (int)regs[i], 1, 1044361 + (int)regs[i]);
+            //for (int i = 1; i < regs.Length; ++i)
+            //    AddRes(index, m_RegTypes[(int)regs[i]], 1044353 + (int)regs[i], 1, 1044361 + (int)regs[i]);
 
-            AddRes(index, typeof(BlankScroll), 1044377, 1, 1044378);
+            /*switch (m_Circle)
+            {
+                default:
+                case 0:  AddRes(index, typeof(BlankScroll), 1044377, 1, 1044378);
+                     break;
+                case 1: AddRes(index, typeof(BlankScroll), 1044377, 1, 1044378); break;
+                case 2: AddRes(index, typeof(BlankScroll), 1044377, 2, 1044378); break;
+                case 3: AddRes(index, typeof(BlankScroll), 1044377, 2, 1044378); break;
+                case 4: AddRes(index, typeof(BlankScroll), 1044377, 3, 1044378); break;
+                case 5: AddRes(index, typeof(BlankScroll), 1044377, 3, 1044378); break;
+                case 6: AddRes(index, typeof(BlankScroll), 1044377, 4, 1044378);
+                    AddRes(index, typeof(ArcaneScroll), 1063546, 1, 1063547); break;
+                case 7: AddRes(index, typeof(BlankScroll), 1044377, 5, 1044378);
+                    AddRes(index, typeof(ArcaneScroll), 1063546, 2, 1063547); break;
+            }*/
+
+            if (m_Circle == 6) { AddRes(index, typeof(ArcaneScroll), 1063546, 1, 1063547); }
+            if (m_Circle == 7) { AddRes(index, typeof(ArcaneScroll), 1063546, 2, 1063547); }
 
             SetManaReq(index, m_Mana);
         }
@@ -241,7 +259,7 @@ namespace Server.Engines.Craft
         public override void InitCraftList()
         {
             m_Circle = 0;
-            m_Mana = 4;
+            m_Mana = 0;
 
             AddSpell(typeof(ReactiveArmorScroll), Reg.Garlic, Reg.SpidersSilk, Reg.SulfurousAsh);
             AddSpell(typeof(ClumsyScroll), Reg.Bloodmoss, Reg.Nightshade);
@@ -253,7 +271,7 @@ namespace Server.Engines.Craft
             AddSpell(typeof(WeakenScroll), Reg.Garlic, Reg.Nightshade);
 
             m_Circle = 1;
-            m_Mana = 6;
+            m_Mana = 0;
 
             AddSpell(typeof(AgilityScroll), Reg.Bloodmoss, Reg.MandrakeRoot);
             AddSpell(typeof(CunningScroll), Reg.Nightshade, Reg.MandrakeRoot);
@@ -265,7 +283,7 @@ namespace Server.Engines.Craft
             AddSpell(typeof(StrengthScroll), Reg.Nightshade, Reg.MandrakeRoot);
 
             m_Circle = 2;
-            m_Mana = 9;
+            m_Mana = 0;
 
             AddSpell(typeof(BlessScroll), Reg.Garlic, Reg.MandrakeRoot);
             AddSpell(typeof(FireballScroll), Reg.BlackPearl);
@@ -277,7 +295,7 @@ namespace Server.Engines.Craft
             AddSpell(typeof(WallOfStoneScroll), Reg.Bloodmoss, Reg.Garlic);
 
             m_Circle = 3;
-            m_Mana = 11;
+            m_Mana = 0;
 
             AddSpell(typeof(ArchCureScroll), Reg.Garlic, Reg.Ginseng, Reg.MandrakeRoot);
             AddSpell(typeof(ArchProtectionScroll), Reg.Garlic, Reg.Ginseng, Reg.MandrakeRoot, Reg.SulfurousAsh);
@@ -289,7 +307,7 @@ namespace Server.Engines.Craft
             AddSpell(typeof(RecallScroll), Reg.BlackPearl, Reg.Bloodmoss, Reg.MandrakeRoot);
 
             m_Circle = 4;
-            m_Mana = 14;
+            m_Mana = 0;
 
             AddSpell(typeof(BladeSpiritsScroll), Reg.BlackPearl, Reg.Nightshade, Reg.MandrakeRoot);
             AddSpell(typeof(DispelFieldScroll), Reg.BlackPearl, Reg.Garlic, Reg.SpidersSilk, Reg.SulfurousAsh);
@@ -301,7 +319,7 @@ namespace Server.Engines.Craft
             AddSpell(typeof(SummonCreatureScroll), Reg.Bloodmoss, Reg.MandrakeRoot, Reg.SpidersSilk);
 
             m_Circle = 5;
-            m_Mana = 20;
+            m_Mana = 0;
 
             AddSpell(typeof(DispelScroll), Reg.Garlic, Reg.MandrakeRoot, Reg.SulfurousAsh);
             AddSpell(typeof(EnergyBoltScroll), Reg.BlackPearl, Reg.Nightshade);
@@ -313,7 +331,7 @@ namespace Server.Engines.Craft
             AddSpell(typeof(RevealScroll), Reg.Bloodmoss, Reg.SulfurousAsh);
 
             m_Circle = 6;
-            m_Mana = 40;
+            m_Mana = 0;
 
             AddSpell(typeof(ChainLightningScroll), Reg.BlackPearl, Reg.Bloodmoss, Reg.MandrakeRoot, Reg.SulfurousAsh);
             AddSpell(typeof(EnergyFieldScroll), Reg.BlackPearl, Reg.MandrakeRoot, Reg.SpidersSilk, Reg.SulfurousAsh);
@@ -325,7 +343,7 @@ namespace Server.Engines.Craft
             AddSpell(typeof(PolymorphScroll), Reg.Bloodmoss, Reg.MandrakeRoot, Reg.SpidersSilk);
 
             m_Circle = 7;
-            m_Mana = 50;
+            m_Mana = 0;
 
             AddSpell(typeof(EarthquakeScroll), Reg.Bloodmoss, Reg.MandrakeRoot, Reg.Ginseng, Reg.SulfurousAsh);
             AddSpell(typeof(EnergyVortexScroll), Reg.BlackPearl, Reg.Bloodmoss, Reg.MandrakeRoot, Reg.Nightshade);
