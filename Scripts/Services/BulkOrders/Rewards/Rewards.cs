@@ -330,7 +330,7 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152674, CraftResources.GetHue(CraftResource.Gold), 350, SmeltersTalisman, (int)CraftResource.Gold));
                 RewardCollection.Add(new BODCollectionItem(0x9E2A, 1157264, 0, 400, CraftsmanTalisman, 10));
                 RewardCollection.Add(new BODCollectionItem(0x13EB, 1157088, 0, 450, MiningGloves, 5));
-                RewardCollection.Add(new BODCollectionItem(4102, 1157091, 0, 450, PowderOfTemperament));
+                //RewardCollection.Add(new BODCollectionItem(4102, 1157091, 0, 450, PowderOfTemperament));
                 RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152675, CraftResources.GetHue(CraftResource.Agapite), 475, SmeltersTalisman, (int)CraftResource.Agapite));
                 RewardCollection.Add(new BODCollectionItem(0x9E7E, 1157216, 0, 500, RockHammer));
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157092, CraftResources.GetHue(CraftResource.DullCopper), 500, RunicHammer, 1));

@@ -17,6 +17,8 @@ namespace Server.Items
         private bool m_Redyable;
         private int m_DyedHue;
         private SecureLevel m_SecureLevel;
+        //private int m_Uses;
+       // private int m_Uses_Remaining;
 
         [Constructable] 
         public DyeTub()
@@ -24,6 +26,7 @@ namespace Server.Items
         {
             Weight = 10.0;
             m_Redyable = true;
+            //m_Uses = 50;
         }
 
         public DyeTub(Serial serial)
@@ -137,6 +140,13 @@ namespace Server.Items
                 {
                     Item item = (Item)targeted;
 
+                   // if(this.m_Tub.m_Uses <= 0)
+                   // {
+                   //     from.SendMessage("This item is out of charges");
+                    //    m_Tub.Delete();
+                    //    return;
+                   // }
+
                     if (item is IDyable && m_Tub.AllowDyables)
                     {
                         if (!from.InRange(m_Tub.GetWorldLocation(), 1) || !from.InRange(item.GetWorldLocation(), 1))
@@ -144,7 +154,11 @@ namespace Server.Items
                         else if (item.Parent is Mobile)
                             from.SendLocalizedMessage(500861); // Can't Dye clothing that is being worn.
                         else if (((IDyable)item).Dye(from, m_Tub))
+                        {
+                            //this.m_Tub.m_Uses -= 1;
                             from.PlaySound(0x23E);
+                        }
+
                     }
                     else if ((FurnitureAttribute.Check(item) || (item is PotionKeg)) && m_Tub.AllowFurniture)
                     {
@@ -179,6 +193,7 @@ namespace Server.Items
                             {
                                 item.Hue = m_Tub.DyedHue;
                                 from.PlaySound(0x23E);
+                               // this.m_Tub.m_Uses -= 1;
                             }
                         }
                     }
@@ -196,6 +211,7 @@ namespace Server.Items
                         {
                             item.Hue = m_Tub.DyedHue;
                             from.PlaySound(0x23E);
+                            //this.m_Tub.m_Uses -= 1;
                         }
                     }
                     else if (item is MonsterStatuette && m_Tub.AllowStatuettes)
@@ -212,6 +228,7 @@ namespace Server.Items
                         {
                             item.Hue = m_Tub.DyedHue;
                             from.PlaySound(0x23E);
+                            //this.m_Tub.m_Uses -= 1;
                         }
                     }
                     else if (m_Tub.AllowLeather)

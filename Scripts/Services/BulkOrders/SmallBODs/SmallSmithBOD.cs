@@ -92,15 +92,16 @@ namespace Server.Engines.BulkOrders
         {
             SmallBulkEntry[] entries;
             bool useMaterials;
+            double theirSkill = BulkOrderSystem.GetBODSkill(m, SkillName.Blacksmith);
 
-            if (useMaterials = Utility.RandomBool())
+            if (useMaterials = Utility.RandomBool() || theirSkill > 70.1)
                 entries = SmallBulkEntry.BlacksmithArmor;
             else
                 entries = SmallBulkEntry.BlacksmithWeapons;
 
             if (entries.Length > 0)
             {
-                double theirSkill = BulkOrderSystem.GetBODSkill(m, SkillName.Blacksmith);
+                
                 int amountMax;
 
                 if (theirSkill >= 70.1)
@@ -130,7 +131,7 @@ namespace Server.Engines.BulkOrders
                 double excChance = 0.0;
 
                 if (theirSkill >= 70.1)
-                    excChance = (theirSkill + 80.0) / 200.0;
+                    excChance = (theirSkill + 100) / 200.0;
 
                 bool reqExceptional = (excChance > Utility.RandomDouble());
 
@@ -156,11 +157,17 @@ namespace Server.Engines.BulkOrders
                                 validEntries.Add(entries[i]);
                         }
                     }
+
                 }
 
                 if (validEntries.Count > 0)
                 {
-                    SmallBulkEntry entry = validEntries[Utility.Random(validEntries.Count)];
+                    SmallBulkEntry entry;
+                    //if (theirSkill > 95) {  entry = validEntries[Utility.Random(21)]; }
+                    //else
+                    //{
+                        entry = validEntries[Utility.Random(validEntries.Count)];
+                    //}
                     return new SmallSmithBOD(entry, material, amountMax, reqExceptional);
                 }
             }

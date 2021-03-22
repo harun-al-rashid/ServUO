@@ -33,10 +33,10 @@ namespace Server.Engines.BulkOrders
             LargeBulkEntry[] entries;
             bool useMaterials = false;
 
-            switch ( Utility.Random(14) )
+            switch ( Utility.Random(3) )
             {
                 default:
-                case 0:
+                /*case 0:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Farmer);
                     break;
                 case 1:
@@ -57,29 +57,29 @@ namespace Server.Engines.BulkOrders
                     break;
                 case 6:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Lady);
-                    break;
-                case 7:
+                    break;*/
+                case 0:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.MaleLeatherSet);
                     useMaterials = true;
                     break;
-                case 8:
+                /*case 8:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Pirate);
                     break;
                 case 9:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.ShoeSet);
                     useMaterials = Core.ML;
-                    break;
-                case 10:
+                    break;*/
+                case 1:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.StuddedSet);
                     useMaterials = true;
                     break;
-                case 11:
+                /*case 11:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.TownCrier);
                     break;
                 case 12:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Wizard);
-                    break;
-                case 13:
+                    break;*/
+                case 2:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.BoneSet);
                     useMaterials = true;
                     break;
@@ -87,7 +87,7 @@ namespace Server.Engines.BulkOrders
 
             int hue = 0x483;
             int amountMax = Utility.RandomList(10, 15, 20, 20);
-            bool reqExceptional = (0.825 > Utility.RandomDouble());
+            bool reqExceptional = true;//(0.825 > Utility.RandomDouble());
 
             BulkMaterialType material;
 

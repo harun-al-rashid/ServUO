@@ -884,7 +884,100 @@ namespace Server.Mobiles
 
 		private static readonly TimeSpan InventoryDecayTime = TimeSpan.FromHours(48.0);
 
-		public virtual void VendorBuy(Mobile from)
+        public void VendorBulkOrder(Mobile from, BaseVendor vendor)
+        {
+            if (!from.CheckAlive())
+            {
+                return;
+            }
+
+            if (!CheckVendorAccess(from))
+            {
+                Say(501522); // I shall not treat with scum like thee!
+                return;
+            }
+
+            Mobile m_From = from;
+            BaseVendor m_Vendor = vendor;
+
+            EventSink.InvokeBODOffered(new BODOfferEventArgs(m_From, m_Vendor));
+
+            if (m_Vendor.SupportsBulkOrders(m_From) && m_From is PlayerMobile)
+            {
+                if (BulkOrderSystem.NewSystemEnabled)
+                {
+                    if (BulkOrderSystem.CanGetBulkOrder(m_From, m_Vendor.BODType) || m_From.AccessLevel > AccessLevel.Player)
+                    {
+                        Item bulkOrder = BulkOrderSystem.CreateBulkOrder(m_From, m_Vendor.BODType, true);
+
+                        if (bulkOrder is LargeBOD)
+                        {
+                            m_From.SendGump(new LargeBODAcceptGump(m_From, (LargeBOD)bulkOrder));
+                        }
+                        else if (bulkOrder is SmallBOD)
+                        {
+                            m_From.SendGump(new SmallBODAcceptGump(m_From, (SmallBOD)bulkOrder));
+                        }
+                    }
+                    else
+                    {
+                        TimeSpan ts = BulkOrderSystem.GetNextBulkOrder(m_Vendor.BODType, (PlayerMobile)m_From);
+
+                        int totalSeconds = (int)ts.TotalSeconds;
+                        int totalHours = (totalSeconds + 3599) / 3600;
+                        int totalMinutes = (totalSeconds + 59) / 60;
+
+                        m_Vendor.SayTo(m_From, 1072058, totalMinutes.ToString(), 0x3B2); // An offer may be available in about ~1_minutes~ minutes.
+                    }
+                }
+                else
+                {
+                    TimeSpan ts = m_Vendor.GetNextBulkOrder(m_From);
+
+                    int totalSeconds = (int)ts.TotalSeconds;
+                    int totalHours = (totalSeconds + 3599) / 3600;
+                    int totalMinutes = (totalSeconds + 59) / 60;
+
+                    if (((Core.SE) ? totalMinutes == 0 : totalHours == 0))
+                    {
+                        m_From.SendLocalizedMessage(1049038); // You can get an order now.
+
+                        if (Core.AOS)
+                        {
+                            Item bulkOrder = m_Vendor.CreateBulkOrder(m_From, true);
+
+                            if (bulkOrder is LargeBOD)
+                            {
+                                m_From.SendGump(new LargeBODAcceptGump(m_From, (LargeBOD)bulkOrder));
+                            }
+                            else if (bulkOrder is SmallBOD)
+                            {
+                                m_From.SendGump(new SmallBODAcceptGump(m_From, (SmallBOD)bulkOrder));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int oldSpeechHue = m_Vendor.SpeechHue;
+                        m_Vendor.SpeechHue = 0x3B2;
+
+                        if (Core.SE)
+                        {
+                            m_Vendor.SayTo(m_From, 1072058, totalMinutes.ToString(), 0x3B2);
+                            // An offer may be available in about ~1_minutes~ minutes.
+                        }
+                        else
+                        {
+                            m_Vendor.SayTo(m_From, 1049039, totalHours.ToString(), 0x3B2); // An offer may be available in about ~1_hours~ hours.
+                        }
+
+                        m_Vendor.SpeechHue = oldSpeechHue;
+                    }
+                }
+            }
+        }
+
+        public virtual void VendorBuy(Mobile from)
 		{
 			if (!IsActiveSeller)
 			{

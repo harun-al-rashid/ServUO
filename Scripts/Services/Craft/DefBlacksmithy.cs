@@ -333,7 +333,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(PlateGloves), 1111704, 1025140, 65.0, 115.0, typeof(IronIngot), 1044036, 8, 1044037);
             AddCraft(typeof(PlateGorget), 1111704, 1025139, 60.0, 110.0, typeof(IronIngot), 1044036, 8, 1044037);
             AddCraft(typeof(PlateLegs), 1111704, 1025137, 80.0, 130.0, typeof(IronIngot), 1044036, 14, 1044037);
-            AddCraft(typeof(PlateChest), 1111704, 1046431, 75.0, 125.0, typeof(IronIngot), 1044036, 16, 1044037);
+            AddCraft(typeof(PlateChest), 1111704, 1046431, 85.0, 135.0, typeof(IronIngot), 1044036, 16, 1044037);
             AddCraft(typeof(FemalePlateChest), 1111704, 1046430, 85.0, 135.0, typeof(IronIngot), 1044036, 16, 1044037);
             AddCraft(typeof(PlateSkirt), 1111704, 1063500, 80.0, 130.0, typeof(IronIngot), 1044036, 14, 1044037);
             AddCraft(typeof(PlateHelm), 1111704, 1025138, 70.0, 120.0, typeof(IronIngot), 1044036, 10, 1044037);

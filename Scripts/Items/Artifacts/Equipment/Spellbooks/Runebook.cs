@@ -31,7 +31,7 @@ namespace Server.Items
 
         private List<RunebookEntry> m_Entries;
         private string m_Description;
-        private int m_CurCharges, m_MaxCharges;
+        private int m_CurCharges, m_MaxCharges, m_currentGateCharges;
         private int m_DefaultIndex;
         private SecureLevel m_Level;
         private Mobile m_Crafter;
@@ -105,6 +105,14 @@ namespace Server.Items
             {
                 m_CurCharges = value;
             }
+        }
+
+        [CommandProperty(AccessLevel.GameMaster)]
+
+        public int CurGateCharges
+        {
+            get { return m_currentGateCharges; }
+            set { m_currentGateCharges = value; }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
@@ -234,6 +242,7 @@ namespace Server.Items
 
             writer.Write(m_Description);
             writer.Write(m_CurCharges);
+            writer.Write(m_currentGateCharges);
             writer.Write(m_MaxCharges);
             writer.Write(m_DefaultIndex);
         }
@@ -277,6 +286,7 @@ namespace Server.Items
 
                         m_Description = reader.ReadString();
                         m_CurCharges = reader.ReadInt();
+                        m_currentGateCharges = reader.ReadInt();
                         m_MaxCharges = reader.ReadInt();
                         m_DefaultIndex = reader.ReadInt();
 
@@ -544,6 +554,32 @@ namespace Server.Items
                     else
                     {
                         m_CurCharges += amount;
+                        dropped.Delete();
+
+                        return true;
+                    }
+                }
+                else
+                {
+                    from.SendLocalizedMessage(502410); // This book already has the maximum amount of charges.
+                }
+            }
+            else if (dropped is GateTravelScroll)
+            {
+                if (m_currentGateCharges < m_MaxCharges)
+                {
+                    from.Send(new PlaySound(0x249, GetWorldLocation()));
+
+                    int amount = dropped.Amount;
+
+                    if (amount > (m_MaxCharges - m_currentGateCharges))
+                    {
+                        dropped.Consume(m_MaxCharges - m_currentGateCharges);
+                        m_currentGateCharges = m_MaxCharges;
+                    }
+                    else
+                    {
+                        m_currentGateCharges += amount;
                         dropped.Delete();
 
                         return true;

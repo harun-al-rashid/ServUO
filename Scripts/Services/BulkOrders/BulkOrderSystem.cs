@@ -29,7 +29,7 @@ namespace Server.Engines.BulkOrders
         public static readonly int MaxCachedDeeds = 24;
         public static readonly int Delay = 1;
 
-        public static bool NewSystemEnabled = Core.TOL;
+        public static bool NewSystemEnabled = Core.T2A;
         public static BulkOrderSystem Instance { get; set; }
 
         public Dictionary<PlayerMobile, BODContext> BODPlayerData { get; set; }
@@ -246,7 +246,7 @@ namespace Server.Engines.BulkOrders
             {
                 SkillName sk = GetSkillForBOD(type);
                 double theirSkill = pm.Skills[sk].Base;
-                bool doLarge = theirSkill >= 70.1 && ((theirSkill - 40.0) / 300.0) > Utility.RandomDouble();
+                bool doLarge = theirSkill >= 95.1 && ((theirSkill - 40.0) / 300.0) > Utility.RandomDouble();
 
                 switch (type)
                 {

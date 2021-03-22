@@ -65,6 +65,7 @@ namespace Server.Engines.BulkOrders
                 SmallBulkEntry details = entry.Details;
 
                 AddHtmlLocalized(75, y, 210, 20, details.Number, 0x7FFF, false, false);
+                //AddHtml(75, y, 210, 20, /* @"<basefont color=0x7FFF>"*/ details.Type.ToString(), false, false);
                 AddLabel(275, y, 0x480, entry.Amount.ToString());
 
                 y += 24;

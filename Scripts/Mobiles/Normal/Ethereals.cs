@@ -5,6 +5,7 @@ using Server.Engines.VeteranRewards;
 using Server.Items;
 using Server.Multis;
 using Server.Spells;
+using Server.Regions;
 #endregion
 
 namespace Server.Mobiles
@@ -360,6 +361,8 @@ namespace Server.Mobiles
                 // Check sends the message
                 return false;
             }
+
+            if (from.Region.IsPartOf<DungeonRegion>()) { from.SendMessage("You cannot ride in dungeons"); return false; }
 
             return true;
         }

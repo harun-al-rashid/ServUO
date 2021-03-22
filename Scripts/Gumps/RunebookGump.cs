@@ -15,8 +15,8 @@ namespace Server.Gumps
     {
         public void PrecompileStringTable()
         {
-            Intern("Charges", true);              // 0
-            Intern("Max Charges", true);          // 1
+            Intern("Recall:", true);              // 0
+            Intern("Max Charges:", true);          // 1
                                                   // Next 16 entries are Location Values
             for (int i = 0; i < 16; ++i)
             {
@@ -123,10 +123,12 @@ namespace Server.Gumps
                 AddButton(xOffset, 187, gumpID, gumpID, 0, GumpButtonType.Page, 6 + i);
 
             // Charges
-            AddHtmlIntern(140, 40, 80, 18, 0, false, false);                        // Charges:	
-            AddHtmlIntern(300, 40, 100, 18, 1, false, false);                       // Max Charges:	
+            AddHtmlIntern(140, 40, 80, 18, 0, false, false);                        // "Recall"
+            AddHtmlIntern(300, 40, 100, 18, 1, false, false);                       // "Max Charges"
+            AddHtml(205, 40, 80, 18, "Gate:", false, false);
+            AddHtml(238, 40, 80, 18, m_Book.CurGateCharges.ToString(), false, false); //current Gate scroll charges
 
-            AddHtmlIntern(220, 40, 30, 18, 18, false, false);                       // Charges
+            AddHtmlIntern(180, 40, 30, 18, 18, false, false);                       // Recall Charges left
             AddHtmlIntern(400, 40, 30, 18, 19, false, false); 						// Max charges
         }
 
@@ -157,6 +159,7 @@ namespace Server.Gumps
 
                 // Use charge button
                 AddButton(130 + ((i / 8) * 160), 65 + ((i % 8) * 15), 2103, 2104, 10 + i, GumpButtonType.Reply, 0);
+                //AddButton(255 + ((i / 8) * 160), 65 + ((i % 8) * 15), 2103, 2104, 10 + i, GumpButtonType.Reply, 0);
 
                 // Description label
                 AddLabelCroppedIntern(145 + ((i / 8) * 160), 60 + ((i % 8) * 15), 115, 17, hue, i + 2);
@@ -230,6 +233,9 @@ namespace Server.Gumps
 
                         AddButton(135 + (half * 160), 158, 2103, 2104, 100 + index, GumpButtonType.Reply, 0);
                         AddHtmlLocalized(150 + (half * 160), 154, 110, 20, 1062723, false, false); // Gate Travel
+
+                        AddButton(135 + (half * 160), 176, 2103, 2104, 75 + index, GumpButtonType.Reply, 0);
+                        AddHtml(150 + (half * 160), 172, 110, 20, "Gate from Scroll", false, false);
                     }
                 }
             }
@@ -479,9 +485,9 @@ namespace Server.Gumps
 
                                     break;
                                 }
-                            case 3: // Sacred Journey
+                            case 3: // Gate from Scroll
                                 {
-                                    if (HasSpell(from, 209))
+                                    if (from.Skills.Magery.Value > 50)
                                     {
                                         int xLong = 0, yLat = 0;
                                         int xMins = 0, yMins = 0;
@@ -494,11 +500,12 @@ namespace Server.Gumps
                                         }
 
                                         m_Book.OnTravel();
-                                        new SacredJourneySpell(from, null, e, null).Cast();
+                                        new GateTravelSpell(from, null, e, m_Book).Cast();
                                     }
                                     else
                                     {
-                                        from.SendLocalizedMessage(500015); // You do not have that spell!
+                                        //from.SendLocalizedMessage(500015); // You do not have that spell!
+                                        from.SendMessage("Your Magery is too weak to do this");
                                     }
 
                                     m_Book.Openers.Remove(from);

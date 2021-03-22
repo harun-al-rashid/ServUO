@@ -18,6 +18,16 @@ namespace Server.Spells.Seventh
             Reagent.MandrakeRoot,
             Reagent.SulfurousAsh);
         private readonly RunebookEntry m_Entry;
+        private readonly Runebook m_Book;
+
+        public bool NoSkillRequirement
+        {
+            get
+            {
+                return (m_Book != null);
+            }
+        }
+
         public GateTravelSpell(Mobile caster, Item scroll)
             : this(caster, scroll, null)
         {
@@ -29,12 +39,27 @@ namespace Server.Spells.Seventh
             this.m_Entry = entry;
         }
 
+        public GateTravelSpell(Mobile caster, Item scroll, RunebookEntry entry, Runebook book)
+            : base(caster, scroll, m_Info)
+        {
+            this.m_Entry = entry;
+            this.m_Book = book;
+        }
+
         public override SpellCircle Circle
         {
             get
             {
                 return SpellCircle.Seventh;
             }
+        }
+
+        public override void GetCastSkills(out double min, out double max)
+        {
+            if (NoSkillRequirement)	//recall using Runebook charge
+                min = max = 0;
+            else
+                base.GetCastSkills(out min, out max);
         }
         public override void OnCast()
         {
@@ -109,6 +134,10 @@ namespace Server.Spells.Seventh
             {
                 this.Caster.SendLocalizedMessage(1071242); // There is already a gate there.
             }
+            else if (m_Book != null && m_Book.CurGateCharges <= 0)
+            {
+                Caster.SendMessage("There are no Gate charges left"); // There are no charges left on that item.
+            }
             else if (Server.Engines.CityLoyalty.CityTradeSystem.HasTrade(Caster))
             {
                 Caster.SendLocalizedMessage(1151733); // You cannot do that while carrying a Trade Order.
@@ -117,6 +146,9 @@ namespace Server.Spells.Seventh
             {
                 Timer.DelayCall(TimeSpan.FromSeconds(1), () =>
                 {
+                    if (m_Book != null)
+                        --m_Book.CurGateCharges;
+
                     Caster.SendLocalizedMessage(501024); // You open a magical gate to another location
 
                     Effects.PlaySound(this.Caster.Location, this.Caster.Map, 0x20E);

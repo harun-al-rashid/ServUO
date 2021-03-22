@@ -111,20 +111,27 @@ namespace Server.Mobiles
 
 			if (m_Mobile is BaseVendor && from.InRange(m_Mobile, Core.AOS ? 1 : 4) && !e.Handled)
 			{
-				if (e.HasKeyword(0x14D)) // *vendor sell*
-				{
-					e.Handled = true;
+                if (e.HasKeyword(0x14D)) // *vendor sell*
+                {
+                    e.Handled = true;
 
-					((BaseVendor)m_Mobile).VendorSell(from);
-					m_Mobile.FocusMob = from;
-				}
-				else if (e.HasKeyword(0x3C)) // *vendor buy*
-				{
-					e.Handled = true;
+                    ((BaseVendor)m_Mobile).VendorSell(from);
+                    m_Mobile.FocusMob = from;
+                }
+                else if (e.HasKeyword(0x3C)) // *vendor buy*
+                {
+                    e.Handled = true;
 
-					((BaseVendor)m_Mobile).VendorBuy(from);
-					m_Mobile.FocusMob = from;
-				}
+                    ((BaseVendor)m_Mobile).VendorBuy(from);
+                    m_Mobile.FocusMob = from;
+                } else if (e.Speech.Contains("bulk") || e.Speech.Contains("Bulk"))
+                {
+                    e.Handled = true;
+                    
+                    ((BaseVendor)m_Mobile).VendorBulkOrder(from, (BaseVendor)m_Mobile);
+                    m_Mobile.FocusMob = from;
+
+                }
 				else if (WasNamed(e.Speech))
 				{
 					if (e.HasKeyword(0x177)) // *sell*

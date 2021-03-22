@@ -442,7 +442,7 @@ namespace Server.Multis
         {
             get
             {
-                return Core.AOS;
+                return Core.T2A;
             }
         }
 

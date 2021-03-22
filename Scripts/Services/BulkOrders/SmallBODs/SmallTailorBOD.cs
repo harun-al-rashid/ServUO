@@ -30,10 +30,10 @@ namespace Server.Engines.BulkOrders
             SmallBulkEntry[] entries;
             bool useMaterials;
 
-            if (useMaterials = Utility.RandomBool())
-                entries = SmallBulkEntry.TailorLeather;
-            else
-                entries = SmallBulkEntry.TailorCloth;
+            useMaterials = Utility.RandomBool();
+            entries = SmallBulkEntry.TailorLeather;
+            //else
+            //    entries = SmallBulkEntry.TailorCloth;
 
             if (entries.Length > 0)
             {
@@ -132,8 +132,8 @@ namespace Server.Engines.BulkOrders
 
                 double excChance = 0.0;
 
-                if (theirSkill >= 70.1)
-                    excChance = (theirSkill + 80.0) / 200.0;
+                if (theirSkill >= 90.1)
+                    excChance = 1.0;
 
                 bool reqExceptional = (excChance > Utility.RandomDouble());
 

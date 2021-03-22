@@ -204,6 +204,7 @@ namespace Server.Engines.BulkOrders
                                 if (type != null && graphic > 0)
                                 {
                                     list.Add(new SmallBulkEntry(type, graphic < 0x4000 ? 1020000 + graphic : 1078872 + graphic, graphic, 0));
+                                    //Console.WriteLine(split[0]);
                                 }
                                 else
                                 {

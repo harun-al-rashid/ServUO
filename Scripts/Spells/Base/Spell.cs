@@ -14,6 +14,7 @@ using Server.Spells.Second;
 using Server.Spells.SkillMasteries;
 using Server.Spells.Spellweaving;
 using Server.Spells.Third;
+using Server.Spells;
 using Server.Targeting;
 using System;
 using System.Collections.Generic;
@@ -492,6 +493,17 @@ namespace Server.Spells
 
 				// magery damage bonus, -25% at 0 skill, +0% at 100 skill, +5% at 120 skill
 				scalar += (m_Caster.Skills[CastSkill].Value - 100.0) / 400.0;
+
+                
+
+                if (m_Scroll != null)
+                {
+                    double bonus;
+
+                    if (target.Player) { bonus = 10; } else { bonus = 25; }
+
+                    scalar *= (100 + (bonus * (m_Caster.Skills.Inscribe.Value / 100))) / 100;
+                }
 
 				if (!target.Player && !target.Body.IsHuman /*&& !Core.AOS*/)
 				{
@@ -1162,14 +1174,20 @@ namespace Server.Spells
 
                 if (m_Scroll is SpellScroll)
                 {
-                    m_Scroll.Consume();
+                    double inscription_skill = m_Caster.Skills.Inscribe.Value;
+
+                    if (inscription_skill > 90 && (Utility.RandomDouble() < (inscription_skill / 100)))
+                    {
+
+                    }
+                    else { m_Scroll.Consume(); }
                 }
-                
+
                 else if (m_Scroll is BaseWand)
-				{
-					((BaseWand)m_Scroll).ConsumeCharge(m_Caster);
-					m_Caster.RevealingAction();
-				}
+                {
+                    ((BaseWand)m_Scroll).ConsumeCharge(m_Caster);
+                    m_Caster.RevealingAction();
+                }
 
 				if (m_Scroll is BaseWand)
 				{

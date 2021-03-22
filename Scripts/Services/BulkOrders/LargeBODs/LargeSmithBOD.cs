@@ -26,7 +26,7 @@ namespace Server.Engines.BulkOrders
             LargeBulkEntry[] entries;
             bool useMaterials = true;
 			
-            int rand = Utility.Random(8);
+            int rand = Utility.Random(3);
 
             switch ( rand )
             {
@@ -40,7 +40,7 @@ namespace Server.Engines.BulkOrders
                 case 2:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeChain);
                     break;
-                case 3:
+                /*case 3:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeAxes);
                     break;
                 case 4:
@@ -54,7 +54,7 @@ namespace Server.Engines.BulkOrders
                     break;
                 case 7:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeSwords);
-                    break;
+                    break;*/
             }
 			
             if (rand > 2 && rand < 8)
@@ -62,7 +62,7 @@ namespace Server.Engines.BulkOrders
 
             int hue = 0x44E;
             int amountMax = Utility.RandomList(10, 15, 20, 20);
-            bool reqExceptional = (0.825 > Utility.RandomDouble());
+            bool reqExceptional = true; // (0.825 > Utility.RandomDouble());
 
             BulkMaterialType material;
 
