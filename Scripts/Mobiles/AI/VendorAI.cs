@@ -124,7 +124,7 @@ namespace Server.Mobiles
 
                     ((BaseVendor)m_Mobile).VendorBuy(from);
                     m_Mobile.FocusMob = from;
-                } else if (e.Speech.Contains("bulk") || e.Speech.Contains("Bulk"))
+                } else if (e.Speech.Contains("order") || e.Speech.Contains("Order"))
                 {
                     e.Handled = true;
                     
@@ -132,7 +132,15 @@ namespace Server.Mobiles
                     m_Mobile.FocusMob = from;
 
                 }
-				else if (WasNamed(e.Speech))
+                else if (e.Speech.Contains("reward") || e.Speech.Contains("Reward"))
+                {
+                    e.Handled = true;
+
+                    ((BaseVendor)m_Mobile).ClaimBodReward(from, (BaseVendor)m_Mobile);
+                    m_Mobile.FocusMob = from;
+
+                }
+                else if (WasNamed(e.Speech))
 				{
 					if (e.HasKeyword(0x177)) // *sell*
 					{

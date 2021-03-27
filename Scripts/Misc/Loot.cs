@@ -901,6 +901,19 @@ namespace Server
             return Construct(m_StatueTypes);
         }
 
+        private static readonly int[][] m_ClothHues = new int[][]
+        {
+            new int[] { 2380, 1989, 1990, 2653, 2398, 2828, 2845, 2827, 2826, 2379, 1484, 2898, 1489, 1995, 2167, 2928, 1470 },
+            new int[] { 1467, 2807, 1939, 1465, 2174, 2804, 2226, 2801, 1156, 2230 },
+        };
+
+        public static UncutCloth RandomCloth(int type)
+        {
+            UncutCloth cloth = new UncutCloth(100);
+            cloth.Hue = m_ClothHues[type][Utility.Random(m_ClothHues[type].Length)];
+            return cloth;
+        }
+
         public static SpellScroll RandomScroll(int minIndex, int maxIndex, SpellbookType type)
         {
             Type[] types;

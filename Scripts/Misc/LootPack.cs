@@ -144,7 +144,16 @@ namespace Server
 			new LootPackItem(typeof(SummonAirElementalScroll), 1)
 		};
 
-		public static readonly LootPackItem[] GemItems = new[] {new LootPackItem(typeof(Amber), 1)};
+        public static readonly LootPackItem[] LowCoth = new[]
+        {
+            new LootPackItem(typeof(UncutCloth), 1)
+        };
+
+        public static readonly LootPackItem[] HighCloth = new[]
+        {
+            new LootPackItem(typeof(UncutCloth), 2)
+        };
+        public static readonly LootPackItem[] GemItems = new[] {new LootPackItem(typeof(Amber), 1)};
 
 		public static readonly LootPackItem[] PotionItems = new[]
 		{
@@ -447,7 +456,8 @@ namespace Server
 					new LootPackEntry(true, Gold, 100.00, "10d10+250"), new LootPackEntry(false, Instruments, 1.00, 1),
 					new LootPackEntry(false, OldMagicItems, 20.00, 1, 1, 60, 100),
 					new LootPackEntry(false, OldMagicItems, 10.00, 1, 1, 65, 100),
-					new LootPackEntry(false, OldMagicItems, 1.00, 1, 1, 70, 100)
+					new LootPackEntry(false, OldMagicItems, 1.00, 1, 1, 70, 100),
+                    new LootPackEntry(false, LowCoth, 2, 100)
 				});
 
 		public static readonly LootPack OldFilthyRich =
@@ -458,8 +468,9 @@ namespace Server
 					new LootPackEntry(false, OldMagicItems, 33.00, 1, 1, 50, 100),
 					new LootPackEntry(false, OldMagicItems, 33.00, 1, 1, 60, 100),
 					new LootPackEntry(false, OldMagicItems, 20.00, 1, 1, 70, 100),
-					new LootPackEntry(false, OldMagicItems, 5.00, 1, 1, 80, 100)
-				});
+					new LootPackEntry(false, OldMagicItems, 5.00, 1, 1, 80, 100),
+                    new LootPackEntry(false, HighCloth, 2, 100)
+                });
 
 		public static readonly LootPack OldUltraRich =
 			new LootPack(
@@ -508,6 +519,8 @@ namespace Server
 
 		public static readonly LootPack HighScrolls =
 			new LootPack(new[] {new LootPackEntry(false, HighScrollItems, 100.00, 1)});
+
+        //public static readonly LootPack 
 
 		public static readonly LootPack Gems = new LootPack(new[] {new LootPackEntry(false, GemItems, 100.00, 1)});
 
@@ -997,6 +1010,12 @@ namespace Server
             return Loot.RandomScroll(minIndex, maxIndex, spellBookType);
 		}
 
+        public static Item RandomCloth(int type)
+
+        {
+            return Loot.RandomCloth(type);
+        }
+
 		public Item Construct(bool inTokuno, bool isMondain, bool isStygian)
 		{
 			try
@@ -1047,7 +1066,14 @@ namespace Server
 				else if (m_Type == typeof(SummonAirElementalScroll)) // high scroll
 				{
 					item = RandomScroll(8, 8);
-				}
+				}else if (m_Type == typeof(UncutCloth))
+                {
+                    if (this.Chance == 1)
+                    {
+                        item = RandomCloth(0);
+                    }
+                    else item = RandomCloth(1);
+                }
 				else
 				{
 					item = Activator.CreateInstance(m_Type) as Item;

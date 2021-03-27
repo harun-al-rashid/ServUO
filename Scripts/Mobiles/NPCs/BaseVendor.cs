@@ -292,6 +292,35 @@ namespace Server.Mobiles
 			}
         }
 
+        public void ClaimBodReward(Mobile from, BaseVendor vendor)
+        {
+
+            Mobile m_From = from;
+            BaseVendor m_Vendor = vendor;
+
+            if (!m_From.InRange(m_Vendor.Location, 3) || !(m_From is PlayerMobile))
+                return;
+
+            if (!BulkOrderSystem.CanClaimRewards(m_From, m_Vendor.BODType))
+            {
+                m_Vendor.SayTo(m_From, 1157083, 0x3B2); // You must claim your last turn-in reward in order for us to continue doing business.
+            }
+            else
+            {
+                int pending = BulkOrderSystem.GetPendingRewardFor(m_From, m_Vendor.BODType);
+
+                if (pending > 0)
+                {
+                    m_From.SendGump(new RewardsGump(m_Vendor, (PlayerMobile)m_From, m_Vendor.BODType, pending));
+                }
+                else
+                {
+                    m_From.SendGump(new RewardsGump(m_Vendor, (PlayerMobile)m_From, m_Vendor.BODType));
+                }
+            }
+
+        }
+
 		public BaseVendor(string title)
 			: base(AIType.AI_Vendor, FightMode.None, 2, 1, 0.5, 5)
 		{
