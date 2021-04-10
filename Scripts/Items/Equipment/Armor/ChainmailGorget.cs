@@ -9,7 +9,7 @@ namespace Server.Items
             : base(0x13C7)
         {
             this.Weight = 1.0;
-            Hue = 0x911;
+            this.Hue = 0x911;
         }
 
         public ChainmailGorget(Serial serial)

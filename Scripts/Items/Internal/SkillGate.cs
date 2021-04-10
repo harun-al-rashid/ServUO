@@ -1,4 +1,4 @@
-﻿#region References
+#region References
 
 using System;
 using System.Collections.Generic;
@@ -13,13 +13,13 @@ namespace Server
 {
     public class SkillGate : Item
     {
-        public const int NumberOfChoices = 1;
-        public const double AmountToRaiseTo = 100;
+        public const int NumberOfChoices = 7;
+        public const double AmountToRaiseTo = 90;
 
         [Constructable]
         public SkillGate() : base(0xf6c)
         {
-            Name = "Enter to raise your Imbuing skill";
+            Name = "Skill Gate: 'All to zero, then seven to ninety'";
             Weight = 1.0;
             Hue = 1462;
             LootType = LootType.Blessed;
@@ -74,7 +74,7 @@ namespace Server
 
         private static readonly List<SEntry> Skills = new List<SEntry>
         {
-            new SEntry(0, SkillName.Imbuing, "Imbuing")/*
+            //new SEntry(0, SkillName.Imbuing, "Imbuing")
             new SEntry(0, SkillName.Alchemy, "Alchemy"),
             new SEntry(1, SkillName.Anatomy, "Anatomy"),
             new SEntry(2, SkillName.AnimalLore, "Animal Lore"),
@@ -123,7 +123,7 @@ namespace Server
             new SEntry(45, SkillName.Mining, "Mining"),
             new SEntry(46, SkillName.Meditation, "Meditation"),
             new SEntry(47, SkillName.Stealth, "Stealth"),
-            new SEntry(48, SkillName.RemoveTrap, "Removing Traps")*/
+            new SEntry(48, SkillName.RemoveTrap, "Removing Traps")
         };
 
         public GateOfCharacterDevelopmentGump(SkillGate tome) : base(0, 0)
@@ -230,8 +230,8 @@ namespace Server
                     }
         
                     Skills skills = m.Skills;
-                    //for (int i = 0; i < skills.Length; ++i)
-                    //    skills[i].Base = 0;              
+                    for (int i = 0; i < skills.Length; ++i)
+                       skills[i].Base = 0;              
 
                     foreach (SEntry entry in Skills.Where(entry => info.IsSwitched(entry.SkillID)))
                     {

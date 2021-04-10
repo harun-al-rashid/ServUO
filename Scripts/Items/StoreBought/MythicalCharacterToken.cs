@@ -24,16 +24,16 @@ namespace Server.Items
         {
             if (m is PlayerMobile && IsChildOf(m.Backpack))
             {
-                if (m.Skills.Total > 2500)
-                {
-                    m.SendLocalizedMessage(1152368); // You cannot use this token on this character because you have over 200 skill points. If you 
+                //if (m.Skills.Total > 2500)
+                //{
+                //    m.SendLocalizedMessage(1152368); // You cannot use this token on this character because you have over 200 skill points. If you 
                     // don’t have a way to lower your skill point total, you will have to use this Mythic Character
                     // Token on another character.
-                }
-                else
-                {
+                //}
+                //else
+                //{
                     BaseGump.SendGump(new InternalGump((PlayerMobile)m, this));
-                }
+                //}
             }
         }
 
@@ -103,7 +103,7 @@ namespace Server.Items
                 : base(pm, 100, 100)
             {
                 Token = token;
-                Selected = new Skill[5];
+                Selected = new Skill[7];
             }
 
             public override void AddGumpLayout()
@@ -155,13 +155,13 @@ namespace Server.Items
 
                 if (HasAllFive)
                 {
-                    AddHtmlLocalized(Width / 3, 65, ((Width / 3) * 2) - 15, Height - 100, 1152358, LightGreen, false, false);
-                    /*Please confirm that you wish to set your attributes as indicated in the upper left area of this window. 
+                    AddHtmlLocalized(Width / 3, 65, ((Width / 3) * 2) - 15, Height - 100, 1063548, LightGreen, false, false);
+                    /*"Please confirm that you wish to set your attributes as indicated in the upper left area of this window. 
                     If you wish to change these values, edit them and click the EDIT button below.<br><br>Please confirm that 
                     you wish to set the five skills selected on the left to 90.0 skill. If you wish to make changes, click the 
                     [X] button next to a skill name to remove it from the list.<br><br>If are sure you wish to apply the selected
                     skills and attributes, click the CONTINUE button below.<br><br>If you wish to abort the application of the 
-                    Mythic Character Token, click the CANCEL button below.*/
+                    Mythic Character Token, click the CANCEL button below." cliloc 1152358, LightGreen*/
 
                     AddButton(Width / 3, Height - 100, 4005, 4007, 2500, GumpButtonType.Reply, 0);
                     AddHtmlLocalized((Width / 3) + 32, Height - 100, 100, 20, 1150647, White, false, false); // EDIT
@@ -171,7 +171,7 @@ namespace Server.Items
                 }
                 else
                 {
-                    AddHtmlLocalized(Width / 3, 45, (Width / 3) * 2, 20, 1152357, White, false, false); // <CENTER>Select Five Skills to Advance</CENTER>
+                    AddHtmlLocalized(Width / 3, 45, (Width / 3) * 2, 20, 1063549, White, false, false); // <CENTER>Select Five Skills to Advance</CENTER>
 
                     AddPage(1);
 
@@ -210,9 +210,63 @@ namespace Server.Items
                 }
             }
 
+        /*    private static readonly List<SEntry> Skills = new List<SEntry>
+        {
+            //new SEntry(0, SkillName.Imbuing, "Imbuing")
+            new SEntry(0, SkillName.Alchemy, "Alchemy"),
+            new SEntry(1, SkillName.Anatomy, "Anatomy"),
+            new SEntry(2, SkillName.AnimalLore, "Animal Lore"),
+            new SEntry(3, SkillName.ItemID, "Item Identification"),
+            new SEntry(4, SkillName.ArmsLore, "Arms Lore"),
+            new SEntry(5, SkillName.Parry, "Parrying"),
+            new SEntry(6, SkillName.Begging, "Begging"),
+            new SEntry(7, SkillName.Blacksmith, "Blacksmithy"),
+            new SEntry(8, SkillName.Fletching, "Fletching"),
+            new SEntry(9, SkillName.Peacemaking, "Peacemaking"),
+            new SEntry(10, SkillName.Camping, "Camping"),
+            new SEntry(11, SkillName.Carpentry, "Carpentry"),
+            new SEntry(12, SkillName.Cartography, "Cartography"),
+            new SEntry(13, SkillName.Cooking, "Cooking"),
+            new SEntry(14, SkillName.DetectHidden, "Detect Hidden"),
+            new SEntry(15, SkillName.Discordance, "Discordance"),
+            new SEntry(16, SkillName.EvalInt, "Evaluating Intelligence"),
+            new SEntry(17, SkillName.Healing, "Healing"),
+            new SEntry(18, SkillName.Fishing, "Fishing"),
+            new SEntry(19, SkillName.Forensics, "Forensic Evaluation"),
+            new SEntry(20, SkillName.Herding, "Herding"),
+            new SEntry(21, SkillName.Hiding, "Hiding"),
+            new SEntry(22, SkillName.Provocation, "Provocation"),
+            new SEntry(23, SkillName.Inscribe, "Inscription"),
+            new SEntry(24, SkillName.Lockpicking, "Lock Picking"),
+            new SEntry(25, SkillName.Magery, "Magery"),
+            new SEntry(26, SkillName.MagicResist, "Resisting Magic"),
+            new SEntry(27, SkillName.Tactics, "Tactics"),
+            new SEntry(28, SkillName.Snooping, "Snooping"),
+            new SEntry(29, SkillName.Musicianship, "Musicianship"),
+            new SEntry(30, SkillName.Poisoning, "Poisoning"),
+            new SEntry(31, SkillName.Archery, "Archery"),
+            new SEntry(32, SkillName.SpiritSpeak, "Spirit Speak"),
+            new SEntry(33, SkillName.Stealing, "Stealing"),
+            new SEntry(34, SkillName.Tailoring, "Tailoring"),
+            new SEntry(35, SkillName.AnimalTaming, "Animal Taming"),
+            new SEntry(36, SkillName.TasteID, "Taste Identification"),
+            new SEntry(37, SkillName.Tinkering, "Tinkering"),
+            new SEntry(38, SkillName.Tracking, "Tracking"),
+            new SEntry(39, SkillName.Veterinary, "Veterinary"),
+            new SEntry(40, SkillName.Swords, "Swordsmanship"),
+            new SEntry(41, SkillName.Macing, "Mace Fighting"),
+            new SEntry(42, SkillName.Fencing, "Fencing"),
+            new SEntry(43, SkillName.Wrestling, "Wrestling"),
+            new SEntry(44, SkillName.Lumberjacking, "Lumberjacking"),
+            new SEntry(45, SkillName.Mining, "Mining"),
+            new SEntry(46, SkillName.Meditation, "Meditation"),
+            new SEntry(47, SkillName.Stealth, "Stealth"),
+            new SEntry(48, SkillName.RemoveTrap, "Removing Traps")
+        };*/
+
             public override void OnResponse(RelayInfo info)
             {
-                if (!Token.IsChildOf(User.Backpack) || !User.Alive || User.Skills.Total > 2500)
+                if (!Token.IsChildOf(User.Backpack) || !User.Alive)
                     return;
 
                 int buttonID = info.ButtonID;
@@ -244,6 +298,12 @@ namespace Server.Items
                             Effects.SendMovingParticles(new Entity(Server.Serial.Zero, new Point3D(User.X - 6, User.Y - 4, User.Z + 15), User.Map), User, 0x36D4, 7, 0, false, true, 0x497, 0, 9502, 1, 0, (EffectLayer)255, 0x100);
 
                             Effects.SendTargetParticles(User, 0x375A, 35, 90, 0x00, 0x00, 9502, (EffectLayer)255, 0x100);
+
+
+                            //Set all skills to zero
+                            Skills skills = User.Skills;
+                            for (int i = 0; i < skills.Length; ++i)
+                                skills[i].Base = 0;
 
                             foreach (var sk in Selected)
                             {

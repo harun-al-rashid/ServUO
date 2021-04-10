@@ -324,7 +324,7 @@ namespace Server.Engines.Craft
            AddCraft(typeof(ChainmailArms), 1111704, 1063491, 55.0, 105.0, typeof(IronIngot), 1044036, 10, 1044037);
            AddCraft(typeof(ChainmailGloves), 1111704, 1063492, 45.0, 95.0, typeof(IronIngot), 1044036, 6, 1044037);
             AddCraft(typeof(ChainmailGorget), 1111704, 1063493, 40.0, 90.0, typeof(IronIngot), 1044036, 6, 1044037);
-            AddCraft(typeof(ChainmailSkirt), 1111704, 1063493, 60.0, 110.0, typeof(IronIngot), 1044036, 12, 1044037);
+            AddCraft(typeof(ChainmailSkirt), 1111704, 1063499, 60.0, 110.0, typeof(IronIngot), 1044036, 12, 1044037);
 
             #endregion
 

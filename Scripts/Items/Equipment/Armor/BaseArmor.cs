@@ -3163,8 +3163,89 @@ namespace Server.Items
                 DistributeExceptionalBonuses(from, (tool is BaseRunicTool ? 6 : Core.SE ? 20 : 14)); // Not sure since when, but right now 15 points are added, not 14.
             }
 
-            if (Core.AOS && tool is BaseRunicTool && !craftItem.ForceNonExceptional)
-                ((BaseRunicTool)tool).ApplyAttributesTo(this);
+            if (tool is BaseRunicTool && !craftItem.ForceNonExceptional)
+            {
+
+                //Get the resource used to craft this item.
+                Type resourceType = typeRes;
+                CraftResource thisResource = CraftResources.GetFromType(resourceType);
+                if (thisResource == ((BaseRunicTool)tool).Resource)
+                {
+                    Resource = thisResource;
+
+                    CraftContext context = craftSystem.GetContext(from);
+
+                    if (context != null && context.DoNotColor)
+                        Hue = 0;
+                    // Apply buffs based on resource type. Valorite provides better than DC etc
+                    switch (thisResource)
+                    {
+                        case CraftResource.DullCopper:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Durable;
+                                m_Protection = ArmorProtectionLevel.Regular;
+                                
+                                break;
+                            }
+                        case CraftResource.ShadowIron:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Durable;
+                                m_Protection = ArmorProtectionLevel.Defense;
+                                break;
+                            }
+                        case CraftResource.Copper:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Substantial;
+                                m_Protection = ArmorProtectionLevel.Defense;
+                                break;
+                            }
+                        case CraftResource.Bronze:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Massive;
+                                m_Protection = ArmorProtectionLevel.Guarding;
+                                break;
+                            }
+                        case CraftResource.Gold:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Massive;
+                                m_Protection = ArmorProtectionLevel.Hardening;
+                                break;
+                            }
+                        case CraftResource.Agapite:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Fortified;
+                                m_Protection = ArmorProtectionLevel.Hardening;
+                                break;
+                            }
+                        case CraftResource.Verite:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Indestructible;
+                                m_Protection = ArmorProtectionLevel.Fortification;
+                                break;
+                            }
+                        case CraftResource.Valorite:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Indestructible;
+                                m_Protection = ArmorProtectionLevel.Invulnerability;
+
+
+                                break;
+                            }
+                    }
+                
+            }
+        }
+
+            //    if (Core.AOS && tool is BaseRunicTool && !craftItem.ForceNonExceptional)
+            //    ((BaseRunicTool)tool).ApplyAttributesTo(this);
 
             #region Mondain's Legacy
             if (Core.ML && !craftItem.ForceNonExceptional)

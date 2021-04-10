@@ -6250,7 +6250,9 @@ namespace Server.Items
 			}
 			else if (tool is BaseRunicTool)
 			{
-				if (craftItem != null && !craftItem.ForceNonExceptional)
+
+
+                if (craftItem != null && !craftItem.ForceNonExceptional)
 				{
 					CraftResource thisResource = CraftResources.GetFromType(typeRes);
 
