@@ -2220,16 +2220,16 @@ namespace Server.Network
 		{
 			var target = World.FindEntity(pvSrc.ReadInt32());
 
-            if (target != null && ObjectPropertyList.Enabled)
+            if (target != null) //&&)// ObjectPropertyList.Enabled)
             {
-                if (!state.Mobile.ViewOPL)
-                {
-                    HandleSingleClick(state.Mobile, target);
-                }
-                else
-                {
+                //if (!state.Mobile.ViewOPL)
+                //{
+                //    HandleSingleClick(state.Mobile, target);
+                //}
+                //else
+                //{
                     ContextMenu.Display(state.Mobile, target);
-                }
+                //}
             }
 		}
 
