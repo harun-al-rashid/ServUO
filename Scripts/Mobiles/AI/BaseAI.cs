@@ -464,12 +464,13 @@ namespace Server.Mobiles
 
 							if (skill != null && theirSkill != null && skill.Base >= 60.0 && m_Mobile.CheckTeach(skill.SkillName, e.Mobile))
 							{
-								var toTeach = skill.Base / 3.0;
+								//var toTeach = skill.Base / 3;
+                                var toTeach = 50;
 
-								if (toTeach > 42.0)
-								{
-									toTeach = 42.0;
-								}
+								//if (toTeach > 42.0)
+								//{
+								//	toTeach = 42.0;
+								//}
 
 								if (toTeach > theirSkill.Base)
 								{
