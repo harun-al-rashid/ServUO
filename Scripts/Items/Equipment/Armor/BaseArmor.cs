@@ -3158,10 +3158,10 @@ namespace Server.Items
 
             PlayerConstructed = true;
 
-            if (Quality == ItemQuality.Exceptional && !craftItem.ForceNonExceptional)
-            {
-                DistributeExceptionalBonuses(from, (tool is BaseRunicTool ? 6 : Core.SE ? 20 : 14)); // Not sure since when, but right now 15 points are added, not 14.
-            }
+           // if (Quality == ItemQuality.Exceptional && !craftItem.ForceNonExceptional)
+           // {
+           //     DistributeExceptionalBonuses(from, (tool is BaseRunicTool ? 6 : Core.SE ? 20 : 14)); // Not sure since when, but right now 15 points are added, not 14.
+           // }
 
             if (tool is BaseRunicTool && !craftItem.ForceNonExceptional)
             {
@@ -3169,7 +3169,8 @@ namespace Server.Items
                 //Get the resource used to craft this item.
                 Type resourceType = typeRes;
                 CraftResource thisResource = CraftResources.GetFromType(resourceType);
-                if (thisResource == ((BaseRunicTool)tool).Resource)
+                CraftResource toolResource = ((BaseRunicTool)tool).Resource;
+                if (true)//thisResource == ((BaseRunicTool)tool).Resource)
                 {
                     Resource = thisResource;
 
@@ -3178,7 +3179,7 @@ namespace Server.Items
                     if (context != null && context.DoNotColor)
                         Hue = 0;
                     // Apply buffs based on resource type. Valorite provides better than DC etc
-                    switch (thisResource)
+                    switch (toolResource)
                     {
                         case CraftResource.DullCopper:
                             {
@@ -3188,7 +3189,22 @@ namespace Server.Items
                                 
                                 break;
                             }
+                        case CraftResource.Dullhide:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Durable;
+                                m_Protection = ArmorProtectionLevel.Regular;
+
+                                break;
+                            }
                         case CraftResource.ShadowIron:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Durable;
+                                m_Protection = ArmorProtectionLevel.Defense;
+                                break;
+                            }
+                        case CraftResource.Shadowhide:
                             {
                                 Identified = true;
                                 m_Durability = ArmorDurabilityLevel.Durable;
@@ -3202,7 +3218,21 @@ namespace Server.Items
                                 m_Protection = ArmorProtectionLevel.Defense;
                                 break;
                             }
+                        case CraftResource.Copperhide:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Substantial;
+                                m_Protection = ArmorProtectionLevel.Defense;
+                                break;
+                            }
                         case CraftResource.Bronze:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Massive;
+                                m_Protection = ArmorProtectionLevel.Guarding;
+                                break;
+                            }
+                        case CraftResource.Bronzehide:
                             {
                                 Identified = true;
                                 m_Durability = ArmorDurabilityLevel.Massive;
@@ -3216,7 +3246,21 @@ namespace Server.Items
                                 m_Protection = ArmorProtectionLevel.Hardening;
                                 break;
                             }
+                        case CraftResource.Goldenhide:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Massive;
+                                m_Protection = ArmorProtectionLevel.Hardening;
+                                break;
+                            }
                         case CraftResource.Agapite:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Fortified;
+                                m_Protection = ArmorProtectionLevel.Hardening;
+                                break;
+                            }
+                        case CraftResource.Rosehide:
                             {
                                 Identified = true;
                                 m_Durability = ArmorDurabilityLevel.Fortified;
@@ -3230,7 +3274,23 @@ namespace Server.Items
                                 m_Protection = ArmorProtectionLevel.Fortification;
                                 break;
                             }
+                        case CraftResource.Verehide:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Indestructible;
+                                m_Protection = ArmorProtectionLevel.Fortification;
+                                break;
+                            }
                         case CraftResource.Valorite:
+                            {
+                                Identified = true;
+                                m_Durability = ArmorDurabilityLevel.Indestructible;
+                                m_Protection = ArmorProtectionLevel.Invulnerability;
+
+
+                                break;
+                            }
+                        case CraftResource.Valehide:
                             {
                                 Identified = true;
                                 m_Durability = ArmorDurabilityLevel.Indestructible;
@@ -3324,9 +3384,9 @@ namespace Server.Items
 
         protected virtual void ApplyResourceResistances(CraftResource oldResource)
         {
-            CraftAttributeInfo info;
+            //CraftAttributeInfo info;
 
-            if (oldResource > CraftResource.None)
+            /*if (oldResource > CraftResource.None)
             {
                 info = GetResourceAttrs(oldResource);
 
@@ -3359,7 +3419,7 @@ namespace Server.Items
             m_FireNonImbuing += info.ArmorFireResist;
             m_ColdNonImbuing += info.ArmorColdResist;
             m_PoisonNonImbuing += info.ArmorPoisonResist;
-            m_EnergyNonImbuing += info.ArmorEnergyResist;
+            m_EnergyNonImbuing += info.ArmorEnergyResist;*/
         }
 
         public virtual void DistributeMaterialBonus(CraftAttributeInfo attrInfo)

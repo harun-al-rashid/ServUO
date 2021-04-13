@@ -111,7 +111,7 @@ namespace Server.Mobiles
                 if (!Guild.NewGuildSystem)
                     Add(new GenericBuyInfo("1041055", typeof(GuildDeed), 12450, 20, 0x14F0, 0));
 
-                if (Core.ML)
+                if (Core.T2A)
                     Add(new GenericBuyInfo("1079931", typeof(SalvageBag), 1255, 20, 0xE76, Utility.RandomBlueHue()));
 
                 if (Core.SA)
