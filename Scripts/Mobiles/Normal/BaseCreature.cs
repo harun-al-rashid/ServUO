@@ -4590,9 +4590,9 @@ namespace Server.Mobiles
 
             int baseToSet = ourSkill.BaseFixedPoint / 3;
 
-            if (baseToSet > 420)
+            if (baseToSet < 500)//was 420
             {
-                baseToSet = 420;
+                baseToSet = 500;
             }
             else if (baseToSet < 200)
             {
