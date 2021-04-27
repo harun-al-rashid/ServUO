@@ -472,7 +472,7 @@ namespace Server.Items
                 shadowhide.RunicMaxIntensity = 45;
             }
 
-            CraftAttributeInfo copperhide = copperhide = new CraftAttributeInfo();
+            CraftAttributeInfo copperhide = Copperhide = new CraftAttributeInfo();
 
             copperhide.ArmorPhysicalResist = 3;
             copperhide.ArmorFireResist = 2;

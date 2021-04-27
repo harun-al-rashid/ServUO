@@ -689,21 +689,28 @@ namespace Server.Spells
             if (map == null)
                 return;
 
+            double spirit_speak_skill = caster.Skills[SkillName.SpiritSpeak].Value;
+            double spirit_speak_skill_stat_bonus = 1 + (spirit_speak_skill / 100);
+            double spirit_speak_duration_bonus = 1 + (spirit_speak_skill / 100);
             double scale = 1.0 + ((caster.Skills[useSkill].Value - 100.0) / 200.0);
 
-            if (scaleDuration)
-                duration = TimeSpan.FromSeconds(duration.TotalSeconds * scale);
+            if (spirit_speak_duration_bonus > 1)
+            {
+                duration = TimeSpan.FromSeconds(duration.TotalSeconds * spirit_speak_duration_bonus);
 
+        }
             if (scaleStats)
             {
-                creature.RawStr = (int)(creature.RawStr * scale);
+                creature.RawStr = (int)(creature.RawStr * spirit_speak_skill_stat_bonus);
                 creature.Hits = creature.HitsMax;
 
-                creature.RawDex = (int)(creature.RawDex * scale);
+                creature.RawDex = (int)(creature.RawDex * spirit_speak_skill_stat_bonus);
                 creature.Stam = creature.StamMax;
 
-                creature.RawInt = (int)(creature.RawInt * scale);
+                creature.RawInt = (int)(creature.RawInt * spirit_speak_skill_stat_bonus);
                 creature.Mana = creature.ManaMax;
+
+            //creature.Skills.Wrestling = creature.SetSkill(// * spirit_speak_skill_stat_bonus);
             }
 
             Point3D p = new Point3D(caster);

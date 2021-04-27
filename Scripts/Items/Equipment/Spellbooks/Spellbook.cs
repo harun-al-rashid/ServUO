@@ -791,7 +791,7 @@ namespace Server.Items
 				to.Send(new DisplaySpellbook(this));
 			}
 
-			if (ObjectPropertyList.Enabled)
+			/*if (ObjectPropertyList.Enabled)
 			{
 				if (ns.NewSpellbook)
 				{
@@ -810,7 +810,7 @@ namespace Server.Items
 				}
 			}
 			else
-			{
+			{*/
 				if (ns.ContainerGridLines)
 				{
 					to.Send(new SpellbookContent6017(m_Count, BookOffset + 1, m_Content, this));
@@ -819,7 +819,7 @@ namespace Server.Items
 				{
 					to.Send(new SpellbookContent(m_Count, BookOffset + 1, m_Content, this));
 				}
-			}
+			//}
 		}
 
 		public override void GetProperties(ObjectPropertyList list)

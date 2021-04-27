@@ -166,7 +166,7 @@ namespace Server.Mobiles
             else if (deed is MarbleWorkshopDeed)
                 price = 60300;
 
-            return AOS.Scale(price, 80); // refunds 80% of the purchase price
+            return AOS.Scale(price, 95); // refunds 80% of the purchase price //changed was 80
         }
 
         public override void InitSBInfo()

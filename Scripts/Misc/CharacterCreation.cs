@@ -4,6 +4,7 @@ using System;
 using Server.Accounting;
 using Server.Items;
 using Server.Mobiles;
+using Server.Multis.Deeds;
 using Server.Network;
 #endregion
 
@@ -65,6 +66,7 @@ namespace Server.Misc
 			PackItem(new Gold(1000)); // Starting gold can be customized here
 			PackItem(new Candle());
             PackItem(new MythicCharacterToken());
+            PackItem(new WoodHouseDeed());
 
 			if (m.Race != Race.Gargoyle)
 				PackItem(new Dagger());

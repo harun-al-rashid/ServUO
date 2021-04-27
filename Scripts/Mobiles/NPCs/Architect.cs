@@ -33,8 +33,8 @@ namespace Server.Mobiles
         }
         public override void InitSBInfo()
         {
-            if (!Core.AOS)
-                this.m_SBInfos.Add(new SBHouseDeed());
+            //if (!Core.AOS)
+            //    this.m_SBInfos.Add(new SBHouseDeed());
 
             this.m_SBInfos.Add(new SBArchitect());
         }

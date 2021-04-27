@@ -1056,13 +1056,14 @@ namespace Server
 				}
 				else if (m_Type == typeof(ArchCureScroll)) // med scroll
 				{
-                    double chance = Utility.RandomDouble();
-                    if (chance < 0.5)
-                    {
-                        item = RandomScroll(4, 7);
-                    }
-                    else { item = new ArcaneScroll(); }
-				}
+                    //double chance = Utility.RandomDouble();
+                    //if (chance < 0.5)
+                    //{
+                    //    item = RandomScroll(4, 7);
+                    //}
+                    //else { item = new ArcaneScroll(); }
+                    item = new ArcaneScroll();
+                }
 				else if (m_Type == typeof(SummonAirElementalScroll)) // high scroll
 				{
 					item = RandomScroll(8, 8);
