@@ -10,9 +10,9 @@ namespace Server.Items
             : base(0xE7D)
         {
             this.Hue = 0x48D;
-            this.StartTier = 10000000;
-            this.NextTier = 5000000;
-            this.DailyDecay = 100000;
+            this.StartTier = 100000;
+            this.NextTier = 50000;
+            this.DailyDecay = 500;
         }
 
         public VesperDonationBox(Serial serial)

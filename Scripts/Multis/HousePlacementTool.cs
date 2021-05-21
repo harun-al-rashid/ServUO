@@ -121,7 +121,7 @@ namespace Server.Items
             {
                 case 1: // Classic Houses
                     {
-                        m_From.SendGump(new HousePlacementListGump(m_Tool, m_From, Core.EJ ? HousePlacementEntry.HousesEJ : HousePlacementEntry.ClassicHouses, true));
+                        m_From.SendGump(new HousePlacementListGump(m_Tool, m_From, Core.T2A ? HousePlacementEntry.HousesEJ : HousePlacementEntry.ClassicHouses, true));
                         break;
                     }
                 case 2: // 2-Story Customizable Houses
@@ -343,12 +343,12 @@ namespace Server.Items
     {
         private static readonly HousePlacementEntry[] m_ClassicHouses = new HousePlacementEntry[]
         {
-            new HousePlacementEntry(typeof(SmallOldHouse),  1011303,	425,	212,	489,	244,	10,	36750, 0,	4,	0,	0x0064),
-            new HousePlacementEntry(typeof(SmallOldHouse),  1011304,	425,	212,	489,	244,	10,	36750, 0,	4,	0,	0x0066),
-            new HousePlacementEntry(typeof(SmallOldHouse),  1011305,	425,	212,	489,	244,	10,	36500, 0,	4,	0,	0x0068),
-            new HousePlacementEntry(typeof(SmallOldHouse),  1011306,	425,	212,	489,	244,	10,	5000, 0,	4,	0,	0x006A),
-            new HousePlacementEntry(typeof(SmallOldHouse),  1011307,	425,	212,	489,	244,	10,	36500, 0,	4,	0,	0x006C),
-            new HousePlacementEntry(typeof(SmallOldHouse),  1011308,	425,	212,	489,	244,	10,	36500, 0,	4,	0,	0x006E),
+            new HousePlacementEntry(typeof(SmallOldHouse),  1011303,	425,	212,	489,	244,	10,	34000, 0,	4,	0,	0x0064),
+            new HousePlacementEntry(typeof(SmallOldHouse),  1011304,	425,	212,	489,	244,	10,	34000, 0,	4,	0,	0x0066),
+            new HousePlacementEntry(typeof(SmallOldHouse),  1011305,	425,	212,	489,	244,	10,	34000, 0,	4,	0,	0x0068),
+            new HousePlacementEntry(typeof(SmallOldHouse),  1011306,	425,	212,	489,	244,	10,	34000, 0,	4,	0,	0x006A),
+            new HousePlacementEntry(typeof(SmallOldHouse),  1011307,	425,	212,	489,	244,	10,	34000, 0,	4,	0,	0x006C),
+            new HousePlacementEntry(typeof(SmallOldHouse),  1011308,	425,	212,	489,	244,	10,	34000, 0,	4,	0,	0x006E),
             new HousePlacementEntry(typeof(SmallShop),      1011321,	425,	212,	489,	244,	10,	50250, -1,	4,	0,	0x00A0),
             new HousePlacementEntry(typeof(SmallShop),      1011322,	425,	212,	489,	244,	10,	52250, 0,	4,	0,	0x00A2),
             new HousePlacementEntry(typeof(SmallTower),     1011317,	580,	290,	667,	333,	14,	73250, 3,	4,	0,	0x0098),
@@ -365,7 +365,7 @@ namespace Server.Items
             new HousePlacementEntry(typeof(Castle),         1011314,	4076,	2038,	4688,	2344,	78,	865000, 0, 16,	0,	0x007E),
         };
 
-        private static readonly HousePlacementEntry[] m_HousesEJ =
+        private static readonly HousePlacementEntry[] m_HousesEJ = new HousePlacementEntry[]
         {
             new HousePlacementEntry(typeof(SmallOldHouse),      1011303,	425,	212,	489,	244,	10,	36750, 0,	4,	0,	0x0064),
             new HousePlacementEntry(typeof(SmallOldHouse),      1011304,	425,	212,	489,	244,	10,	36750, 0,	4,	0,	0x0066),
@@ -551,7 +551,7 @@ namespace Server.Items
         {
             m_Table = new Hashtable();
 
-            if (Core.EJ)
+            if (Core.T2A)
             {
                 FillTable(m_HousesEJ);
             }

@@ -54,7 +54,7 @@ namespace Server.Items
         {
             base.Init();
 			
-            Donations.Add(new CollectionItem(typeof(Gold), 0xEEF, 1073116, 0x0, 0.06666));
+            Donations.Add(new CollectionItem(typeof(Gold), 0xEEF, 1073116, 0x0, 1));//last was 0.06666
 
             if (!Core.TOL)
                 this.Donations.Add(new CollectionItem(typeof(BankCheck), 0x14F0, 1075013, 0x34, 0.06666));
@@ -70,12 +70,12 @@ namespace Server.Items
             Donations.Add(new CollectionItem(typeof(Nightmare), 0x259C, 1074821, 0x0, 10000.0));
             Donations.Add(new CollectionItem(typeof(FireSteed), 0x21F1, 1074821, 0x0, 10000.0));
             Donations.Add(new CollectionItem(typeof(SwampDragon), 0x2619, 1074821, 0x0, 10000.0));
-            Donations.Add(new CollectionItem(typeof(RuneBeetle), 0x276F, 1074820, 0x0, 12000.0));
-            Donations.Add(new CollectionItem(typeof(FireBeetle), 0x260F, 1074820, 0x489, 12000.0));
+            Donations.Add(new CollectionItem(typeof(RuneBeetle), 0x276F, 1074820, 0x0, 15000.0));
+            Donations.Add(new CollectionItem(typeof(FireBeetle), 0x260F, 1074820, 0x489, 20000.0));
             Donations.Add(new CollectionItem(typeof(Beetle), 0x260F, 1074820, 0x0, 12000.0));
             Donations.Add(new CollectionItem(typeof(Drake), 0x20D6, 1073119, 0x0, 12000.0));
             Donations.Add(new CollectionItem(typeof(Dragon), 0x20D6, 1073119, 0x0, 20000.0));
-            Donations.Add(new CollectionItem(typeof(Reptalon), 0x2D95, 1073121, 0x0, 30000.0));
+            Donations.Add(new CollectionItem(typeof(Reptalon), 0x2D95, 1073121, 0x0, 50000.0));
 			
             int[] hues = new int[] 
             {

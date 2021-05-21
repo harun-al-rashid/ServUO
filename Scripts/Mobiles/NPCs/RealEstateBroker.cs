@@ -138,9 +138,9 @@ namespace Server.Mobiles
             int price = 0;
 
             if (deed is StonePlasterHouseDeed || deed is FieldStoneHouseDeed || deed is SmallBrickHouseDeed || deed is WoodPlasterHouseDeed || deed is ThatchedRoofCottageDeed)
-                price = 43800;
+                price = 34000;
             else if (deed is WoodHouseDeed)
-                price = 5000;
+                price = 2000;
             else if (deed is BrickHouseDeed)
                 price = 144500;
             else if (deed is TwoStoryWoodPlasterHouseDeed || deed is TwoStoryStonePlasterHouseDeed)
@@ -168,7 +168,7 @@ namespace Server.Mobiles
             else if (deed is MarbleWorkshopDeed)
                 price = 60300;
 
-            return AOS.Scale(price, 95); // refunds 80% of the purchase price //changed was 80
+            return AOS.Scale(price, 80); // refunds 80% of the purchase price
         }
 
         public override void InitSBInfo()
