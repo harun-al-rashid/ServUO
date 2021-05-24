@@ -57,7 +57,7 @@ namespace Server.Items
             Donations.Add(new CollectionItem(typeof(Gold), 0xEEF, 1073116, 0x0, 1));//last was 0.06666
 
             if (!Core.TOL)
-                this.Donations.Add(new CollectionItem(typeof(BankCheck), 0x14F0, 1075013, 0x34, 0.06666));
+                this.Donations.Add(new CollectionItem(typeof(BankCheck), 0x14F0, 1075013, 0x34, 1));//last was 0.06666
 
             Donations.Add(new CollectionItem(typeof(DireWolf), 0x25D0, 1073118, 0x0, 600.0));
             Donations.Add(new CollectionItem(typeof(TimberWolf), 0x25D3, 1073118, 0x0, 600.0));
