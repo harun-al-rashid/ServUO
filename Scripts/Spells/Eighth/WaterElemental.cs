@@ -44,9 +44,12 @@ namespace Server.Spells.Eighth
             if (this.CheckSequence())
             {
                 TimeSpan duration = TimeSpan.FromSeconds((2 * this.Caster.Skills.Magery.Fixed) / 5);
+                double skill = Caster.Skills.SpiritSpeak.Value;
+                int type;
+                if (skill == 120) { type = 4; } else if (skill >= 100) { type = 3; } else if (skill >= 75) { type = 2; } else if (skill >= 50) { type = 1; } else type = 0;
 
                 if (Core.AOS)
-                    SpellHelper.Summon(new SummonedWaterElemental(), this.Caster, 0x217, duration, false, false);
+                    SpellHelper.Summon(new SummonedWaterElemental(type), this.Caster, 0x217, duration, false, false);
                 else
                     SpellHelper.Summon(new WaterElemental(), this.Caster, 0x217, duration, false, false);
             }

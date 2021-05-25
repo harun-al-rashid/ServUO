@@ -46,14 +46,18 @@ namespace Server.Spells.Eighth
             { 
                 TimeSpan duration = TimeSpan.FromSeconds((2 * this.Caster.Skills.Magery.Fixed) / 5);
 
-                if (Core.AOS)  /* Why two diff daemons? TODO: solve this */
-                {
-                    BaseCreature m_Daemon = new SummonedDaemon();
+                double skill = Caster.Skills.SpiritSpeak.Value;
+                int type;
+                if (skill == 120) { type = 4; } else if (skill >= 100) { type = 3; } else if (skill >= 75) { type = 2; } else if (skill >= 50) { type = 1; } else type = 0;
+
+                //if (Core.AOS)  /* Why two diff daemons? TODO: solve this */
+                //{
+                    BaseCreature m_Daemon = new SummonedDaemon(type);
                     SpellHelper.Summon(m_Daemon, this.Caster, 0x216, duration, false, false);
                     m_Daemon.FixedParticles(0x3728, 8, 20, 5042, EffectLayer.Head);
-                }
-                else
-                    SpellHelper.Summon(new Daemon(), this.Caster, 0x216, duration, false, false);
+                //}
+                //else
+                    //SpellHelper.Summon(new Daemon(), this.Caster, 0x216, duration, false, false);
             }
 
             this.FinishSequence();

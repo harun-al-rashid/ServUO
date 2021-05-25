@@ -38,7 +38,7 @@ namespace Server.Mobiles
                     this.SetSkill(SkillName.Meditation, 100.0);
                     this.SetSkill(SkillName.EvalInt, 80.0);
                     this.SetSkill(SkillName.Magery, 80.0);
-                    this.VirtualArmor = 38;
+                    this.VirtualArmor = 31;
                     this.ControlSlots = 2;
                     break;
                 case 2:
@@ -58,7 +58,7 @@ namespace Server.Mobiles
                     this.SetSkill(SkillName.Meditation, 110.0);
                     this.SetSkill(SkillName.EvalInt, 90.0);
                     this.SetSkill(SkillName.Magery, 90.0);
-                    this.VirtualArmor = 42;
+                    this.VirtualArmor = 32;
                     this.ControlSlots = 2;
                     break;
                 case 3:
@@ -78,7 +78,7 @@ namespace Server.Mobiles
                     this.SetSkill(SkillName.Meditation, 120.0);
                     this.SetSkill(SkillName.EvalInt, 100.0);
                     this.SetSkill(SkillName.Magery, 100.0);
-                    this.VirtualArmor = 46;
+                    this.VirtualArmor = 33;
                     this.ControlSlots = 2;
                     break;
                 case 4:
@@ -98,7 +98,7 @@ namespace Server.Mobiles
                     this.SetSkill(SkillName.Meditation, 130.0);
                     this.SetSkill(SkillName.EvalInt, 110.0);
                     this.SetSkill(SkillName.Magery, 110.0);
-                    this.VirtualArmor = 50;
+                    this.VirtualArmor = 35;
                     this.ControlSlots = 2;
                     break;
                 default:
@@ -118,7 +118,7 @@ namespace Server.Mobiles
                     this.SetSkill(SkillName.MagicResist, 60.0);
                     this.SetSkill(SkillName.Tactics, 80.0);
                     this.SetSkill(SkillName.Wrestling, 80.0);
-                    this.VirtualArmor = 40;
+                    this.VirtualArmor = 30;
                     this.ControlSlots = 2;
                     break;
             }
@@ -130,7 +130,7 @@ namespace Server.Mobiles
             this.SetHits(150);
             this.SetStam(50);
 
-            this.SetDamage(6, 9);
+            //this.SetDamage(6, 9);
 
             this.SetDamageType(ResistanceType.Physical, 50);
             this.SetDamageType(ResistanceType.Energy, 50);
@@ -143,7 +143,7 @@ namespace Server.Mobiles
 
             
 
-            this.VirtualArmor = 40;
+            //this.VirtualArmor = 40;
             this.ControlSlots = 2;
         }
 
