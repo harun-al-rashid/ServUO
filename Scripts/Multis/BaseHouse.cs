@@ -29,7 +29,7 @@ namespace Server.Multis
         {
             get
             {
-                return Core.AOS;
+                return Core.T2A;//formerly AOS
             }
         }// Is new player vendor system enabled?
 
@@ -155,8 +155,8 @@ namespace Server.Multis
                         return DecayType.Ageless;
                 }
 
-                if (!Core.AOS)
-                    return DecayType.ManualRefresh;
+                //if (!Core.AOS)
+                //    return DecayType.ManualRefresh;
 
                 if (acct.Inactive)
                     return DecayType.Condemned;
