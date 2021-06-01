@@ -102,7 +102,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return 30;
+                return 50;
             }
         }
         public override HideType HideType

@@ -2574,7 +2574,7 @@ namespace Server.Mobiles
                 {
                     Item leather = null;
                     //we change number of hides dependant on tailoring skill...
-                    hides = Math.Max(1 , (int)(from.Skills[SkillName.Tailoring].Value / 100 * hides));
+                    hides = Math.Max(1, (int)(((from.Skills[SkillName.Tailoring].Value / 100) + 0.5) * hides));
 
                     switch (HideType)
                     {

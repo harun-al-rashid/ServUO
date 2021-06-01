@@ -103,7 +103,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return HideType.Vere;
+                return HideType.Vale;
             }
         }
         public override int Scales
