@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public SummonedDaemon(int type)
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-
+            m_type = type;
             switch (type)
             {
 
