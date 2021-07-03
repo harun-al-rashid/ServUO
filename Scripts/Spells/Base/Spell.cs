@@ -20,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Server.SkillHandlers;
 #endregion
 
 namespace Server.Spells
@@ -852,7 +853,23 @@ namespace Server.Spells
 
                     if (ClearHandsOnCast)
                     {
-                        m_Caster.ClearHands();
+                        //if (m_Caster.Skills.Magery.Value > 80 && m_Caster.Skills.Parry.Value > 80 && m_caster.)
+                        Item oneHanded = m_Caster.FindItemOnLayer(Layer.OneHanded);
+                        Item twoHanded = m_Caster.FindItemOnLayer(Layer.TwoHanded);
+
+                        if (m_Caster.Player)//Core.AOS && 
+                        {
+                            if (!Meditation.CheckOkayHolding(oneHanded, m_Caster))
+                            {
+                                m_Caster.AddToBackpack(oneHanded);
+                            }
+                            if (!Meditation.CheckOkayHolding(twoHanded, m_Caster))
+                            {
+                                m_Caster.AddToBackpack(twoHanded);
+                            }
+
+                            // m_Caster.ClearHands();
+                        }
                     }
 
                     if (Core.ML)
@@ -1206,8 +1223,9 @@ namespace Server.Spells
 				{
 					if (ClearHandsOnCast)
 					{
-						m_Caster.ClearHands();
-					}
+                        if (!(m_Caster.Skills.Magery.Value > 80 && m_Caster.Skills.Parry.Value > 80))
+                        m_Caster.ClearHands();
+                    }
 				}
 
 				int karma = ComputeKarmaAward();

@@ -18,7 +18,7 @@ namespace Server.Mobiles
 
                 case 1:
 
-                    this.Name = "an oil baron";
+                    this.Name = "Graz'zt";
                     this.SetStr(530);
                     this.SetDex(105);
                     this.SetInt(350);
@@ -38,7 +38,7 @@ namespace Server.Mobiles
                     break;
                 case 2:
 
-                    this.Name = "a coal baron";
+                    this.Name = "Zuggtmoy";
                     this.SetStr(560);
                     this.SetDex(115);
                     this.SetInt(375);
@@ -58,7 +58,7 @@ namespace Server.Mobiles
                     break;
                 case 3:
 
-                    this.Name = "Hitler";
+                    this.Name = "Demogorgon";
                     this.SetStr(600);
                     this.SetDex(125);
                     this.SetInt(400);
@@ -78,7 +78,7 @@ namespace Server.Mobiles
                     break;
                 case 4:
 
-                    this.Name = "Donald Trump";
+                    this.Name = "Orcus";
                     this.SetStr(650);
                     this.SetDex(150);
                     this.SetInt(450);

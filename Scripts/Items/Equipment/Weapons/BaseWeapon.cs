@@ -1289,7 +1289,7 @@ namespace Server.Items
 		{
 			SkillName sk;
 
-			if (checkSkillAttrs && m_AosWeaponAttributes.UseBestSkill != 0)
+			/*if (checkSkillAttrs && m_AosWeaponAttributes.UseBestSkill != 0)
 			{
 				double swrd = m.Skills[SkillName.Swords].Value;
 				double fenc = m.Skills[SkillName.Fencing].Value;
@@ -1333,7 +1333,7 @@ namespace Server.Items
                 }
             }
             else
-            {
+            {*/
                 sk = Skill;
 
                 if (sk != SkillName.Wrestling && !m.Player && !m.Body.IsHuman &&
@@ -1341,7 +1341,7 @@ namespace Server.Items
                 {
                     sk = SkillName.Wrestling;
                 }
-            }
+            //}
 
 			return sk;
 		}
@@ -1386,7 +1386,7 @@ namespace Server.Items
 
 			int bonus = GetHitChanceBonus();
 
-			if (Core.AOS)
+			/*if (Core.AOS)
 			{
                 if (atkValue <= -20.0)
                     atkValue = -19.9;
@@ -1417,9 +1417,9 @@ namespace Server.Items
                 theirValue = (defValue + 20.0) * (100 + bonus);
 
                 bonus = 0;
-			}
-			else
-			{
+			}*/
+			//else
+			//{
 				if (atkValue <= -50.0)
 				{
 					atkValue = -49.9;
@@ -1432,13 +1432,13 @@ namespace Server.Items
 
 				ourValue = (atkValue + 50.0);
 				theirValue = (defValue + 50.0);
-			}
+			//}
 
 			double chance = ourValue / (theirValue * 2.0);
 
 			chance *= 1.0 + ((double)bonus / 100);
 
-            if (Core.SA)
+            /*if (Core.SA)
             {
                 if (atkWeapon is BaseThrown)
                 {
@@ -1474,15 +1474,15 @@ namespace Server.Items
                         chance = chance + (chance * (malus / 100));
                     }
                 }
-            }
+            }*/
 
-            if (Core.AOS && chance < 0.02)
+            if (chance < 0.02)//Core.AOS && 
             {
                 chance = 0.02;
             }
 
-            if (Core.AOS && m_AosWeaponAttributes.MageWeapon > 0 && attacker.Skills[SkillName.Magery].Value > atkSkill.Value)
-                return attacker.CheckSkill(SkillName.Magery, chance);
+            //if (Core.AOS && m_AosWeaponAttributes.MageWeapon > 0 && attacker.Skills[SkillName.Magery].Value > atkSkill.Value)
+            //    return attacker.CheckSkill(SkillName.Magery, chance);
 
 			return attacker.CheckSkill(atkSkill.SkillName, chance);
 		}
@@ -1498,14 +1498,14 @@ namespace Server.Items
 
 			double delayInSeconds;
 
-			if (Core.SE)
+			/*if (Core.SE)
 			{
 				/*
                 * This is likely true for Core.AOS as well... both guides report the same
                 * formula, and both are wrong.
                 * The old formula left in for AOS for legacy & because we aren't quite 100%
                 * Sure that AOS has THIS formula
-                */
+                *//*
 				int bonus = AosAttributes.GetValue(m, AosAttribute.WeaponSpeed);
 
 				if (bonus > 60)
@@ -1563,9 +1563,9 @@ namespace Server.Items
 				{
 					delayInSeconds = 1.25;
 				}
-			}
-			else
-			{
+			}*/
+			//else
+			//{
 				int v = (m.Stam + 100) * (int)speed;
 
 				if (v <= 0)
@@ -1574,9 +1574,9 @@ namespace Server.Items
 				}
 
 				delayInSeconds = 15000.0 / v;
-			}
+            //}
 
-			return TimeSpan.FromSeconds(delayInSeconds);
+            return TimeSpan.FromSeconds(delayInSeconds);
 		}
 
 		public virtual void OnBeforeSwing(Mobile attacker, IDamageable damageable)
@@ -1702,9 +1702,9 @@ namespace Server.Items
 		}
 		#endregion
 
-		public static bool CheckParry(Mobile defender)
+		public static bool CheckParry(Mobile defender, Mobile attacker)
 		{
-			if (defender == null)
+			if (defender == null || attacker == null)
 			{
 				return false;
 			}
@@ -1712,27 +1712,30 @@ namespace Server.Items
 			BaseShield shield = defender.FindItemOnLayer(Layer.TwoHanded) as BaseShield;
 
 			double parry = defender.Skills[SkillName.Parry].Value;
-			double bushidoNonRacial = defender.Skills[SkillName.Bushido].NonRacialValue;
-			double bushido = defender.Skills[SkillName.Bushido].Value;
+			//double bushidoNonRacial = defender.Skills[SkillName.Bushido].NonRacialValue;
+			//double bushido = defender.Skills[SkillName.Bushido].Value;
+            double parry_chance;
 
-			if (shield != null || !defender.Player)
+            if(attacker.Weapon is Spell) { parry_chance = 25; } else { parry_chance = 50; }
+
+			if (shield != null || !(defender.Player))
 			{
-				double chance = (parry - bushidoNonRacial) / 400.0;
-					// As per OSI, no negitive effect from the Racial stuffs, ie, 120 parry and '0' bushido with humans
+				double chance = parry_chance * (parry / 100);//= (parry - bushidoNonRacial) / 400.0;
+                                                   // As per OSI, no negitive effect from the Racial stuffs, ie, 120 parry and '0' bushido with humans
 
-				if (chance < 0) // chance shouldn't go below 0
+                if (chance < 0) // chance shouldn't go below 0
 				{
 					chance = defender.Player ? 0 : .1;
 				}
 
                 // Skill Masteries
-                chance += HeightenedSensesSpell.GetParryBonus(defender);
+                //chance += HeightenedSensesSpell.GetParryBonus(defender);
 
 				// Parry/Bushido over 100 grants a 5% bonus.
-				if (parry >= 100.0 || bushido >= 100.0)
-				{
-					chance += 0.05;
-				}
+				//if (parry >= 100.0 || bushido >= 100.0)
+				//{
+				//	chance += 0.05;
+				//}
 
 				// Evasion grants a variable bonus post ML. 50% prior.
 				if (Evasion.IsEvading(defender))
@@ -1741,38 +1744,46 @@ namespace Server.Items
 				}
 
 				// Low dexterity lowers the chance.
-				if (defender.Player && defender.Dex < 80)
-				{
-					chance = chance * (20 + defender.Dex) / 100;
-				}
+				//if (defender.Player && defender.Dex < 80)
+				//{
+				//	chance = chance * (20 + defender.Dex) / 100;
+				//}
 
 				return defender.CheckSkill(SkillName.Parry, chance);
 			}
-			else if (!(defender.Weapon is Fists) && !(defender.Weapon is BaseRanged))
-			{
+			else if ((!(defender.Weapon is Fists) && !(defender.Weapon is BaseRanged)))// // 
+            {
 				BaseWeapon weapon = defender.Weapon as BaseWeapon;
 
-                if (Core.HS && weapon.Attributes.BalancedWeapon > 0)
+                // if (Core.HS && weapon.Attributes.BalancedWeapon > 0)
+                // {
+                //    return false;
+                // }
+
+                
+                double chance = parry_chance * (parry / 100);
+
+				//double divisor = (weapon.Layer == Layer.OneHanded && defender.Player) ? 48000.0 : 41140.0;
+
+                if (weapon.Layer == Layer.TwoHanded && defender.Player)// Layer two handed seems to also include shields... if two handed can block
                 {
-                    return false;
+                    return defender.CheckSkill(SkillName.Parry, chance);
                 }
 
-				double divisor = (weapon.Layer == Layer.OneHanded && defender.Player) ? 48000.0 : 41140.0;
+                //double chance = (parry * bushido) / divisor;
 
-				double chance = (parry * bushido) / divisor;
-
-				double aosChance = parry / 800.0;
+				//double aosChance = parry / 800.0;
 
 				// Parry or Bushido over 100 grant a 5% bonus.
-				if (parry >= 100.0)
-				{
-					chance += 0.05;
-					aosChance += 0.05;
-				}
-				else if (bushido >= 100.0)
-				{
-					chance += 0.05;
-				}
+				//if (parry >= 100.0)
+				//{
+				//	chance += 0.05;
+					//aosChance += 0.05;
+				//}
+				//else if (bushido >= 100.0)
+				//{
+				//	chance += 0.05;
+				//}
 
 				// Evasion grants a variable bonus post ML. 50% prior.
 				if (Evasion.IsEvading(defender))
@@ -1781,21 +1792,31 @@ namespace Server.Items
 				}
 
 				// Low dexterity lowers the chance.
-				if (defender.Dex < 80)
-				{
-					chance = chance * (20 + defender.Dex) / 100;
-				}
+				//if (defender.Dex < 80)
+				//{
+				//	chance = chance * (20 + defender.Dex) / 100;
+				//}
 
-				if (chance > aosChance)
-				{
-					return defender.CheckSkill(SkillName.Parry, chance);
-				}
-				else
-				{
-					return (aosChance > Utility.RandomDouble());
-						// Only skillcheck if wielding a shield & there's no effect from Bushido
-				}
-			}
+				//if (chance > aosChance)
+				//{
+					if(shield != null)
+                {
+                    return defender.CheckSkill(SkillName.Parry, chance);
+                }
+                return false;
+
+                //}
+                //else
+                //{
+                //	return (aosChance > Utility.RandomDouble());
+                // Only skillcheck if wielding a shield & there's no effect from Bushido
+                //}
+            }
+            else if (shield != null && defender.Weapon is Fists)
+            {
+                double chance = parry_chance * (parry / 100);
+                return defender.CheckSkill(SkillName.Parry, chance);
+            }
 
 			return false;
 		}
@@ -1810,7 +1831,7 @@ namespace Server.Items
                                                             ((BaseCreature)defender).Controlled &&
                                                             defender.Skills[SkillName.Wrestling].Base >= 100))
 			{
-				blocked = CheckParry(defender);
+				blocked = CheckParry(defender, attacker);
                 BaseWeapon weapon = defender.Weapon as BaseWeapon;
 
 				if (blocked)
@@ -1944,20 +1965,44 @@ namespace Server.Items
 
 		public virtual int AbsorbDamage(Mobile attacker, Mobile defender, int damage)
 		{
-			if (Core.AOS)
-			{
-				return AbsorbDamageAOS(attacker, defender, damage);
-			}
+			//if (Core.AOS)
+			//{
+			//	return AbsorbDamageAOS(attacker, defender, damage);
+			//}
 
 			BaseShield shield = defender.FindItemOnLayer(Layer.TwoHanded) as BaseShield;
-			if (shield != null)
-			{
+
+            bool blocked;// = false;
+
+            blocked = CheckParry(defender, attacker);
+
+            BaseWeapon weapon = defender.FindItemOnLayer(Layer.TwoHanded) as BaseWeapon;
+
+            double parry_percentage;
+
+            if (shield != null) { parry_percentage = 0.75; } else { parry_percentage = 0.5; }            
+
+            if (blocked) //shield != null
+
+            {
 				damage = shield.OnHit(this, damage);
-			}
+                damage = (int)(damage * parry_percentage);
+                defender.FixedEffect(0x37B9, 10, 16);
+            }
 
-			double chance = Utility.RandomDouble();
+            double resist_skill = defender.Skills.MagicResist.Value/100;
 
-			Item armorItem;
+            double min = 0.125 * resist_skill;
+
+            double max = 0.375 * resist_skill;
+
+            double resist_damage_reduction = Utility.RandomDouble() * (max - min) + min;
+
+            damage = (int)(damage * resist_damage_reduction);
+
+            double chance = Utility.RandomDouble();
+
+            Item armorItem;
 
 			if (chance < 0.07)
 			{

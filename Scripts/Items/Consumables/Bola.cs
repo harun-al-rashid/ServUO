@@ -163,7 +163,7 @@ namespace Server.Items
 
             if (Utility.RandomDouble() < hitChance)
             {
-                if (BaseWeapon.CheckParry(to))
+                if (BaseWeapon.CheckParry(to, from))
                 {
                     to.FixedEffect(0x37B9, 10, 16);
                     to.Animate(AnimationType.Parry, 0);

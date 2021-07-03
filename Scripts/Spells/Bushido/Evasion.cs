@@ -106,7 +106,7 @@ namespace Server.Spells.Bushido
                 }
             }
 			
-            if (IsEvading(defender) && BaseWeapon.CheckParry(defender))
+            if (IsEvading(defender))// cut out this: && BaseWeapon.CheckParry(defender) because i added attacker to check parry and attacker not visible here...
             {
                 defender.Emote("*evades*"); // Yes.  Eew.  Blame OSI.
                 defender.FixedEffect(0x37B9, 10, 16);

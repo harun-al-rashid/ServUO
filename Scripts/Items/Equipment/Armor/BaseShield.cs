@@ -123,29 +123,29 @@ namespace Server.Items
                 if (owner == null)
                     return damage;
 
-                double ar = this.ArmorRating;
-                double chance = (owner.Skills[SkillName.Parry].Value - (ar * 2.0)) / 100.0;
+                //double ar = this.ArmorRating;
+                //double chance = (owner.Skills[SkillName.Parry].Value - (ar * 2.0)) / 100.0;
 
-                if (chance < 0.01)
-                    chance = 0.01;
+                //if (chance < 0.01)
+                //    chance = 0.01;
                 /*
-                FORMULA: Displayed AR = ((Parrying Skill * Base AR of Shield) ÷ 200) + 1 
+                FORMULA: Displayed AR = ((Parrying Skill * Base AR of Shield) Ã· 200) + 1 
 
                 FORMULA: % Chance of Blocking = parry skill - (shieldAR * 2)
 
                 FORMULA: Melee Damage Absorbed = (AR of Shield) / 2 | Archery Damage Absorbed = AR of Shield 
                 */
-                if (owner.CheckSkill(SkillName.Parry, chance))
-                {
-                    if (weapon.Skill == SkillName.Archery)
-                        damage -= (int)ar;
-                    else
-                        damage -= (int)(ar / 2.0);
+               // if (owner.CheckSkill(SkillName.Parry, chance))
+               // {
+                    //if (weapon.Skill == SkillName.Archery)
+                    //    damage -= (int)ar;
+                    //else
+                    //    damage -= (int)(ar / 2.0);
 
                     if (damage < 0)
                         damage = 0;
 
-                    owner.FixedEffect(0x37B9, 10, 16);
+                    //owner.FixedEffect(0x37B9, 10, 16);
 
                     if (25 > Utility.Random(100)) // 25% chance to lower durability
                     {
@@ -180,7 +180,7 @@ namespace Server.Items
                             }
                         }
                     }
-                }
+               // }
 
                 return damage;
             }

@@ -10,7 +10,7 @@ namespace Server.SkillHandlers
             SkillInfo.Table[46].Callback = new SkillUseCallback(OnUse);
         }
 
-        public static bool CheckOkayHolding(Item item)
+        public static bool CheckOkayHolding(Item item, Mobile m)
         {
             if (item == null)
                 return true;
@@ -18,10 +18,11 @@ namespace Server.SkillHandlers
             if (item is Spellbook || item is Runebook)
                 return true;
 
-            if (Core.AOS && item is BaseWeapon && ((BaseWeapon)item).Attributes.SpellChanneling != 0)
-                return true;
+            //if (Core.AOS && item is BaseWeapon && ((BaseWeapon)item).Attributes.SpellChanneling != 0)
+            //    return true;
 
-            if (Core.AOS && item is BaseArmor && ((BaseArmor)item).Attributes.SpellChanneling != 0)
+            //if (item is BaseArmor && ((BaseArmor)item).Attributes.SpellChanneling != 0)//
+            if(item is BaseShield && m.Skills.Parry.Value > 80 && m.Skills.Magery.Value > 80)
                 return true;
 
             return false;
@@ -60,20 +61,20 @@ namespace Server.SkillHandlers
                 Item oneHanded = m.FindItemOnLayer(Layer.OneHanded);
                 Item twoHanded = m.FindItemOnLayer(Layer.TwoHanded);
 
-                if (Core.AOS && m.Player)
+                if (m.Player)//Core.AOS && 
                 {
-                    if (!CheckOkayHolding(oneHanded))
+                    if (!CheckOkayHolding(oneHanded, m))
                         m.AddToBackpack(oneHanded);
 
-                    if (!CheckOkayHolding(twoHanded))
+                    if (!CheckOkayHolding(twoHanded, m))
                         m.AddToBackpack(twoHanded);
                 }
-                else if (!CheckOkayHolding(oneHanded) || !CheckOkayHolding(twoHanded))
-                {
-                    m.SendLocalizedMessage(502626); // Your hands must be free to cast spells or meditate.
-
-                    return TimeSpan.FromSeconds(2.5);
-                }
+                //else if (!CheckOkayHolding(oneHanded) || !CheckOkayHolding(twoHanded))
+                //{
+                //    m.SendLocalizedMessage(502626); // Your hands must be free to cast spells or meditate.
+                //
+                //    return TimeSpan.FromSeconds(2.5);
+                //}
 
                 double skillVal = m.Skills[SkillName.Meditation].Value;
                 double chance = (50.0 + ((skillVal - (m.ManaMax - m.Mana)) * 2)) / 100;
